@@ -1,0 +1,938 @@
+[
+    {
+        "Year": 1976,
+        "NetMigration": -31317.0,
+        "RemittancesMade": 6400000.095,
+        "RemittancesReceived": 10600000.38,
+        "RemittancesReceivedPerMigrant": 338.47432321103554,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1977,
+        "NetMigration": -28742.0,
+        "RemittancesMade": 14760000.23,
+        "RemittancesReceived": 54000000.0,
+        "RemittancesReceivedPerMigrant": 1878.7836615406027,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1978,
+        "NetMigration": -31463.0,
+        "RemittancesMade": 20879999.16,
+        "RemittancesReceived": 67839996.34,
+        "RemittancesReceivedPerMigrant": 2156.183337253282,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1979,
+        "NetMigration": -34002.0,
+        "RemittancesMade": 24120000.84,
+        "RemittancesReceived": 100000000.0,
+        "RemittancesReceivedPerMigrant": 2941.003470384095,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1980,
+        "NetMigration": -41318.0,
+        "RemittancesMade": 9119999.886,
+        "RemittancesReceived": 49040000.92,
+        "RemittancesReceivedPerMigrant": 1186.8919337818868,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1981,
+        "NetMigration": -97365.0,
+        "RemittancesMade": 2079999.924,
+        "RemittancesReceived": 72480003.36,
+        "RemittancesReceivedPerMigrant": 744.4153788322292,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1982,
+        "NetMigration": -27159.0,
+        "RemittancesMade": 6800000.191,
+        "RemittancesReceived": 112199996.9,
+        "RemittancesReceivedPerMigrant": 4131.227103354321,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1983,
+        "NetMigration": -25694.0,
+        "RemittancesMade": 6800000.191,
+        "RemittancesReceived": 115440002.4,
+        "RemittancesReceivedPerMigrant": 4492.877808048572,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1984,
+        "NetMigration": -27767.0,
+        "RemittancesMade": 7280000.21,
+        "RemittancesReceived": 159119995.1,
+        "RemittancesReceivedPerMigrant": 5730.543274390463,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1985,
+        "NetMigration": -29111.0,
+        "RemittancesMade": 3440000.057,
+        "RemittancesReceived": 157160003.7,
+        "RemittancesReceivedPerMigrant": 5398.646686819415,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1986,
+        "NetMigration": -32181.0,
+        "RemittancesMade": 556454.3605,
+        "RemittancesReceived": 157291091.9,
+        "RemittancesReceivedPerMigrant": 4887.700565551102,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1987,
+        "NetMigration": -32308.0,
+        "RemittancesMade": 519999.9809,
+        "RemittancesReceived": 186639999.4,
+        "RemittancesReceivedPerMigrant": 5776.897344311007,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1988,
+        "NetMigration": -30806.0,
+        "RemittancesMade": 3700000.048,
+        "RemittancesReceived": 210740005.5,
+        "RemittancesReceivedPerMigrant": 6840.875332727391,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1989,
+        "NetMigration": -38211.0,
+        "RemittancesMade": 4039999.962,
+        "RemittancesReceived": 237820007.3,
+        "RemittancesReceivedPerMigrant": 6223.86242966685,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1990,
+        "NetMigration": -39690.0,
+        "RemittancesMade": 2803601.84959844,
+        "RemittancesReceived": 366278900.1,
+        "RemittancesReceivedPerMigrant": 9228.493325774754,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1991,
+        "NetMigration": -50621.0,
+        "RemittancesMade": 2382536.38253638,
+        "RemittancesReceived": 475234924.3,
+        "RemittancesReceivedPerMigrant": 9388.098305051264,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1992,
+        "NetMigration": -48228.0,
+        "RemittancesMade": 358815.907505233,
+        "RemittancesReceived": 694308776.9,
+        "RemittancesReceivedPerMigrant": 14396.383364435596,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1993,
+        "NetMigration": -76214.0,
+        "RemittancesMade": 229818.797453991,
+        "RemittancesReceived": 795747558.6,
+        "RemittancesReceivedPerMigrant": 10440.963059280448,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1994,
+        "NetMigration": -82069.0,
+        "RemittancesMade": 114563.94099957,
+        "RemittancesReceived": 971731323.2,
+        "RemittancesReceivedPerMigrant": 11840.418711084576,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1995,
+        "NetMigration": -89307.0,
+        "RemittancesMade": 799714.8633,
+        "RemittancesReceived": 1063899861.97706,
+        "RemittancesReceivedPerMigrant": 11912.838433460534,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1996,
+        "NetMigration": -92279.0,
+        "RemittancesMade": 1484865.79097658,
+        "RemittancesReceived": 1083837806.96745,
+        "RemittancesReceivedPerMigrant": 11745.22705022215,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1997,
+        "NetMigration": -93078.0,
+        "RemittancesMade": 913763.5827,
+        "RemittancesReceived": 1199486081.37045,
+        "RemittancesReceivedPerMigrant": 12886.891439120416,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1998,
+        "NetMigration": -97089.0,
+        "RemittancesMade": 342661.351,
+        "RemittancesReceived": 1338320959.45174,
+        "RemittancesReceivedPerMigrant": 13784.47568160904,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1999,
+        "NetMigration": -98364.0,
+        "RemittancesMade": 7000000.0,
+        "RemittancesReceived": 1386000000.0,
+        "RemittancesReceivedPerMigrant": 14090.520922288642,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2000,
+        "NetMigration": -97219.0,
+        "RemittancesMade": 19200000.0,
+        "RemittancesReceived": 1764200000.0,
+        "RemittancesReceivedPerMigrant": 18146.65857496991,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2001,
+        "NetMigration": -93347.0,
+        "RemittancesMade": 25700000.0,
+        "RemittancesReceived": 1924300000.0,
+        "RemittancesReceivedPerMigrant": 20614.481450930398,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2002,
+        "NetMigration": -92034.0,
+        "RemittancesMade": 21600000.0,
+        "RemittancesReceived": 1952600000.0,
+        "RemittancesReceivedPerMigrant": 21216.072321098723,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2003,
+        "NetMigration": -91736.0,
+        "RemittancesMade": 24300000.0,
+        "RemittancesReceived": 2121300000.0,
+        "RemittancesReceivedPerMigrant": 23123.964419638964,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2004,
+        "NetMigration": -89193.0,
+        "RemittancesMade": 32300000.0,
+        "RemittancesReceived": 2563000000.0,
+        "RemittancesReceivedPerMigrant": 28735.438879732716,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2005,
+        "NetMigration": -91042.0,
+        "RemittancesMade": 24000000.0,
+        "RemittancesReceived": 3028600000.0,
+        "RemittancesReceivedPerMigrant": 33265.96515893763,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2006,
+        "NetMigration": -89964.0,
+        "RemittancesMade": 27980000.0,
+        "RemittancesReceived": 3482700000.0,
+        "RemittancesReceivedPerMigrant": 38712.15152727758,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2007,
+        "NetMigration": -56863.0,
+        "RemittancesMade": 27530000.0,
+        "RemittancesReceived": 3709050000.0,
+        "RemittancesReceivedPerMigrant": 65227.8282890456,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2008,
+        "NetMigration": -56087.0,
+        "RemittancesMade": 18500000.0,
+        "RemittancesReceived": 3754750000.0,
+        "RemittancesReceivedPerMigrant": 66945.1031433309,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2009,
+        "NetMigration": -55962.0,
+        "RemittancesMade": 20033000.0,
+        "RemittancesReceived": 3402340000.0,
+        "RemittancesReceivedPerMigrant": 60797.32675744255,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2010,
+        "NetMigration": -54686.0,
+        "RemittancesMade": 22092947.0,
+        "RemittancesReceived": 3471836719.03,
+        "RemittancesReceivedPerMigrant": 63486.75564184618,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2011,
+        "NetMigration": -53440.0,
+        "RemittancesMade": 27192390.03,
+        "RemittancesReceived": 3643949246.05147,
+        "RemittancesReceivedPerMigrant": 68187.67301743019,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2012,
+        "NetMigration": -50554.0,
+        "RemittancesMade": 26897278.14,
+        "RemittancesReceived": 3914048534.33323,
+        "RemittancesReceivedPerMigrant": 77423.12248948115,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2013,
+        "NetMigration": -49086.0,
+        "RemittancesMade": 27678165.54,
+        "RemittancesReceived": 3966478547.83584,
+        "RemittancesReceivedPerMigrant": 80806.71775732063,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2014,
+        "NetMigration": -49130.0,
+        "RemittancesMade": 51051728.2,
+        "RemittancesReceived": 4160378001.28301,
+        "RemittancesReceivedPerMigrant": 84681.00959257093,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2015,
+        "NetMigration": -51282.0,
+        "RemittancesMade": 74340145.28,
+        "RemittancesReceived": 4274620676.02955,
+        "RemittancesReceivedPerMigrant": 83355.18653776277,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2016,
+        "NetMigration": -47499.0,
+        "RemittancesMade": 164990212.17,
+        "RemittancesReceived": 4561580070.95314,
+        "RemittancesReceivedPerMigrant": 96035.2864471492,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2017,
+        "NetMigration": -50616.0,
+        "RemittancesMade": 187453483.94,
+        "RemittancesReceived": 4996353544.71816,
+        "RemittancesReceivedPerMigrant": 98710.95196614035,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2018,
+        "NetMigration": -54158.0,
+        "RemittancesMade": 189760899.38,
+        "RemittancesReceived": 5391738701.98946,
+        "RemittancesReceivedPerMigrant": 99555.72033659773,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2019,
+        "NetMigration": -55143.0,
+        "RemittancesMade": 233048594.23,
+        "RemittancesReceived": 5656754219.242,
+        "RemittancesReceivedPerMigrant": 102583.35997754928,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2020,
+        "NetMigration": -25214.0,
+        "RemittancesMade": 186719421.6,
+        "RemittancesReceived": 5930817756.87975,
+        "RemittancesReceivedPerMigrant": 235219.23363527207,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 2021,
+        "NetMigration": -27343.0,
+        "RemittancesMade": 262174225.59,
+        "RemittancesReceived": 7488469373.28767,
+        "RemittancesReceivedPerMigrant": 273871.53469947225,
+        "Country": "El Salvador"
+    },
+    {
+        "Year": 1977,
+        "NetMigration": -46262.0,
+        "RemittancesMade": 8000000.0,
+        "RemittancesReceived": 14000000.0,
+        "RemittancesReceivedPerMigrant": 302.62418399550387,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1978,
+        "NetMigration": -48307.0,
+        "RemittancesMade": 7199999.809,
+        "RemittancesReceived": 21600000.38,
+        "RemittancesReceivedPerMigrant": 447.1401738878423,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1979,
+        "NetMigration": -47285.0,
+        "RemittancesMade": 8100000.381,
+        "RemittancesReceived": 23600000.38,
+        "RemittancesReceivedPerMigrant": 499.10120291847306,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1980,
+        "NetMigration": -44463.0,
+        "RemittancesMade": 11399999.62,
+        "RemittancesReceived": 26200000.76,
+        "RemittancesReceivedPerMigrant": 589.2540035535164,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1981,
+        "NetMigration": -47021.0,
+        "RemittancesMade": 7099999.905,
+        "RemittancesReceived": 24500000.0,
+        "RemittancesReceivedPerMigrant": 521.0437889453648,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1982,
+        "NetMigration": -48740.0,
+        "RemittancesMade": 3200000.048,
+        "RemittancesReceived": 10699999.81,
+        "RemittancesReceivedPerMigrant": 219.53220783750513,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1983,
+        "NetMigration": -37255.0,
+        "RemittancesMade": 3200000.048,
+        "RemittancesReceived": 3900000.095,
+        "RemittancesReceivedPerMigrant": 104.6839375922695,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1984,
+        "NetMigration": -29302.0,
+        "RemittancesMade": 7199999.809,
+        "RemittancesReceived": 3400000.095,
+        "RemittancesReceivedPerMigrant": 116.03303852979319,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1985,
+        "NetMigration": -28843.0,
+        "RemittancesMade": 6000000.0,
+        "RemittancesReceived": 1000000.0,
+        "RemittancesReceivedPerMigrant": 34.67045730333183,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1986,
+        "NetMigration": -33216.0,
+        "RemittancesMade": 6000000.0,
+        "RemittancesReceived": 699999.9881,
+        "RemittancesReceivedPerMigrant": 21.07418075927264,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1987,
+        "NetMigration": -33790.0,
+        "RemittancesMade": 7500000.0,
+        "RemittancesReceived": 100000.0015,
+        "RemittancesReceivedPerMigrant": 2.959455504587156,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1988,
+        "NetMigration": -32425.0,
+        "RemittancesMade": 5500000.0,
+        "RemittancesReceived": 45700000.76,
+        "RemittancesReceivedPerMigrant": 1409.4063457208943,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1989,
+        "NetMigration": -32522.0,
+        "RemittancesMade": 9300000.191,
+        "RemittancesReceived": 85000000.0,
+        "RemittancesReceivedPerMigrant": 2613.6153988069614,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1990,
+        "NetMigration": -30399.0,
+        "RemittancesMade": 13500000.0,
+        "RemittancesReceived": 118699996.9,
+        "RemittancesReceivedPerMigrant": 3904.7336063686307,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1991,
+        "NetMigration": -40877.0,
+        "RemittancesMade": 19200000.0,
+        "RemittancesReceived": 178899993.9,
+        "RemittancesReceivedPerMigrant": 4376.5441177190105,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1992,
+        "NetMigration": -36236.0,
+        "RemittancesMade": 19700000.0,
+        "RemittancesReceived": 230600006.1,
+        "RemittancesReceivedPerMigrant": 6363.837236449939,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1993,
+        "NetMigration": -36822.0,
+        "RemittancesMade": 8600000.0,
+        "RemittancesReceived": 240800003.1,
+        "RemittancesReceivedPerMigrant": 6539.5688202704905,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1994,
+        "NetMigration": -33463.0,
+        "RemittancesMade": 10600000.0,
+        "RemittancesReceived": 284500000.0,
+        "RemittancesReceivedPerMigrant": 8501.927502017154,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1995,
+        "NetMigration": -39890.0,
+        "RemittancesMade": 7800000.0,
+        "RemittancesReceived": 357500000.0,
+        "RemittancesReceivedPerMigrant": 8962.145901228378,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1996,
+        "NetMigration": -43474.0,
+        "RemittancesMade": 12700000.0,
+        "RemittancesReceived": 375400000.0,
+        "RemittancesReceivedPerMigrant": 8635.046234530984,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1997,
+        "NetMigration": -43356.0,
+        "RemittancesMade": 20500000.0,
+        "RemittancesReceived": 408000000.0,
+        "RemittancesReceivedPerMigrant": 9410.46221976197,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1998,
+        "NetMigration": -44059.0,
+        "RemittancesMade": 33300000.0,
+        "RemittancesReceived": 456500000.0,
+        "RemittancesReceivedPerMigrant": 10361.10669783699,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1999,
+        "NetMigration": -49731.0,
+        "RemittancesMade": 26900000.0,
+        "RemittancesReceived": 465600000.0,
+        "RemittancesReceivedPerMigrant": 9362.36954816915,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2000,
+        "NetMigration": -66153.0,
+        "RemittancesMade": 55600000.0,
+        "RemittancesReceived": 596200000.0,
+        "RemittancesReceivedPerMigrant": 9012.440856801657,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2001,
+        "NetMigration": -59249.0,
+        "RemittancesMade": 32488093.3102828,
+        "RemittancesReceived": 633753628.54,
+        "RemittancesReceivedPerMigrant": 10696.444303532548,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2002,
+        "NetMigration": -55245.0,
+        "RemittancesMade": 81922957.21,
+        "RemittancesReceived": 1600192056.56,
+        "RemittancesReceivedPerMigrant": 28965.373455697347,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2003,
+        "NetMigration": -54666.0,
+        "RemittancesMade": 86086000.0,
+        "RemittancesReceived": 2146959900.0,
+        "RemittancesReceivedPerMigrant": 39274.13566019098,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2004,
+        "NetMigration": -47399.0,
+        "RemittancesMade": 33700000.0,
+        "RemittancesReceived": 2627500000.0,
+        "RemittancesReceivedPerMigrant": 55433.65893795228,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2005,
+        "NetMigration": -49600.0,
+        "RemittancesMade": 42100000.0,
+        "RemittancesReceived": 3066600000.0,
+        "RemittancesReceivedPerMigrant": 61826.6129032258,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2006,
+        "NetMigration": -42071.0,
+        "RemittancesMade": 45500000.0,
+        "RemittancesReceived": 3700100000.0,
+        "RemittancesReceivedPerMigrant": 87948.94345273466,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2007,
+        "NetMigration": -40617.0,
+        "RemittancesMade": 16900000.0,
+        "RemittancesReceived": 4236200000.0,
+        "RemittancesReceivedPerMigrant": 104296.23064234188,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2008,
+        "NetMigration": -42607.0,
+        "RemittancesMade": 26473340.0,
+        "RemittancesReceived": 4425646820.0,
+        "RemittancesReceivedPerMigrant": 103871.35494167625,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2009,
+        "NetMigration": -43051.0,
+        "RemittancesMade": 21976600.0,
+        "RemittancesReceived": 4002155020.0,
+        "RemittancesReceivedPerMigrant": 92963.11398109219,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2010,
+        "NetMigration": -36072.0,
+        "RemittancesMade": 20762470.0,
+        "RemittancesReceived": 4224679960.0,
+        "RemittancesReceivedPerMigrant": 117117.98514082945,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2011,
+        "NetMigration": -33204.0,
+        "RemittancesMade": 26790600.0,
+        "RemittancesReceived": 4533048950.0,
+        "RemittancesReceivedPerMigrant": 136521.1706420913,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2012,
+        "NetMigration": -32572.0,
+        "RemittancesMade": 27905200.0,
+        "RemittancesReceived": 4965274170.0,
+        "RemittancesReceivedPerMigrant": 152439.9536411642,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2013,
+        "NetMigration": -35666.0,
+        "RemittancesMade": 27745530.0,
+        "RemittancesReceived": 5303727620.0,
+        "RemittancesReceivedPerMigrant": 148705.4230920204,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2014,
+        "NetMigration": -40409.0,
+        "RemittancesMade": 26125590.0,
+        "RemittancesReceived": 5751442990.0,
+        "RemittancesReceivedPerMigrant": 142330.74290380857,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2015,
+        "NetMigration": -48162.0,
+        "RemittancesMade": 22906100.0,
+        "RemittancesReceived": 6481896460.0,
+        "RemittancesReceivedPerMigrant": 134585.28424899298,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2016,
+        "NetMigration": -39266.0,
+        "RemittancesMade": 18786480.0,
+        "RemittancesReceived": 7362674020.0,
+        "RemittancesReceivedPerMigrant": 187507.61523964754,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2017,
+        "NetMigration": -48049.0,
+        "RemittancesMade": 18333870.0,
+        "RemittancesReceived": 8393882100.0,
+        "RemittancesReceivedPerMigrant": 174694.21007721283,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2018,
+        "NetMigration": -56884.0,
+        "RemittancesMade": 18910290.0,
+        "RemittancesReceived": 9437674500.0,
+        "RemittancesReceivedPerMigrant": 165910.88003656565,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2019,
+        "NetMigration": -58095.0,
+        "RemittancesMade": 18007690.0,
+        "RemittancesReceived": 10655601360.0,
+        "RemittancesReceivedPerMigrant": 183416.84069197005,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2020,
+        "NetMigration": -23142.0,
+        "RemittancesMade": 18664570.0,
+        "RemittancesReceived": 11405439200.0,
+        "RemittancesReceivedPerMigrant": 492845.87330394954,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 2021,
+        "NetMigration": -29118.0,
+        "RemittancesMade": 19967930.0,
+        "RemittancesReceived": 15407572610.0,
+        "RemittancesReceivedPerMigrant": 529142.5444742084,
+        "Country": "Guatemala"
+    },
+    {
+        "Year": 1996,
+        "NetMigration": -14049.0,
+        "RemittancesMade": 8100000.0,
+        "RemittancesReceived": 157300000.0,
+        "RemittancesReceivedPerMigrant": 11196.526443163215,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 1997,
+        "NetMigration": -13343.0,
+        "RemittancesMade": 9500000.0,
+        "RemittancesReceived": 190000000.0,
+        "RemittancesReceivedPerMigrant": 14239.67623472982,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 1998,
+        "NetMigration": -12638.0,
+        "RemittancesMade": 500000.0,
+        "RemittancesReceived": 225000000.0,
+        "RemittancesReceivedPerMigrant": 17803.44991296091,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 1999,
+        "NetMigration": -11757.0,
+        "RemittancesMade": 600000.0,
+        "RemittancesReceived": 328300000.0,
+        "RemittancesReceivedPerMigrant": 27923.79008250404,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2000,
+        "NetMigration": -10762.0,
+        "RemittancesMade": 9400000.0,
+        "RemittancesReceived": 474498240.0,
+        "RemittancesReceivedPerMigrant": 44090.1542464226,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2001,
+        "NetMigration": -9749.0,
+        "RemittancesMade": 11500000.0,
+        "RemittancesReceived": 610441530.0,
+        "RemittancesReceivedPerMigrant": 62615.80982664889,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2002,
+        "NetMigration": -8815.0,
+        "RemittancesMade": 10900000.0,
+        "RemittancesReceived": 801398970.0,
+        "RemittancesReceivedPerMigrant": 90913.09926262053,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2003,
+        "NetMigration": -7986.0,
+        "RemittancesMade": 12004818.71,
+        "RemittancesReceived": 865389050.8,
+        "RemittancesReceivedPerMigrant": 108363.2670673679,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2004,
+        "NetMigration": -7082.0,
+        "RemittancesMade": 16634547.0,
+        "RemittancesReceived": 1169104060.0,
+        "RemittancesReceivedPerMigrant": 165081.0590228749,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2005,
+        "NetMigration": -6187.0,
+        "RemittancesMade": 483545.772191016,
+        "RemittancesReceived": 1805194920.10638,
+        "RemittancesReceivedPerMigrant": 291772.2515122644,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2006,
+        "NetMigration": -5451.0,
+        "RemittancesMade": 2121696.76663915,
+        "RemittancesReceived": 2358468900.0,
+        "RemittancesReceivedPerMigrant": 432667.19867914147,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2007,
+        "NetMigration": -5039.0,
+        "RemittancesMade": 2487220.0,
+        "RemittancesReceived": 2613644662.5,
+        "RemittancesReceivedPerMigrant": 518683.2035126017,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2008,
+        "NetMigration": -5039.0,
+        "RemittancesMade": 36950000.0,
+        "RemittancesReceived": 2821344123.18502,
+        "RemittancesReceivedPerMigrant": 559901.5922177059,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2009,
+        "NetMigration": -5196.0,
+        "RemittancesMade": 27187940.39,
+        "RemittancesReceived": 2477339131.41952,
+        "RemittancesReceivedPerMigrant": 476778.1238297767,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2010,
+        "NetMigration": -5418.0,
+        "RemittancesMade": 27285337.546176,
+        "RemittancesReceived": 2617906839.39025,
+        "RemittancesReceivedPerMigrant": 483186.93971765414,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2011,
+        "NetMigration": -5664.0,
+        "RemittancesMade": 32975283.7674903,
+        "RemittancesReceived": 2810592535.70634,
+        "RemittancesReceivedPerMigrant": 496220.4335639724,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2012,
+        "NetMigration": -5896.0,
+        "RemittancesMade": 36431743.4223384,
+        "RemittancesReceived": 2920369783.01134,
+        "RemittancesReceivedPerMigrant": 495313.73524615675,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2013,
+        "NetMigration": -6094.0,
+        "RemittancesMade": 40938147.3901,
+        "RemittancesReceived": 3098239341.9432,
+        "RemittancesReceivedPerMigrant": 508408.162445553,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2014,
+        "NetMigration": -6302.0,
+        "RemittancesMade": 42100000.0,
+        "RemittancesReceived": 3369514366.552,
+        "RemittancesReceivedPerMigrant": 534673.8125280864,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2015,
+        "NetMigration": -6512.0,
+        "RemittancesMade": 41100000.0,
+        "RemittancesReceived": 3666201326.86746,
+        "RemittancesReceivedPerMigrant": 562991.6042486886,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2016,
+        "NetMigration": -6685.0,
+        "RemittancesMade": 41100000.0,
+        "RemittancesReceived": 3863739159.11759,
+        "RemittancesReceivedPerMigrant": 577971.452373611,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2017,
+        "NetMigration": -6782.0,
+        "RemittancesMade": 261148690.279213,
+        "RemittancesReceived": 4322761613.52253,
+        "RemittancesReceivedPerMigrant": 637387.439328005,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2018,
+        "NetMigration": -6768.0,
+        "RemittancesMade": 288137023.045869,
+        "RemittancesReceived": 4776545983.26965,
+        "RemittancesReceivedPerMigrant": 705754.4301521351,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2019,
+        "NetMigration": -6550.0,
+        "RemittancesMade": 329933337.227852,
+        "RemittancesReceived": 5401465664.93251,
+        "RemittancesReceivedPerMigrant": 824651.2465545817,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2020,
+        "NetMigration": -6199.0,
+        "RemittancesMade": 291710443.51771,
+        "RemittancesReceived": 5588646520.67925,
+        "RemittancesReceivedPerMigrant": 901540.0097885545,
+        "Country": "Honduras"
+    },
+    {
+        "Year": 2021,
+        "NetMigration": -5779.0,
+        "RemittancesMade": 343863185.266493,
+        "RemittancesReceived": 7203426672.83017,
+        "RemittancesReceivedPerMigrant": 1246483.2449957035,
+        "Country": "Honduras"
+    }
+]

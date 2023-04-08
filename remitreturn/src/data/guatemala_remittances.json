@@ -1,0 +1,317 @@
+[
+    {
+        "Year": 1977,
+        "NetMigration": -46262.0,
+        "RemittancesMade": 8000000.0,
+        "RemittancesReceived": 14000000.0,
+        "RemittancesReceivedPerMigrant": 302.62418399550387
+    },
+    {
+        "Year": 1978,
+        "NetMigration": -48307.0,
+        "RemittancesMade": 7199999.809,
+        "RemittancesReceived": 21600000.38,
+        "RemittancesReceivedPerMigrant": 447.1401738878423
+    },
+    {
+        "Year": 1979,
+        "NetMigration": -47285.0,
+        "RemittancesMade": 8100000.381,
+        "RemittancesReceived": 23600000.38,
+        "RemittancesReceivedPerMigrant": 499.10120291847306
+    },
+    {
+        "Year": 1980,
+        "NetMigration": -44463.0,
+        "RemittancesMade": 11399999.62,
+        "RemittancesReceived": 26200000.76,
+        "RemittancesReceivedPerMigrant": 589.2540035535164
+    },
+    {
+        "Year": 1981,
+        "NetMigration": -47021.0,
+        "RemittancesMade": 7099999.905,
+        "RemittancesReceived": 24500000.0,
+        "RemittancesReceivedPerMigrant": 521.0437889453648
+    },
+    {
+        "Year": 1982,
+        "NetMigration": -48740.0,
+        "RemittancesMade": 3200000.048,
+        "RemittancesReceived": 10699999.81,
+        "RemittancesReceivedPerMigrant": 219.53220783750513
+    },
+    {
+        "Year": 1983,
+        "NetMigration": -37255.0,
+        "RemittancesMade": 3200000.048,
+        "RemittancesReceived": 3900000.095,
+        "RemittancesReceivedPerMigrant": 104.6839375922695
+    },
+    {
+        "Year": 1984,
+        "NetMigration": -29302.0,
+        "RemittancesMade": 7199999.809,
+        "RemittancesReceived": 3400000.095,
+        "RemittancesReceivedPerMigrant": 116.03303852979319
+    },
+    {
+        "Year": 1985,
+        "NetMigration": -28843.0,
+        "RemittancesMade": 6000000.0,
+        "RemittancesReceived": 1000000.0,
+        "RemittancesReceivedPerMigrant": 34.67045730333183
+    },
+    {
+        "Year": 1986,
+        "NetMigration": -33216.0,
+        "RemittancesMade": 6000000.0,
+        "RemittancesReceived": 699999.9881,
+        "RemittancesReceivedPerMigrant": 21.07418075927264
+    },
+    {
+        "Year": 1987,
+        "NetMigration": -33790.0,
+        "RemittancesMade": 7500000.0,
+        "RemittancesReceived": 100000.0015,
+        "RemittancesReceivedPerMigrant": 2.959455504587156
+    },
+    {
+        "Year": 1988,
+        "NetMigration": -32425.0,
+        "RemittancesMade": 5500000.0,
+        "RemittancesReceived": 45700000.76,
+        "RemittancesReceivedPerMigrant": 1409.4063457208943
+    },
+    {
+        "Year": 1989,
+        "NetMigration": -32522.0,
+        "RemittancesMade": 9300000.191,
+        "RemittancesReceived": 85000000.0,
+        "RemittancesReceivedPerMigrant": 2613.6153988069614
+    },
+    {
+        "Year": 1990,
+        "NetMigration": -30399.0,
+        "RemittancesMade": 13500000.0,
+        "RemittancesReceived": 118699996.9,
+        "RemittancesReceivedPerMigrant": 3904.7336063686307
+    },
+    {
+        "Year": 1991,
+        "NetMigration": -40877.0,
+        "RemittancesMade": 19200000.0,
+        "RemittancesReceived": 178899993.9,
+        "RemittancesReceivedPerMigrant": 4376.5441177190105
+    },
+    {
+        "Year": 1992,
+        "NetMigration": -36236.0,
+        "RemittancesMade": 19700000.0,
+        "RemittancesReceived": 230600006.1,
+        "RemittancesReceivedPerMigrant": 6363.837236449939
+    },
+    {
+        "Year": 1993,
+        "NetMigration": -36822.0,
+        "RemittancesMade": 8600000.0,
+        "RemittancesReceived": 240800003.1,
+        "RemittancesReceivedPerMigrant": 6539.5688202704905
+    },
+    {
+        "Year": 1994,
+        "NetMigration": -33463.0,
+        "RemittancesMade": 10600000.0,
+        "RemittancesReceived": 284500000.0,
+        "RemittancesReceivedPerMigrant": 8501.927502017154
+    },
+    {
+        "Year": 1995,
+        "NetMigration": -39890.0,
+        "RemittancesMade": 7800000.0,
+        "RemittancesReceived": 357500000.0,
+        "RemittancesReceivedPerMigrant": 8962.145901228378
+    },
+    {
+        "Year": 1996,
+        "NetMigration": -43474.0,
+        "RemittancesMade": 12700000.0,
+        "RemittancesReceived": 375400000.0,
+        "RemittancesReceivedPerMigrant": 8635.046234530984
+    },
+    {
+        "Year": 1997,
+        "NetMigration": -43356.0,
+        "RemittancesMade": 20500000.0,
+        "RemittancesReceived": 408000000.0,
+        "RemittancesReceivedPerMigrant": 9410.46221976197
+    },
+    {
+        "Year": 1998,
+        "NetMigration": -44059.0,
+        "RemittancesMade": 33300000.0,
+        "RemittancesReceived": 456500000.0,
+        "RemittancesReceivedPerMigrant": 10361.10669783699
+    },
+    {
+        "Year": 1999,
+        "NetMigration": -49731.0,
+        "RemittancesMade": 26900000.0,
+        "RemittancesReceived": 465600000.0,
+        "RemittancesReceivedPerMigrant": 9362.36954816915
+    },
+    {
+        "Year": 2000,
+        "NetMigration": -66153.0,
+        "RemittancesMade": 55600000.0,
+        "RemittancesReceived": 596200000.0,
+        "RemittancesReceivedPerMigrant": 9012.440856801657
+    },
+    {
+        "Year": 2001,
+        "NetMigration": -59249.0,
+        "RemittancesMade": 32488093.3102828,
+        "RemittancesReceived": 633753628.54,
+        "RemittancesReceivedPerMigrant": 10696.444303532548
+    },
+    {
+        "Year": 2002,
+        "NetMigration": -55245.0,
+        "RemittancesMade": 81922957.21,
+        "RemittancesReceived": 1600192056.56,
+        "RemittancesReceivedPerMigrant": 28965.373455697347
+    },
+    {
+        "Year": 2003,
+        "NetMigration": -54666.0,
+        "RemittancesMade": 86086000.0,
+        "RemittancesReceived": 2146959900.0,
+        "RemittancesReceivedPerMigrant": 39274.13566019098
+    },
+    {
+        "Year": 2004,
+        "NetMigration": -47399.0,
+        "RemittancesMade": 33700000.0,
+        "RemittancesReceived": 2627500000.0,
+        "RemittancesReceivedPerMigrant": 55433.65893795228
+    },
+    {
+        "Year": 2005,
+        "NetMigration": -49600.0,
+        "RemittancesMade": 42100000.0,
+        "RemittancesReceived": 3066600000.0,
+        "RemittancesReceivedPerMigrant": 61826.6129032258
+    },
+    {
+        "Year": 2006,
+        "NetMigration": -42071.0,
+        "RemittancesMade": 45500000.0,
+        "RemittancesReceived": 3700100000.0,
+        "RemittancesReceivedPerMigrant": 87948.94345273466
+    },
+    {
+        "Year": 2007,
+        "NetMigration": -40617.0,
+        "RemittancesMade": 16900000.0,
+        "RemittancesReceived": 4236200000.0,
+        "RemittancesReceivedPerMigrant": 104296.23064234188
+    },
+    {
+        "Year": 2008,
+        "NetMigration": -42607.0,
+        "RemittancesMade": 26473340.0,
+        "RemittancesReceived": 4425646820.0,
+        "RemittancesReceivedPerMigrant": 103871.35494167625
+    },
+    {
+        "Year": 2009,
+        "NetMigration": -43051.0,
+        "RemittancesMade": 21976600.0,
+        "RemittancesReceived": 4002155020.0,
+        "RemittancesReceivedPerMigrant": 92963.11398109219
+    },
+    {
+        "Year": 2010,
+        "NetMigration": -36072.0,
+        "RemittancesMade": 20762470.0,
+        "RemittancesReceived": 4224679960.0,
+        "RemittancesReceivedPerMigrant": 117117.98514082945
+    },
+    {
+        "Year": 2011,
+        "NetMigration": -33204.0,
+        "RemittancesMade": 26790600.0,
+        "RemittancesReceived": 4533048950.0,
+        "RemittancesReceivedPerMigrant": 136521.1706420913
+    },
+    {
+        "Year": 2012,
+        "NetMigration": -32572.0,
+        "RemittancesMade": 27905200.0,
+        "RemittancesReceived": 4965274170.0,
+        "RemittancesReceivedPerMigrant": 152439.9536411642
+    },
+    {
+        "Year": 2013,
+        "NetMigration": -35666.0,
+        "RemittancesMade": 27745530.0,
+        "RemittancesReceived": 5303727620.0,
+        "RemittancesReceivedPerMigrant": 148705.4230920204
+    },
+    {
+        "Year": 2014,
+        "NetMigration": -40409.0,
+        "RemittancesMade": 26125590.0,
+        "RemittancesReceived": 5751442990.0,
+        "RemittancesReceivedPerMigrant": 142330.74290380857
+    },
+    {
+        "Year": 2015,
+        "NetMigration": -48162.0,
+        "RemittancesMade": 22906100.0,
+        "RemittancesReceived": 6481896460.0,
+        "RemittancesReceivedPerMigrant": 134585.28424899298
+    },
+    {
+        "Year": 2016,
+        "NetMigration": -39266.0,
+        "RemittancesMade": 18786480.0,
+        "RemittancesReceived": 7362674020.0,
+        "RemittancesReceivedPerMigrant": 187507.61523964754
+    },
+    {
+        "Year": 2017,
+        "NetMigration": -48049.0,
+        "RemittancesMade": 18333870.0,
+        "RemittancesReceived": 8393882100.0,
+        "RemittancesReceivedPerMigrant": 174694.21007721283
+    },
+    {
+        "Year": 2018,
+        "NetMigration": -56884.0,
+        "RemittancesMade": 18910290.0,
+        "RemittancesReceived": 9437674500.0,
+        "RemittancesReceivedPerMigrant": 165910.88003656565
+    },
+    {
+        "Year": 2019,
+        "NetMigration": -58095.0,
+        "RemittancesMade": 18007690.0,
+        "RemittancesReceived": 10655601360.0,
+        "RemittancesReceivedPerMigrant": 183416.84069197005
+    },
+    {
+        "Year": 2020,
+        "NetMigration": -23142.0,
+        "RemittancesMade": 18664570.0,
+        "RemittancesReceived": 11405439200.0,
+        "RemittancesReceivedPerMigrant": 492845.87330394954
+    },
+    {
+        "Year": 2021,
+        "NetMigration": -29118.0,
+        "RemittancesMade": 19967930.0,
+        "RemittancesReceived": 15407572610.0,
+        "RemittancesReceivedPerMigrant": 529142.5444742084
+    }
+]
