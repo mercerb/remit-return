@@ -10,7 +10,7 @@
 
 <main>
     <h1>Remittances To Northern Triangle Over Time</h1>
-    <h3>Total Remittances to El Salvador</h3>
+    <h3>Total Remittances to El Salvador, Guatemala, and Honduras</h3>
     <section class="graph">
         <MultiChart
             data={SLV_data}
@@ -18,18 +18,38 @@
             yVars={["RemittancesReceived"]}
         />
 
-        <h3>Total Remittances to Guatemala</h3>
         <MultiChart
             data={GTM_data}
             xVar="Year"
             yVars={["RemittancesReceived"]}
         />
 
-        <h3>Total Remittances to Honduras</h3>
         <MultiChart
             data={HND_data}
             xVar="Year"
             yVars={["RemittancesReceived"]}
+        />
+    </section>
+
+    <h1>Remittances by Number of External Migrants</h1>
+    <h3>Remittances by Migrant to El Salvador, Guatemala, and Honduras</h3>
+    <section class="graph">
+        <MultiChart
+            data={SLV_data}
+            xVar="Year"
+            yVars={["RemittancesReceivedPerMigrant"]}
+        />
+
+        <MultiChart
+            data={GTM_data}
+            xVar="Year"
+            yVars={["RemittancesReceivedPerMigrant"]}
+        />
+
+        <MultiChart
+            data={HND_data}
+            xVar="Year"
+            yVars={["RemittancesReceivedPerMigrant"]}
         />
     </section>
 
@@ -42,30 +62,6 @@
             groupVar="Country"
         />
     </section> -->
-
-    <h1>Remittances by Number of External Migrants</h1>
-    <h3>Remittances by Migrant to El Salvador</h3>
-    <section class="graph">
-        <MultiChart
-            data={SLV_data}
-            xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant"]}
-        />
-
-        <h3>Remittances by Migrant to Guatemala</h3>
-        <MultiChart
-            data={GTM_data}
-            xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant"]}
-        />
-
-        <h3>Remittances by Migrant to Honduras</h3>
-        <MultiChart
-            data={HND_data}
-            xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant"]}
-        />
-    </section>
 </main>
 
 <style>

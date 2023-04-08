@@ -10,8 +10,8 @@
         bottom: 50,
     };
 
-    export let chartWidth = 480;
-    export let chartHeight = 375;
+    export let chartWidth = 360;
+    export let chartHeight = 360;
     const tickNumber = chartWidth > 480 ? 10 : 5;
 
     export let data;
