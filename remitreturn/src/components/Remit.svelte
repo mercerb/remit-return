@@ -15,19 +15,25 @@
         <MultiChart
             data={SLV_data}
             xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant", "RemittancesReceived"]}
+            yVars={["RemittancesReceived"]}
+        />
+
+        <h3>Total Remittances to Guatemala</h3>
+        <MultiChart
+            data={GTM_data}
+            xVar="Year"
+            yVars={["RemittancesReceived"]}
         />
 
         <h3>Total Remittances to Honduras</h3>
-        <!-- <section class="graph"> -->
         <MultiChart
             data={HND_data}
             xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant", "RemittancesReceived"]}
+            yVars={["RemittancesReceived"]}
         />
     </section>
 
-    <h2>Total Remittances to All Countries</h2>
+    <!-- <h2>Total Remittances to All Countries</h2>
     <section class="graph">
         <GroupChart
             data={all_countries}
@@ -35,15 +41,31 @@
             yVars={["RemittancesReceived"]}
             groupVar="Country"
         />
-    </section>
-    <!-- <h2>Remittances by Number of External Migrants</h2>
+    </section> -->
+
+    <h1>Remittances by Number of External Migrants</h1>
+    <h3>Remittances by Migrant to El Salvador</h3>
     <section class="graph">
         <MultiChart
-            data={all_countries}
+            data={SLV_data}
             xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant", "Country"]}
+            yVars={["RemittancesReceivedPerMigrant"]}
         />
-    </section> -->
+
+        <h3>Remittances by Migrant to Guatemala</h3>
+        <MultiChart
+            data={GTM_data}
+            xVar="Year"
+            yVars={["RemittancesReceivedPerMigrant"]}
+        />
+
+        <h3>Remittances by Migrant to Honduras</h3>
+        <MultiChart
+            data={HND_data}
+            xVar="Year"
+            yVars={["RemittancesReceivedPerMigrant"]}
+        />
+    </section>
 </main>
 
 <style>
