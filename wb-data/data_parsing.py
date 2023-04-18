@@ -50,7 +50,7 @@ def get_data_list(country_csv):
     information of interest.
     Returns a list of objects, one for each year.
     '''
-    filepath = f"remit-return/raw-data/{country_csv}"
+    filepath = f"remit-return/wb-data/{country_csv}"
     data = pd.read_csv(filepath, skiprows=4)
     country_datalist = []
 
