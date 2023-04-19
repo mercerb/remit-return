@@ -14,7 +14,8 @@ lookup_df = pd.read_excel(
     sheet_name=["answer_lookup", "main_table", "mig_ext_roster"],
 )
 answer_lookup = lookup_df["answer_lookup"]
-answer_mapping = dict(zip(answer_lookup["name_mco"], answer_lookup["text_content"]))
+answer_mapping = dict(
+    zip(answer_lookup["name_mco"], answer_lookup["text_content"]))
 
 
 def map_answers(answer_input, col):
@@ -30,7 +31,35 @@ def map_answers(answer_input, col):
     answer_meanings = [
         answer_mapping.get(f"{col}/{code}", code) for code in answer_codes
     ]
+    if col == "mig_ext_cost_currency":
+        code = answer_codes[0]
+        answer_meanings = ["nan"] if code == "nan" else [answer_mapping.get(
+            f"moneda/{int(float(code))}", code)]
     return ",".join(answer_meanings)
 
 
+def calculate_mig_cost_dist(row):
+    dist_fraction = "N/A"
+    if row["mig_ext_cost_dist_awareness"] == 1:
+        dist_fraction = {
+            "intermediaries": row["mig_ext_cost_intermediaries"],
+            "transportation": row["mig_ext_cost_transportation"],
+            "subsistence": row["mig_ext_cost_subsistence"],
+            "other": row["mig_ext_cost_other"]}
+    return dist_fraction
 
+
+def calculate_mig_cost(row):
+    # average from April 2021
+    # source: https://www.exchangerates.org.uk
+    # divide by the exchange rate to get dollars
+    exchange_rate = {
+        "Dollars": 1.0,
+        "Quetzals": 7.7144,  # guatemalan
+        "Lempiras": 24.0876  # honduran
+    }
+    cost_usd = "N/A"
+    if row["mig_ext_cost_awareness"] == 1:
+        curr = row["mig_ext_cost_currency"]
+        cost_usd = float(row["mig_ext_cost_total"]) / exchange_rate[curr]
+    return int(cost_usd) # round
