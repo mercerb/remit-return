@@ -49,24 +49,26 @@ def prepare_mig_ext_dataset() -> pd.DataFrame:
 
 mig_ext_df = prepare_mig_ext_dataset()
 
-# Sanity check: look at cost (USD) by country
-HND_dist = mig_ext_df[mig_ext_df["country"]
-                      == "HND"]["mig_cost_usd"].value_counts()
-GT_dist = mig_ext_df[mig_ext_df["country"]
-                     == "GT"]["mig_cost_usd"].value_counts()
-SLV_dist = mig_ext_df[mig_ext_df["country"]
-                      == "SLV"]["mig_cost_usd"].value_counts()
+# Sanity check: plot cost (USD) by country
+def plot_cost_distribution(mig_ext_df):
+    HND_dist = mig_ext_df[mig_ext_df["country"] == "HND", "mig_cost_usd"]
+    GT_dist = mig_ext_df[mig_ext_df["country"] == "GT", "mig_cost_usd"]
+    SLV_dist = mig_ext_df[mig_ext_df["country"] == "SLV", "mig_cost_usd"]
 
-fig, axs = plt.subplots(1, 3, tight_layout=True)
-axs[0].hist(HND_dist, bins=80)
-axs[1].hist(GT_dist, bins=80)
-axs[2].hist(SLV_dist, bins=80)
-# mig_ext_df.pivot(columns="country", values="mig_cost_usd").plot.hist(bins=100,
-#                                                                      title="Cost of Migration in USD Per Origin Country")
-# ax.set_title()
-# ax.set_ylabel("$ USD")
-# plt.show()
+    # fig, axs = plt.subplots(1, 3, tight_layout=True)
+    plt.hist(HND_dist, alpha=0.5, bins=80, label="Honduras")
+    plt.hist(GT_dist, alpha=0.5, bins=80, label="Guatemala")
+    plt.hist(SLV_dist, alpha=0.5, bins=80, label="El Salvador")
 
+    # add labels, legend
+    plt.title('Cost of Migration Distribution by Country')
+    plt.xlabel('Cost of Migration (USD)')
+    plt.ylabel('Frequency')
+    plt.legend(title='Country')
+
+    plt.show()
+
+plot_cost_distribution(mig_ext_df)
 # Save to JSON file as a list of JSON objects, each corresponding to a migrator
 # who made it to the United States as their destination
 # TODO: add likely occupation
