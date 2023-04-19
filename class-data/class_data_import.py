@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from class_data_remap import map_answers, calculate_mig_cost, calculate_mig_cost_dist
 import matplotlib.pyplot as plt
 
@@ -26,10 +27,10 @@ for col in [
 
 mig_ext_df["arrived"] = mig_ext_df[col].apply(map_answers, args=(col,))
 mig_ext_df["mig_cost_usd"] = mig_ext_df.apply(
-    lambda row: calculate_mig_cost(row), axis=1)
+    lambda row: calculate_mig_cost(row), axis=1).astype("Int64")
 mig_ext_df["cost_distribution_fraction"] = mig_ext_df.apply(
     lambda row: calculate_mig_cost_dist(row), axis=1)
-mig_ext_df["at_destination"] = "Yes, you reside" in mig_ext_df['mig_ext_llego']
+mig_ext_df["at_destination"] = mig_ext_df['mig_ext_llego'].str.contains("Yes, you reside")
 
 # Get value counts of 'mig_ext_medio' column by 'country' - sanity check plot
 mig_methods_by_country = mig_ext_df.groupby(
@@ -38,6 +39,15 @@ fig, ax = plt.subplots()
 mig_methods_by_country.plot(kind='bar', ax=ax, width=0.8, rot=0)
 ax.set_title("Top Migration Methods by Country")
 ax.legend(title="Country", bbox_to_anchor=(1, 1))
+plt.show()
+
+# cost of migration (USD) histogram
+mig_ext_df['mig_cost_usd'].plot.hist(bins=100)
+plt.set_title("Cost of migration (USD)")
+
+# cost of migration (USD) histogram, by country
+mig_ext_df.pivot(columns="country", values="mig_cost_usd").plot.hist(bins=100)
+
 plt.show()
 
 

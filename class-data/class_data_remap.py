@@ -58,8 +58,9 @@ def calculate_mig_cost(row):
         "Quetzals": 7.7144,  # guatemalan
         "Lempiras": 24.0876  # honduran
     }
-    cost_usd = "N/A"
-    if row["mig_ext_cost_awareness"] == 1:
+    cost_usd = None
+    total = row["mig_ext_cost_total"]
+    if row["mig_ext_cost_awareness"] == 1 and not pd.isna(total):
         curr = row["mig_ext_cost_currency"]
-        cost_usd = float(row["mig_ext_cost_total"]) / exchange_rate[curr]
-    return int(cost_usd) # round
+        cost_usd = int(float(total) / exchange_rate[curr])  # round
+    return cost_usd
