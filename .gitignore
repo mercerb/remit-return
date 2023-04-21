@@ -9,6 +9,7 @@ lerna-debug.log*
 # Private data
 ./class-data/**/*.csv
 ./class-data/**/*.xlsx
+./class-data/*.json
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
