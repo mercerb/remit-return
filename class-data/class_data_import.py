@@ -12,6 +12,43 @@ full_df = pd.merge(mig_ext_df, main_df, on="rsp_id") # 879 records with remittan
 # the dataset includes 105 records for people who listed a cost of migration who are not in the destination country
 # 'unsuccessful' migrations with financial risk. 349 reside in the USA as of this survey time (4/2021)
 
+# save to json 
+full_df.to_json("class-data/migrants_to_US.json", orient="records")
+
+# narrowing that down to 10 people who represent the summary statistics:
+full_df.mig_ext_sex.value_counts() / len(full_df) # 73% men, 27% women -> 3 women + 7 men
+full_df.mig_ext_age.describe() # average age is 30, most are in the 21 to 37 range
+full_df.at_destination.value_counts() / len(full_df) # 77% in USA, 23% sent back -> 8 there + 2 sent back
+full_df.country.value_counts() / len(full_df) # 46% from Guatemala (5), 39% from SLV (4), 15% from HND (1)
+
+# save sample of 10 to json
+gender_weights = {"Woman": 3, "Man": 7}
+full_df["gender_weights"] = full_df["mig_ext_sex"].apply(lambda row: gender_weights[row])
+sample_df = full_df.sample(n=10, weights="gender_weights", random_state=123)
+print(sample_df[["mig_ext_sex", "mig_ext_age", "at_destination", "country"]])
+sample_df.to_json("class-data/migrants_to_US_sample.json", orient="records")
+
+
+'''
+pseudo code for updating month-to-moth
+
+every month, the migrant is paid $X. every month, they send back $Y remittances.
+every month, the cost of migration is repaid by ($X - $Y) until it hits $0.
+from there, every month, the amount entering the US is ($X - $Y).
+
+def get_amt_to_cost_and_us(migrant, current_month):
+    mig_cost = migrant["mig_cost_usd"]
+    diff = migrant["occupation_salary"] - migrant["remesa_usd_sent_monthly"]
+    months_to_breakeven = mig_cost / diff
+    money_to_US = 0
+    amt_mig_cost_paid = max(diff*current_month, mig_cost)
+    if current_month >= months_to_breakeven:
+        # already broke even
+        money_to_US = diff*(current_month - months_to_breakeven)
+    return amt_mig_cost_paid, money_to_US
+
+'''
+
 # in some cases, there are multiple migrants from the same household
 # TODO: identify these and divide the remittance level by the number of migrants from the household
 # for now, focus on 1-1 relationships, which is the majority of cases 
@@ -21,4 +58,3 @@ full_df = pd.merge(mig_ext_df, main_df, on="rsp_id") # 879 records with remittan
 
 # plot_cost_distribution(mig_ext_df) # sanity check plot (histogram of migration costs)
 
-full_df.to_json("class-data/migrants_to_US.json", orient="records")
