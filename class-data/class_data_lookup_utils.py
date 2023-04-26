@@ -25,7 +25,7 @@ def map_answers(answer_input, col):
     """
     answer_codes = str(answer_input).split()
     answer_meanings = []
-    col = "moneda" if col == "mig_ext_cost_currency" else col
+    col = "moneda" if "currency" in col else col
     for code in answer_codes:
         try:
             code = int(float(code))

@@ -113,7 +113,17 @@ def normalize_weights(list):
     return list
 
 def get_likely_occupations(df):
+    """based on summary statistics for actual occupations of migrants before & after 
+    migration, assign migrants in this group to likely post-migration occupations
+    such that the distribution of occupations is still the same
+    TODO: also give them a monthly salary based on the occupations
+
+    :param df: dataframe of migrants
+    :return: updated dataframe with occupations added
+    """
     occupations = pd.read_csv("class-data/migrant_occupation_breakdown.csv")
+    salaries = pd.read_csv("class-data/migrant_occupation_salary.csv")
+    salaries = salaries.applymap(str).groupby("Employment")["Salary"].apply(float).to_dict()
 
     # convert percentages to fractional weights
     occupations["target"] = occupations["target"].str.rstrip("%").astype("float")/100
@@ -137,10 +147,12 @@ def get_likely_occupations(df):
      
     
     grouped_df = df.groupby("country").apply(assign_jobs)\
-        .rename("likely_occupation").reset_index().drop('level_1', 1)
+        .rename("likely_occupation").reset_index().drop(labels="level_1", axis=1)
     
     df = df.sort_values(by="country")
     df = df.assign(likely_occupation=grouped_df["likely_occupation"].values)
 
+    # now assign appropriate salaries
+    df["occupation_salary"] = df["likely_occupation"].map(salaries)
+
     return df
-    
