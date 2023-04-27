@@ -1,8 +1,10 @@
 <script>
-    import Remit from "../components/Remit.svelte";
+    // import Remit from "../components/Remit.svelte";
+    import LineChart from "../components/LineChart.svelte";
 </script>
 
-<Remit />
+<!-- <Remit /> -->
+<LineChart />
 
 <main>
     <a href="/todos">View To-Do Visualization</a>

@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 from class_data_remap_main_table import prepare_main_dataset
 from class_data_remap_mig_ext_roster import prepare_mig_ext_dataset, plot_cost_distribution
+import json
 
 mig_ext_df = prepare_mig_ext_dataset()
 main_df = prepare_main_dataset()
@@ -36,6 +37,14 @@ every month, the migrant is paid $X. every month, they send back $Y remittances.
 every month, the cost of migration is repaid by ($X - $Y) until it hits $0.
 from there, every month, the amount entering the US is ($X - $Y).
 
+/* for each person,
+    values = []
+    for i in range(24):
+        date = new Date(today + i*months)
+        remits_sent = remits_Sent
+        mig_paydown = mig_cost - 
+        */
+
 def get_amt_to_cost_and_us(migrant, current_month):
     mig_cost = migrant["mig_cost_usd"]
     diff = migrant["occupation_salary"] - migrant["remesa_usd_sent_monthly"]
@@ -48,6 +57,24 @@ def get_amt_to_cost_and_us(migrant, current_month):
     return amt_mig_cost_paid, money_to_US
 
 '''
+migrants = json.loads("class-data/migrants_to_US_sample.json")
+for m in migrants:
+    from datetime import date
+    from dateutil.relativedelta import relativedelta
+
+    today = date.today()
+    values = []
+    for month in range(24):
+        curr_month = date.today() + relativedelta(months=month)
+        remaining_cost, money_us, remittances = get_monthly_money_flow(m, curr_month)
+
+def get_monthly_money_flow(migrant, months_elapsed):
+    mig_cost = migrant["mig_cost_usd"]
+    monthly_diff = migrant["occupation_salary"] - migrant["remesa_usd_sent_monthly"]
+    remaining_mig_cost = max(mig_cost - months_elapsed*monthly_diff, 0)
+    money_to_us = monthly_diff - remaining_mig_cost
+    return remaining_mig_cost, money_to_us, migrant["remesa_usd_sent_monthly"]
+
 
 # in some cases, there are multiple migrants from the same household
 # TODO: identify these and divide the remittance level by the number of migrants from the household
