@@ -1,7 +1,7 @@
 <script>
     // imports
     import * as d3 from "d3";
-    import { scaleLinear } from "d3-scale";
+    import { scaleLinear, scaleOrdinal } from "d3-scale";
     import Tooltip from "./Tooltip.svelte";
 
     // exports

@@ -26,9 +26,12 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const NVM_INC: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
+	export const NVM_CD_FLAGS: string;
+	export const PYENV_ROOT: string;
 	export const TERM: string;
 	export const SHELL: string;
 	export const npm_config_open: string;
@@ -41,7 +44,9 @@ declare module '$env/static/private' {
 	export const npm_config_noproxy: string;
 	export const npm_config_local_prefix: string;
 	export const ZSH: string;
+	export const NVM_DIR: string;
 	export const USER: string;
+	export const LS_COLORS: string;
 	export const COMMAND_MODE: string;
 	export const npm_config_globalconfig: string;
 	export const SSH_AUTH_SOCK: string;
@@ -72,11 +77,15 @@ declare module '$env/static/private' {
 	export const HOME: string;
 	export const COLORFGBG: string;
 	export const LC_TERMINAL_VERSION: string;
+	export const GITHUB_USER: string;
 	export const ITERM_SESSION_ID: string;
 	export const npm_config_cache: string;
 	export const LESS: string;
 	export const LOGNAME: string;
 	export const npm_lifecycle_script: string;
+	export const NVM_BIN: string;
+	export const GOPATH: string;
+	export const GITHUB_TOKEN: string;
 	export const npm_config_user_agent: string;
 	export const LC_TERMINAL: string;
 	export const npm_node_execpath: string;
@@ -95,7 +104,7 @@ declare module '$env/static/private' {
  * ```
  */
 declare module '$env/static/public' {
-
+	
 }
 
 /**
@@ -112,9 +121,12 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		NVM_INC: string;
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
+		NVM_CD_FLAGS: string;
+		PYENV_ROOT: string;
 		TERM: string;
 		SHELL: string;
 		npm_config_open: string;
@@ -127,7 +139,9 @@ declare module '$env/dynamic/private' {
 		npm_config_noproxy: string;
 		npm_config_local_prefix: string;
 		ZSH: string;
+		NVM_DIR: string;
 		USER: string;
+		LS_COLORS: string;
 		COMMAND_MODE: string;
 		npm_config_globalconfig: string;
 		SSH_AUTH_SOCK: string;
@@ -158,11 +172,15 @@ declare module '$env/dynamic/private' {
 		HOME: string;
 		COLORFGBG: string;
 		LC_TERMINAL_VERSION: string;
+		GITHUB_USER: string;
 		ITERM_SESSION_ID: string;
 		npm_config_cache: string;
 		LESS: string;
 		LOGNAME: string;
 		npm_lifecycle_script: string;
+		NVM_BIN: string;
+		GOPATH: string;
+		GITHUB_TOKEN: string;
 		npm_config_user_agent: string;
 		LC_TERMINAL: string;
 		npm_node_execpath: string;
