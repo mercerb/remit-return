@@ -1,82 +1,97 @@
 <script>
     import * as d3 from "d3";
-    import MultiChart from "../components/MultiChart.svelte";
-    import GroupChart from "../components/GroupChart.svelte";
-    import SLV_data from "../data/el_salvador_remittances.json";
-    import HND_data from "../data/honduras_remittances.json";
-    import GTM_data from "../data/guatemala_remittances.json";
-    import all_countries from "../data/all_remittances.json";
+    import LineChart2 from "../components/LineChart2.svelte";
+    import LineChart from "../components/LineChart.svelte";
+    import Scroller from "@sveltejs/svelte-scroller";
+
+    let count, index, offset, progress;
+    let width, height;
+
 </script>
 
-<main>
-    <h1>Remittances To Northern Triangle Over Time</h1>
-    <h3>Total Remittances to El Salvador, Guatemala, and Honduras</h3>
-    <section class="graph">
-        <MultiChart
-            data={SLV_data}
-            xVar="Year"
-            yVars={["RemittancesReceived"]}
-        />
+<Scroller
+  top={0.0}
+  bottom={1}
+  threshold={0.5}
+  bind:count
+  bind:index
+  bind:offset
+  bind:progress
+>
+  <div
+    class="background"
+    slot="background"
+    bind:clientWidth={width}
+    bind:clientHeight={height}
+  >
+    <!-- <LineChart2 {index} {width} {height} /> -->
 
-        <MultiChart
-            data={GTM_data}
-            xVar="Year"
-            yVars={["RemittancesReceived"]}
-        />
+    <div class="progress-bars">
+      <p>current section: <strong>{index + 1}/{count}</strong></p>
+      <progress value={count ? (index + 1) / count : 0} />
 
-        <MultiChart
-            data={HND_data}
-            xVar="Year"
-            yVars={["RemittancesReceived"]}
-        />
+      <p>offset in current section</p>
+      <progress value={offset || 0} />
+
+      <p>total progress</p>
+      <progress value={progress || 0} />
+
+      <p>current index: {index}</p>
+    </div>
+  </div>
+
+  <div class="foreground" slot="foreground">
+    <section> 
+        <!-- Section 1 -->
+
+        The data displayed here is a subset of the class data. This subset includes
+        454 individuals who reported a cost of migration and whose destination was the United States. 
+        Of these, 349 currently reside in the USA and send remittances back to their families (as of the time of the survey, April 2021).
+        105 paid the cost of migration but either did not make it to the USA or were sent back.
+
+        To better understand the tradeoff between the cost of migration, remittances, and money entering the USA,
+        we have identified 10 migrants who represent a statistically similar sample of this larger group.
     </section>
-
-    <h1>Remittances by Number of External Migrants</h1>
-    <h3>Remittances by Migrant to El Salvador, Guatemala, and Honduras</h3>
-    <section class="graph">
-        <MultiChart
-            data={SLV_data}
-            xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant"]}
-        />
-
-        <MultiChart
-            data={GTM_data}
-            xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant"]}
-        />
-
-        <MultiChart
-            data={HND_data}
-            xVar="Year"
-            yVars={["RemittancesReceivedPerMigrant"]}
-        />
+    <section>
+        <!-- Section 2 -->
+        <LineChart /> 
     </section>
+    <section>This is the third section.</section>
+    <section>This is the 4th section.</section>
+    <section>This is the 5th section.</section>
+    <section>This is the 6th section.</section>
+  </div>
+</Scroller>
 
-    <!-- <h2>Total Remittances to All Countries</h2>
-    <section class="graph">
-        <GroupChart
-            data={all_countries}
-            xVar="Year"
-            yVars={["RemittancesReceived"]}
-            groupVar="Country"
-        />
-    </section> -->
-</main>
 
 <style>
-    main {
-        text-align: center;
-        font-family: "Nunito", sans-serif;
-        font-weight: 300;
-        line-height: 2;
-        font-size: 24px;
-        color: var(--color-text);
-        margin-top: 100px;
+    .background {
+      width: 100%;
+      height: 100vh;
+      position: relative;
     }
-
-    .graph {
-        display: inline-flexbox;
-        margin-left: 50px;
+  
+    .foreground {
+      width: 50%;
+      margin: 0 auto;
+      height: auto;
+      position: relative;
     }
-</style>
+  
+    .progress-bars {
+      position: absolute;
+      background: rgba(170, 51, 120, 0.2) /*  40% opaque */;
+      visibility: hidden; /* visible */
+    }
+  
+    section {
+      height: 80vh;
+      /* background-color: rgba(0, 0, 0, 0.2); 20% opaque */
+      /* color: white; */
+      text-align: center;
+      max-width: 750px; /* adjust at will */
+      color: black;
+      padding: 1em;
+      margin: 0 0 2em 0;
+    }
+  </style>

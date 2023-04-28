@@ -4,6 +4,8 @@
   import { scaleLinear } from "d3-scale";
   import data from "../../../class-data/money_over_time.json";
 
+  export let index, width, height, projection;
+
   function getLineColor(data) {
     if (
       data.values.every((i) => i.remit == 0) &&

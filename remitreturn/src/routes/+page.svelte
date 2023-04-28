@@ -4,10 +4,10 @@
     import LineChart2 from "../components/LineChart2.svelte";
 </script>
 
-<!-- <Remit /> -->
-<LineChart />
+<Remit />
+<!-- <LineChart2 /> -->
 
-<style>
+<!-- <style>
     main {
         text-align: center;
         font-family: "Nunito", sans-serif;
@@ -17,4 +17,4 @@
         color: var(--color-text);
         margin-top: 100px;
     }
-</style>
+</style> -->
