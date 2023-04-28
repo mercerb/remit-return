@@ -25,55 +25,45 @@ full_df.country.value_counts() / len(full_df) # 46% from Guatemala (5), 39% from
 # save sample of 10 to json
 gender_weights = {"Woman": 3, "Man": 7}
 full_df["gender_weights"] = full_df["mig_ext_sex"].apply(lambda row: gender_weights[row])
-sample_df = full_df.sample(n=10, weights="gender_weights", random_state=123)
-print(sample_df[["mig_ext_sex", "mig_ext_age", "at_destination", "country"]])
+filtered = full_df.loc[np.where((full_df["mig_cost_usd"] > 1) & (pd.notna(full_df["remesa_usd_sent_monthly"])))]
+sample_df = filtered.sample(n=10, weights="gender_weights", random_state=124)
+print(sample_df[["mig_ext_sex", "mig_ext_age", "at_destination", "mig_cost_usd", "country"]])
 sample_df.to_json("class-data/migrants_to_US_sample.json", orient="records")
 
-
-'''
-pseudo code for updating month-to-moth
-
-every month, the migrant is paid $X. every month, they send back $Y remittances.
-every month, the cost of migration is repaid by ($X - $Y) until it hits $0.
-from there, every month, the amount entering the US is ($X - $Y).
-
-/* for each person,
-    values = []
-    for i in range(24):
-        date = new Date(today + i*months)
-        remits_sent = remits_Sent
-        mig_paydown = mig_cost - 
-        */
-
-def get_amt_to_cost_and_us(migrant, current_month):
-    mig_cost = migrant["mig_cost_usd"]
-    diff = migrant["occupation_salary"] - migrant["remesa_usd_sent_monthly"]
-    months_to_breakeven = mig_cost / diff
-    money_to_US = 0
-    amt_mig_cost_paid = max(diff*current_month, mig_cost)
-    if current_month >= months_to_breakeven:
-        # already broke even
-        money_to_US = diff*(current_month - months_to_breakeven)
-    return amt_mig_cost_paid, money_to_US
-
-'''
-migrants = json.loads("class-data/migrants_to_US_sample.json")
-for m in migrants:
-    from datetime import date
-    from dateutil.relativedelta import relativedelta
-
-    today = date.today()
-    values = []
-    for month in range(24):
-        curr_month = date.today() + relativedelta(months=month)
-        remaining_cost, money_us, remittances = get_monthly_money_flow(m, curr_month)
-
+# calculate 24 months of money flows for each migrant
 def get_monthly_money_flow(migrant, months_elapsed):
     mig_cost = migrant["mig_cost_usd"]
     monthly_diff = migrant["occupation_salary"] - migrant["remesa_usd_sent_monthly"]
     remaining_mig_cost = max(mig_cost - months_elapsed*monthly_diff, 0)
-    money_to_us = monthly_diff - remaining_mig_cost
+    money_to_us = max(monthly_diff - remaining_mig_cost, 0)
     return remaining_mig_cost, money_to_us, migrant["remesa_usd_sent_monthly"]
+
+
+def get_money_time_data(months):
+    # load migrants from sample file (n=10)
+    with open("class-data/migrants_to_US_sample.json", 'r') as data_file:
+        json_data = data_file.read()
+    migrants = json.loads(json_data)
+
+    data = []
+    for m in migrants:
+        from datetime import date
+        from dateutil.relativedelta import relativedelta
+
+        values = []
+        for month in range(months):
+            curr_month = date.today() + relativedelta(months=month)
+            remaining, money_us, remit = get_monthly_money_flow(m, month)
+            vals = {"date": str(curr_month), "mig_cost_left": remaining, "remit": remit, "money_us": money_us}
+            values.append(vals)
+
+        data.append({"migrant_rsp_id": m["rsp_id"], "values": values})
+    
+    # save to file
+    with open('class-data/money_over_time.json', 'w') as f:
+        json.dump(data, f)
+
+get_money_time_data(months=24)
 
 
 # in some cases, there are multiple migrants from the same household
