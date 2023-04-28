@@ -4,10 +4,19 @@ Final Project for 6.C85, Interactive Data Visualization &amp; Society. This proj
 # Data
 World Bank data is available in the wb-data/ directory. Class data must remain offline (private). Download the folder `dataset-1_central-american-survey` locally to your computer and place it in the `remit-return/class-data/` folder. Then you can run the data prep files.
 
-# Running the code
+# Local
+## Running the code
 cd remitreturn
 npm install
 npm run dev --open
 
-# Then go to:
+## Then go to:
 http://localhost:5173/
+
+# Published
+# Publish to GitHub
+cd remitreturn
+npm gh-pages
+
+# Then go to:
+https://mercerb.github.io/remit-return/
