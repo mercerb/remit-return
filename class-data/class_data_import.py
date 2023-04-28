@@ -54,9 +54,9 @@ def get_money_time_data(months):
 
         values = []
         for month in range(months):
-            curr_month = date.today() + relativedelta(months=month)
+            # curr_month = date.today() + relativedelta(months=month)
             remaining, money_us, remit = get_monthly_money_flow(m, month)
-            vals = {"date": str(curr_month), "mig_cost_left": remaining, "remit": remit, "money_us": money_us}
+            vals = {"month": month, "mig_cost_left": remaining, "remit": remit, "money_us": money_us}
             values.append(vals)
 
         data.append({"migrant_rsp_id": m["rsp_id"], "values": values})
@@ -65,7 +65,7 @@ def get_money_time_data(months):
     with open('class-data/money_over_time.json', 'w') as f:
         json.dump(data, f)
 
-get_money_time_data(months=24)
+get_money_time_data(months=16)
 
 
 # in some cases, there are multiple migrants from the same household

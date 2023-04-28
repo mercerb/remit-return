@@ -1,6 +1,7 @@
 <script>
   import * as d3 from "d3";
   import { onMount } from "svelte";
+  import { scaleLinear } from "d3-scale";
   import data from "../../../class-data/money_over_time.json";
 
   function getLineColor(data) {
@@ -15,7 +16,7 @@
   }
 
   onMount(() => {
-    const margin = { top: 20, right: 20, bottom: 30, left: 50 };
+    const margin = { top: 50, right: 50, bottom: 40, left: 70 };
     const width = 600 - margin.left - margin.right;
     const height = 400 - margin.top - margin.bottom;
 
@@ -32,9 +33,9 @@
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     const x = d3
-      .scaleTime()
+      .scaleLinear()
       .range([0, width])
-      .domain(d3.extent(data[0].values, (d) => new Date(d.date)));
+      .domain(d3.extent(data[0].values, (d) => d.month));
 
     const y = d3
       .scaleLinear()
@@ -46,7 +47,7 @@
 
     const line = d3
       .line()
-      .x((d) => x(new Date(d.date)))
+      .x((d) => x(d.month))
       .y((d) => y(d.mig_cost_left));
 
     // add a path element for each line in the data
@@ -58,7 +59,30 @@
       .attr("class", "line")
       .attr("d", (d) => line(d.values))
       .style("stroke", (d) => getLineColor(d))
+      .style("stroke-width", 2)
       .style("fill", "none")
+      .style("opacity", 0)
+      .on("mouseover", function (event, d) {
+        console.log(event, d);
+        // Show tooltip on mouseover
+        tooltip.transition().duration(200).style("opacity", 0.9);
+        tooltip
+          .html(
+            `Value: ${d.values[0]} ${d.values.mig_cost_left} Month: ${d.values.month}`
+          )
+          .style("left", event.pageX + 10 + "px")
+          .style("top", event.pageY - 28 + "px");
+      })
+      .on("mouseout", function (d) {
+        // Hide tooltip on mouseout
+        tooltip.transition().duration(500).style("opacity", 0);
+      });
+
+    // Add a tooltip element to the page
+    const tooltip = d3
+      .select("body")
+      .append("div")
+      .attr("class", "tooltip")
       .style("opacity", 0);
 
     const totalLength = paths.node().getTotalLength();
@@ -73,11 +97,31 @@
       .style("opacity", 1);
 
     const xAxis = d3.axisBottom(x);
-    const yAxis = d3.axisLeft(y);
+    const yAxis = d3.axisLeft(y).tickFormat((x) => `$${x}`);
 
+    // X-axis and label
     svg.append("g").attr("transform", `translate(0, ${height})`).call(xAxis);
 
+    svg
+      .append("text")
+      .attr(
+        "transform",
+        "translate(" + width / 2 + " ," + (height + margin.bottom) + ")"
+      )
+      .style("text-anchor", "middle")
+      .text("Months After Migration");
+
+    // Y-axis and label
     svg.append("g").call(yAxis);
+
+    svg
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - height / 2)
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Cost of Migration (USD)");
   });
 </script>
 

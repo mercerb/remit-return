@@ -1,16 +1,11 @@
 <script>
-    // import Remit from "../components/Remit.svelte";
+    import Remit from "../components/Remit.svelte";
     import LineChart from "../components/LineChart.svelte";
     import LineChart2 from "../components/LineChart2.svelte";
-
 </script>
 
 <!-- <Remit /> -->
 <LineChart />
-
-<main>
-    <a href="/todos">View To-Do Visualization</a>
-</main>
 
 <style>
     main {
