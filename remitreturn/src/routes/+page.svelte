@@ -1,8 +1,8 @@
 <script>
-    import Remit from "../components/Remit.svelte";
+     import Tes from '../components/test.svelte';
 </script>
 
-<Remit />
+<Tes />
 
 <main>
     <a href="/todos">View To-Do Visualization</a>
