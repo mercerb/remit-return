@@ -32,6 +32,8 @@ sample_df.to_json("class-data/migrants_to_US_sample.json", orient="records")
 
 # calculate 24 months of money flows for each migrant
 def get_monthly_money_flow(migrant, months_elapsed):
+    if not migrant["at_destination"]:
+        return migrant["mig_cost_usd"], 0, 0
     mig_cost = migrant["mig_cost_usd"]
     monthly_diff = migrant["occupation_salary"] - migrant["remesa_usd_sent_monthly"]
     remaining_mig_cost = max(mig_cost - months_elapsed*monthly_diff, 0)

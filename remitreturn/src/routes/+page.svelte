@@ -1,6 +1,8 @@
 <script>
     // import Remit from "../components/Remit.svelte";
     import LineChart from "../components/LineChart.svelte";
+    import LineChart2 from "../components/LineChart2.svelte";
+
 </script>
 
 <!-- <Remit /> -->
