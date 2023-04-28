@@ -1,11 +1,19 @@
 <script>
     import * as d3 from "d3";
     import LineChart2 from "../components/LineChart2.svelte";
-    import LineChart from "../components/LineChart.svelte";
+    // import LineChart from "../components/LineChart.svelte";
     import Scroller from "@sveltejs/svelte-scroller";
+    import IntroText from "../components/IntroText.svelte";
 
     let count, index, offset, progress;
     let width, height;
+
+    export const themeColors = {
+        blue: "#112b64",
+        beige: "#e8e4d5",
+        orange: "#e39d12",
+        pink: "#be318f"
+    }
 
 </script>
 
@@ -24,8 +32,6 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
-    <!-- <LineChart2 {index} {width} {height} /> -->
-
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
@@ -43,18 +49,13 @@
   <div class="foreground" slot="foreground">
     <section> 
         <!-- Section 1 -->
-
-        The data displayed here is a subset of the class data. This subset includes
-        454 individuals who reported a cost of migration and whose destination was the United States. 
-        Of these, 349 currently reside in the USA and send remittances back to their families (as of the time of the survey, April 2021).
-        105 paid the cost of migration but either did not make it to the USA or were sent back.
-
-        To better understand the tradeoff between the cost of migration, remittances, and money entering the USA,
-        we have identified 10 migrants who represent a statistically similar sample of this larger group.
+        <IntroText />
     </section>
     <section>
         <!-- Section 2 -->
-        <LineChart /> 
+        Cost of migration projected over time (months).
+        <!-- <LineChart {index} {width} {height} {themeColors}/>  -->
+        <LineChart2 {index} {width} {height} {themeColors}/> 
     </section>
     <section>This is the third section.</section>
     <section>This is the 4th section.</section>
@@ -69,6 +70,7 @@
       width: 100%;
       height: 100vh;
       position: relative;
+      color: "#e8e4d5";
     }
   
     .foreground {

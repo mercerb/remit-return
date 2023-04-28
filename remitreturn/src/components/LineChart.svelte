@@ -3,17 +3,17 @@
   import { onMount } from "svelte";
   import { scaleLinear } from "d3-scale";
   import data from "../../../class-data/money_over_time.json";
-
-  export let index, width, height, projection;
+  
+  export let index, width, height, projection, themeColors;
 
   function getLineColor(data) {
     if (
       data.values.every((i) => i.remit == 0) &&
       data.values.every((i) => i.money_us == 0)
     ) {
-      return "red";
+      return themeColors.orange;
     } else {
-      return "black";
+      return themeColors.blue;
     }
   }
 
