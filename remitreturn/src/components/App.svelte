@@ -1,184 +1,233 @@
 <script>
-    import ToDo from "../components/ToDo.svelte";
-    import Graph from "../components/Graph.svelte";
-    import Chart from "../components/Chart.svelte";
-
-    let placeholder = "What do you need to do?";
-    let todo_text = "";
-
-    let todos = [
-        { id: "0", text: "Learn Svelte", completed: false },
-        { id: "1", text: "Finish Lab", completed: false },
-    ];
-
-    let todo_record = [];
-    let todo_len = 0;
-    let todo_names = [];
-
-    $: {
-        todo_len = todos.length;
-
-        // add the new todo and aggregate the current todo list
-        // store them as an object and append it to the todo_record array
-        if (
-            todo_record.length == 0 ||
-            todo_len !== todo_record[todo_record.length - 1].size
-        ) {
-            todo_names = todos
-                .map((todo) => todo.text)
-                .reduce(
-                    (names_as_string, new_todo) =>
-                        names_as_string + new_todo + ", ",
-                    ""
-                );
-            todo_record.push({
-                index: todo_record.length + 1,
-                size: todo_len,
-                names: todo_names.slice(0, todo_names.length - 2),
-            });
-        }
-
-        // mutating an array doesn' trigger interactivity
-        // therefore, we need to assign it again
-        // to manually update the Graph component
-        todo_record = todo_record;
-    }
-
-    let next_id = 2;
-
-    function add() {
-        todos = todos.concat({
-            id: next_id,
-            text: todo_text,
-            completed: false,
-        });
-        next_id = next_id + 1;
-        todo_text = "";
-    }
-
-    function removeTodo(id) {
-        todos = todos.filter((todo) => todo.id !== id);
-    }
+    export let name = "World";
 </script>
 
 <main>
-    <section class="todos">
-        <h1>todos</h1>
-        <form on:submit|preventDefault={add}>
-            <input {placeholder} bind:value={todo_text} />
-        </form>
 
-        {#each todos as todo (todo.id)}
-            <ToDo bind:todo {removeTodo} />
-        {/each}
+<!DOCTYPE html>
 
-        <div class="actions" />
-    </section>
-
-    <section class="graph">
-        <h2 style="margin-top: 15px">todo pie</h2>
-        <Graph bind:todo_record />
-
-        <h2>interactive line chart</h2>
-        <Chart bind:data={todo_record} />
-    </section>
-</main>
-
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Sankey Particles</title>
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap");
-
-    :root {
-        --color-bg: #ffffff;
-        --color-outline: #c2c2c2;
-        --color-shadow: hsl(0, 0%, 0%, 0.1);
-        --color-text: #3f4252;
-        --color-bg-1: hsla(0, 0%, 0%, 0.2);
-        --color-shadow-1: hsl(0, 0%, 96%);
-    }
-
-    *,
-    *::before,
-    *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    main {
-        text-align: center;
-        font-family: "Nunito", sans-serif;
-        font-weight: 300;
-        line-height: 2;
-        font-size: 24px;
-        color: var(--color-text);
-        margin-top: 100px;
-    }
-
-    label,
-    input,
-    button {
-        font-family: inherit;
-        font-weight: inherit;
-        line-height: inherit;
-        font-size: 24px;
-        width: 100%;
-    }
-
-    input {
-        padding-left: 40px;
-        line-height: 72px;
-        font-style: italic;
-        border: none;
-    }
-
-    ::placeholder {
-        color: #9e9e9e;
-    }
-
-    h1 {
-        font-size: 72px;
-        font-weight: 300;
-        line-height: 2;
-    }
-
-    h2 {
-        font-size: 30px;
-        font-weight: 300;
-        line-height: 1.5;
-    }
-
-    .todos {
-        display: inline-block;
-        vertical-align: top;
-        width: 500px;
-        background-color: var(--color-bg);
-        border-radius: 5px;
-        border: 1px solid var(--color-outline);
-        box-shadow: 0 0 4px var(--color-shadow);
-    }
-
-    .graph {
-        display: block;
-        margin-left: 50px;
-    }
-
-    .actions {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .actions:before {
-        content: "";
-        height: 40px;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        box-shadow: 0 1px 1px var(--color-shadow-1),
-            0 8px 0 -3px var(--color-shadow-1), 0 9px 1px -3px var(--color-bg-1),
-            0 16px 0 -6px var(--color-shadow-1),
-            0 17px 2px -6px var(--color-bg-1);
-        z-index: -1;
-    }
+.node rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+.node text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+.link {
+  fill: none;
+  stroke: burlywood;
+  stroke-opacity:0.2;
+}
+.link:hover {
+  fill: red;
+  stroke: red;
+  stroke-opacity: 1000;
+}
+svg {
+  position: absolute;
+}
+canvas {
+  position: absolute;
+}
 </style>
+</head>
+<body>
+
+  <p style="text-align:center;"><b>Sankey Diagram</b></p>
+ 
+  <div class="sidebar"> 
+    <p style="float: left;">Original Occupation</p> 
+    <p style="float: right;">US Occupation</p> 
+  </div>
+<p id="chart">
+<canvas width="1100" height="1100" ></canvas>
+<svg width="1000" height="1000" ></svg>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
+
+    <script type="text/javascript">
+var margin = {top: 1, right: 1, bottom: 6, left: 1},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+var formatNumber = d3.format(",.0f"),
+    format = function(d) { return formatNumber(d); },
+    color = d3.scale.category20();
+var svg = d3.select("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var sankey = d3.sankey()
+    .nodeWidth(15)
+    .nodePadding(10)
+    .size([width, height]);
+var path = sankey.link();
+var freqCounter = 1;
+d3.json("https://raw.githubusercontent.com/mercerb/remit-return/sankey/remitreturn/src/data/sankey.json", function(energy) {
+  sankey
+      .nodes(energy.nodes)
+      .links(energy.links)
+      .layout(32);
+  var link = svg.append("g").selectAll(".link")
+      .data(energy.links)
+      .attr('fill','yellow')
+    .enter().append("path")
+      .attr("class", "link")
+      .attr('opacity',0.1)
+      .attr("d", path)
+      
+      .style("stroke-width", function(d) { return Math.max(1, d.dy); })
+      .sort(function(a, b) { return b.dy - a.dy; });
+     
+  link.append("title")
+      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+  var node = svg.append("g").selectAll(".node")
+      .data(energy.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; })
+    .call(d3.behavior.drag()
+      .origin(function(d) { return d; })
+      .on("dragstart", function() { this.parentNode.appendChild(this); })
+      .on("drag", dragmove));
+  node.append("rect")
+      .attr("height", function(d) { return d.dy; })
+      .attr("width", sankey.nodeWidth())
+      .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
+      .style("stroke", "none")
+    .append("title")
+      .text(function(d) { return d.name + "\n" + format(d.value); });
+    node.on("mouseover", function(d) {
+    link
+      .transition()
+      .duration(300)
+      .style("stroke-opacity", function(l) {
+        return l.source === d || l.target === d ? 1 : 0.2;
+      });
+  })
+  .on("mouseleave", function(d) {
+    link
+      .transition()
+      .duration(300)
+      .style("stroke-opacity", 0.2);
+  })
+  node.append("text")
+      .attr("x", -6)
+      .attr("y", function(d) { return d.dy / 2; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", "end")
+      .attr("transform", null)
+      .text(function(d) { return d.name; })
+    .filter(function(d) { return d.x < width / 2; })
+      .attr("x", 6 + sankey.nodeWidth())
+      .attr("text-anchor", "start");
+  function dragmove(d) {
+    d3.select(this).attr("transform", "translate(" + d.x + "," + (d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))) + ")");
+    sankey.relayout();
+    link.attr("d", path);
+  }
+  
+  var linkExtent = d3.extent(energy.links, function (d) {return d.value});
+  var frequencyScale = d3.scale.linear().domain(linkExtent).range([0.05,1]);
+  var particleSize = d3.scale.linear().domain(linkExtent).range([1,5]);
+  energy.links.forEach(function (link) {
+    link.freq = frequencyScale(link.value);
+    link.particleSize = 1;
+    link.color=d3.scale.linear().domain([0,1])
+    .range([link.source.color, link.target.color]);
+    link.particleColor = d3.scale.linear().domain([0,1])
+    .range([link.source.color, link.target.color]);
+  })
+  var t = d3.timer(tick, 50);
+  var particles = [];
+  function tick(elapsed, time) {
+    particles = particles.filter(function (d) {return d.current < d.path.getTotalLength()});
+    d3.selectAll("path.link")
+    .each(
+      function (d) {
+//        if (d.freq < 1) {
+        for (var x = 0;x<2;x++) {
+          var offset = (Math.random() - .5) * (d.dy - 4);
+          if (Math.random() < d.freq) {
+            var length = this.getTotalLength();
+            particles.push({link: d, time: elapsed, offset: offset, path: this, length: length, animateTime: length, speed: 0.5 + (Math.random())})
+          }
+        }
+//        }
+/*        else {
+          for (var x = 0; x<d.freq; x++) {
+            var offset = (Math.random() - .5) * d.dy;
+            particles.push({link: d, time: elapsed, offset: offset, path: this})
+          }
+        } */
+      });
+    particleEdgeCanvasPath(elapsed);
+  }
+  function particleEdgeCanvasPath(elapsed) {
+    var context = d3.select("canvas").node().getContext("2d")
+    context.clearRect(0,0,1000,1000);
+      context.fillStyle = "gray";
+      context.lineWidth = "1px";
+    for (var x in particles) {
+        var currentTime = elapsed - particles[x].time;
+//        var currentPercent = currentTime / 1000 * particles[x].path.getTotalLength();
+        particles[x].current = currentTime * 0.15 * particles[x].speed;
+        var currentPos = particles[x].path.getPointAtLength(particles[x].current);
+        context.beginPath();
+      context.fillStyle = particles[x].link.particleColor(0);
+        context.arc(currentPos.x,currentPos.y + particles[x].offset,particles[x].link.particleSize,0,2*Math.PI);
+        context.fill();
+    }
+  }
+});
+function highlight_node_links(node,i){
+var remainingNodes=[],
+    nextNodes=[];
+var stroke_opacity = 0;
+if( d3.select(this).attr("data-clicked") == "1" ){
+  d3.select(this).attr("data-clicked","0");
+  stroke_opacity = 0.2;
+}else{
+  d3.select(this).attr("data-clicked","1");
+  stroke_opacity = 0.5;
+}
+var traverse = [{
+                  linkType : "sourceLinks",
+                  nodeType : "target"
+                },{
+                  linkType : "targetLinks",
+                  nodeType : "source"
+                }];
+traverse.forEach(function(step){
+  node[step.linkType].forEach(function(link) {
+    remainingNodes.push(link[step.nodeType]);
+    highlight_link(link.id, stroke_opacity);
+  });
+  while (remainingNodes.length) {
+    nextNodes = [];
+    remainingNodes.forEach(function(node) {
+      node[step.linkType].forEach(function(link) {
+        nextNodes.push(link[step.nodeType]);
+        highlight_link(link.id, stroke_opacity);
+      });
+    });
+    remainingNodes = nextNodes;
+  }
+});
+}
+function highlight_link(id,opacity){
+  d3.select("#link-"+id).style("stroke-opacity", opacity);
+}
+    </script>
+</body>
+</html>
+
+  </main>
