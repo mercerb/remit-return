@@ -5,7 +5,7 @@
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { scaleLinear } from "d3-scale";
     import data from "../../../class-data/money_over_time.json";
-    import Axis from "./Axis.svelte";
+    //import Axis from "./Axis.svelte";
 
     export let index, width, height, projection, themeColors;
 

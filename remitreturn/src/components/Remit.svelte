@@ -2,11 +2,35 @@
     import * as d3 from "d3";
     import LineChart2 from "../components/LineChart2.svelte";
     // import LineChart from "../components/LineChart.svelte";
+    import Map from "../components/Map.svelte"
     import Scroller from "@sveltejs/svelte-scroller";
     import IntroText from "../components/IntroText.svelte";
+    import { geoMercator } from "d3-geo";
 
     let count, index, offset, progress;
     let width, height;
+
+    let geoJsonToFit = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [1, 0],
+        },
+      },
+      {
+        type: "Feature",
+        geometry: {
+          type: "Point",
+          coordinates: [0, 1],
+        },
+      },
+    ],
+  };
+
+  $: projection = geoMercator().fitSize([width, height], geoJsonToFit);
 
     export const themeColors = {
         blue: "#112b64",
@@ -32,6 +56,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
+    <Map bind:geoJsonToFit {index}/>
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
@@ -57,10 +82,14 @@
         <!-- <LineChart {index} {width} {height} {themeColors}/>  -->
         <LineChart2 {index} {width} {height} {themeColors}/> 
     </section>
-    <section>This is the third section.</section>
-    <section>This is the 4th section.</section>
-    <section>This is the 5th section.</section>
-    <section>This is the 6th section.</section>
+    <section>This is the third section.</section> 
+    <section>
+      <!-- Section 4 -->
+      Movement of money over time.
+      <!-- <LineChart {index} {width} {height} {themeColors}/>  -->
+    </section>
+    <!--section>This is the 5th section.</section-->
+    <!--section>This is the 6th section.</section-->
   </div>
 </Scroller>
 
