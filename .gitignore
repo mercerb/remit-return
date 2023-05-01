@@ -6,10 +6,21 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
-# Private data
-./class-data/**/*.csv
-./class-data/**/*.xlsx
-./class-data/*.json
+# Svelte generated files
+remitreturn/.svelte-kit/generated/
+remitreturn/.svelte-kit/output/
+remitreturn/.svelte-kit/ambient.d.ts
+remitreturn/build/
+
+# python build files
+class-data/__pycache__/
+
+# vs code 
+.DS_Store
+.vscode/
+
+# Private data - original class xlsx files
+./class-data/dataset-1_central-american-survey
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

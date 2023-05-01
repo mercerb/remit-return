@@ -10,7 +10,7 @@
         home. Migrants who end up working in the destination country long enough
         not only offset the cost of their migration and send remittances home,
         but also spend money in the United States (for food, housing, etc),
-        invigorating the economy.
+        invigorating the economy. Data sourced from the UN World Food Programme (WFP).
     </p>
 
     <p>
