@@ -1,0 +1,24 @@
+{"data": {
+    "countries": [
+        {
+            "name": "HND",
+            "longitude": -86.663, 
+            "latitude": 14.826
+        },
+        {
+            "name": "GT",
+            "longitude": -90.574, 
+            "latitude": 15.165
+        }, 
+        {
+            "name": "SLV",
+            "longitude": -88.816, 
+            "latitude": 13.547
+        },
+        {
+            "name": "USA", 
+            "longitude": -86.663, 
+            "latitude": 14.826
+        }
+    ]
+}}
