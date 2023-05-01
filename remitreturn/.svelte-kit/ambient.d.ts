@@ -26,11 +26,8 @@
  * ```
  */
 declare module '$env/static/private' {
-	export const NVM_INC: string;
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
-	export const PYENV_ROOT: string;
-	export const NVM_CD_FLAGS: string;
 	export const INIT_CWD: string;
 	export const SHELL: string;
 	export const TERM: string;
@@ -44,8 +41,6 @@ declare module '$env/static/private' {
 	export const ZSH: string;
 	export const npm_config_local_prefix: string;
 	export const USER: string;
-	export const NVM_DIR: string;
-	export const LS_COLORS: string;
 	export const COMMAND_MODE: string;
 	export const npm_config_globalconfig: string;
 	export const SSH_AUTH_SOCK: string;
@@ -76,15 +71,11 @@ declare module '$env/static/private' {
 	export const SHLVL: string;
 	export const PYENV_SHELL: string;
 	export const LC_TERMINAL_VERSION: string;
-	export const GITHUB_USER: string;
 	export const ITERM_SESSION_ID: string;
 	export const LOGNAME: string;
 	export const LESS: string;
 	export const npm_config_cache: string;
 	export const npm_lifecycle_script: string;
-	export const GITHUB_TOKEN: string;
-	export const GOPATH: string;
-	export const NVM_BIN: string;
 	export const npm_config_user_agent: string;
 	export const LC_TERMINAL: string;
 	export const COLORTERM: string;
@@ -120,11 +111,8 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
-		NVM_INC: string;
 		TERM_PROGRAM: string;
 		NODE: string;
-		PYENV_ROOT: string;
-		NVM_CD_FLAGS: string;
 		INIT_CWD: string;
 		SHELL: string;
 		TERM: string;
@@ -138,8 +126,6 @@ declare module '$env/dynamic/private' {
 		ZSH: string;
 		npm_config_local_prefix: string;
 		USER: string;
-		NVM_DIR: string;
-		LS_COLORS: string;
 		COMMAND_MODE: string;
 		npm_config_globalconfig: string;
 		SSH_AUTH_SOCK: string;
@@ -170,15 +156,11 @@ declare module '$env/dynamic/private' {
 		SHLVL: string;
 		PYENV_SHELL: string;
 		LC_TERMINAL_VERSION: string;
-		GITHUB_USER: string;
 		ITERM_SESSION_ID: string;
 		LOGNAME: string;
 		LESS: string;
 		npm_config_cache: string;
 		npm_lifecycle_script: string;
-		GITHUB_TOKEN: string;
-		GOPATH: string;
-		NVM_BIN: string;
 		npm_config_user_agent: string;
 		LC_TERMINAL: string;
 		COLORTERM: string;
