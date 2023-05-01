@@ -13,14 +13,14 @@ remitreturn/.svelte-kit/ambient.d.ts
 remitreturn/build/
 
 # python build files
-class-data/__pycache__/
+remitreturn/class-data/__pycache__/
 
 # vs code 
 .DS_Store
 .vscode/
 
 # Private data - original class xlsx files
-./class-data/dataset-1_central-american-survey
+remitreturn/class-data/dataset-1_central-american-survey
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
