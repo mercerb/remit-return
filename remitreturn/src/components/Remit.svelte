@@ -3,7 +3,7 @@
   import LineChart2 from "../components/LineChart2.svelte";
   import LineChart from "../components/LineChart.svelte";
   import Sankey from "../components/Sankey.svelte";
-  
+
   import Scroller from "@sveltejs/svelte-scroller";
   import IntroText from "../components/IntroText.svelte";
   import MiddleText from "../components/MiddleText.svelte";
@@ -35,7 +35,7 @@
     bind:clientHeight={height}
   >
     <div class="progress-bars">
-      <p>current section: <strong>{index + 1}/{count}</strong></p>
+      <!-- <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
 
       <p>offset in current section</p>
@@ -44,7 +44,7 @@
       <p>total progress</p>
       <progress value={progress || 0} />
 
-      <p>current index: {index}</p>
+      <p>current index: {index}</p> -->
     </div>
   </div>
 
