@@ -56,7 +56,7 @@ def get_money_time_data(months):
         for month in range(months):
             # curr_month = date.today() + relativedelta(months=month)
             remaining, money_us, remit = get_monthly_money_flow(m, month)
-            vals = {"month": month, "mig_cost_left": remaining, "remit": remit, "money_us": money_us}
+            vals = {"month": month, "mig_cost_left": remaining, "remit": remit, "home_country": m["country"], "money_us": money_us}
             values.append(vals)
 
         data.append({"migrant_rsp_id": m["rsp_id"], "values": values})
@@ -68,6 +68,54 @@ def get_money_time_data(months):
 get_money_time_data(months=16)
 
 
+def get_money_time_data_geojson(months):
+    # load migrants from sample file (n=10)
+    with open("class-data/migrants_to_US_sample.json", 'r') as data_file:
+        json_data = data_file.read()
+    migrants = json.loads(json_data)
+
+    coordinates = {"HND": {"longitude": -86.663, "latitude": 14.826}, 
+                   "GT": {"longitude": -90.574, "latitude": 15.165}, 
+                   "SLV": {"longitude": -88.816, "latitude": 13.547}, 
+                   "US": {"longitude": -86.663, "latitude": 14.826}}
+
+    features = []
+    for m in migrants:
+        from datetime import date
+        from dateutil.relativedelta import relativedelta
+
+        for month in range(months):
+            properties = {}
+            # curr_month = date.today() + relativedelta(months=month)
+            remaining, money_us, remit = get_monthly_money_flow(m, month)
+
+            properties = {"migrant_rsp_id": m["rsp_id"],
+                          "month": month, 
+                          "mig_cost_left": remaining, 
+                          "remit": remit, 
+                          "home_country": m["country"], 
+                          "money_us": money_us,
+                          }
+            
+            coords = [coordinates[m["country"]]["longitude"], coordinates[m["country"]]["latitude"]]
+
+        features.append({"type": "Feature", 
+                         "properties": properties,
+                         "geometry": {"type": "Point", "coordinates": coords}
+                         })
+
+    geometries = {
+    'type': 'FeatureCollection',
+    'features': features
+    }
+    
+    # save to file
+    with open('class-data/geo_money_over_time.geojson', 'w') as f:
+        json.dump(geometries, f)
+
+get_money_time_data_geojson(months=16)
+
+
 # in some cases, there are multiple migrants from the same household
 # TODO: identify these and divide the remittance level by the number of migrants from the household
 # for now, focus on 1-1 relationships, which is the majority of cases 
@@ -77,3 +125,28 @@ get_money_time_data(months=16)
 
 # plot_cost_distribution(mig_ext_df) # sanity check plot (histogram of migration costs)
 
+
+
+def get_money_time_data(months):
+    # load migrants from sample file (n=10)
+    with open("class-data/migrants_to_US_sample.json", 'r') as data_file:
+        json_data = data_file.read()
+    migrants = json.loads(json_data)
+
+    data = []
+    for m in migrants:
+        from datetime import date
+        from dateutil.relativedelta import relativedelta
+
+        for month in range(months):
+            # curr_month = date.today() + relativedelta(months=month)
+            remaining, money_us, remit = get_monthly_money_flow(m, month)
+            country_mapping = {'GT': 0, 'HND': 1, 'SLV': 2, 'USA': 3}
+            vals = {"migrant_rsp_id": m["rsp_id"], "home_country": country_mapping[m["country"]],  "month": month, "mig_cost_left": remaining, "remit": remit, "money_us": money_us}
+            data.append(vals)
+
+    # save to file
+    with open('class-data/money_separated_transactions.json', 'w') as f:
+        json.dump(data, f)
+
+get_money_time_data(months=16)
