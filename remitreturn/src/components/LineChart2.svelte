@@ -1,6 +1,5 @@
 <script>
     import * as d3 from "d3";
-    import { onMount } from "svelte";
     import { draw } from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { scaleLinear } from "d3-scale";
@@ -118,25 +117,35 @@
                 stroke={themeColors.blue}
                 stroke-width="2"
                 class="axis"
-                text="Cost of Migration (USD)"
             />
+            <text
+                x={paddings.left}
+                y={chartHeight - paddings.bottom}
+                transform="translate(0,0) rotate(90)"
+                >
+                <!-- Months  -->
+            </text>
+            <text
+                x={paddings.left} 
+                y={paddings.top}
+                >
+                <!-- Cost of Migration (USD)  -->
+            </text>
         </g>
         <g>
-            {#if index > 0}
-                {#if index > 1}
-                    {#each data as migrant, _}
-                        <polyline
-                            points={getDataPoints(migrant.values)}
-                            fill="none"
-                            stroke={getLineColor(migrant)}
-                            stroke-width="3"
-                            transition:draw={{
-                                duration: 5000,
-                                easing: cubicInOut,
-                            }}
-                        />
-                    {/each}
-                {/if}
+            {#if index > 1}
+                {#each data as migrant, _}
+                    <polyline
+                        points={getDataPoints(migrant.values)}
+                        fill="none"
+                        stroke={getLineColor(migrant)}
+                        stroke-width="3"
+                        transition:draw={{
+                            duration: 5000,
+                            easing: cubicInOut,
+                        }}
+                    />
+                {/each}
             {/if}
         </g>
 
