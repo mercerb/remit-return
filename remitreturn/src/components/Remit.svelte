@@ -3,6 +3,7 @@
   import LineChart2 from "../components/LineChart2.svelte";
   import LineChart from "../components/LineChart.svelte";
   import Sankey from "../components/Sankey.svelte";
+  import Map from "../components/Map.svelte";
 
   import Scroller from "@sveltejs/svelte-scroller";
   import IntroText from "../components/IntroText.svelte";
@@ -35,6 +36,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
+    
     <div class="progress-bars">
       <!-- <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
@@ -73,6 +75,8 @@
     </section>
     <section>
       <!-- Section 4 (map) (index == 3) -->
+      <!-- <Map {index}/> -->
+      <Map {index}/>
     </section>
   </div>
 </Scroller>
