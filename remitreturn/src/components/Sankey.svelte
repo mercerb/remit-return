@@ -49,8 +49,8 @@
                 <p style="float: right;">US Occupation</p>
             </div>
             <p id="sankey">
-                <canvas width="700" height="1100" />
-                <svg width="700" height="1000" />
+                <canvas width="800" height="1100" />
+                <svg width="800" height="1000" />
 
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"
