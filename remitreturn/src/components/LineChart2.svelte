@@ -14,7 +14,7 @@
 
     const paddings = {
         top: 50,
-        left: 50,
+        left: 60,
         right: 50,
         bottom: 50,
     };
@@ -58,9 +58,8 @@
             }
 
             let size_extent = [Math.round(minCost), Math.round(maxCost + 1)];
-            let size_increment = Math.floor(
-                (size_extent[1] - size_extent[0]) / numTicks
-            );
+            let size_increment = Math.floor((size_extent[1] - size_extent[0]) / numTicks);
+            size_increment = 1000*Math.round(size_increment/1000);
             for (
                 let i = size_extent[0];
                 i < size_extent[1];
