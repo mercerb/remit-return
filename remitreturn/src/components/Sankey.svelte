@@ -62,8 +62,8 @@
                 ></script>
 
                 <script type="text/javascript">
-                    var margin = { top: 1, right: 1, bottom: 15, left: 1 },
-                        width = 550 - margin.left - margin.right,
+                    var margin = { top: 1, right: 1, bottom: 10, left: 1 },
+                        width = 500 - margin.left - margin.right,
                         height = 500 - margin.top - margin.bottom;
                     var formatNumber = d3.format(",.0f"),
                         format = function (d) {
