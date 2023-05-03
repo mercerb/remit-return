@@ -185,6 +185,6 @@
     .LineChart2 {
         width: 100%;
         height: 100vh; /* check problem when setting width */
-        position: absolute;
+        position: relative;
     }
 </style>

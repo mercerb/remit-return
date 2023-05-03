@@ -7,6 +7,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import IntroText from "../components/IntroText.svelte";
   import MiddleText from "../components/MiddleText.svelte";
+  import SankeyText from "./SankeyText.svelte";
 
   let count, index, offset, progress;
   let width, height;
@@ -56,6 +57,10 @@
     <section>
       <!-- Section 2 (index == 1)-->
       <Sankey {index} />
+    </section>
+    <section>
+      <!-- Section 2 (index == 1)-->
+      <SankeyText {index} />
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
