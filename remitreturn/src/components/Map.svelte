@@ -188,7 +188,7 @@
     }
 
     const marker_container = d3
-		.select(map.getCanvasContainer() )
+		.select(map.getCanvasContainer())
 		.append("svg")
 		.attr("width", "100%")
 		.attr("height", "100%")
@@ -200,10 +200,7 @@
 
 
 
-
-
-
-
+  
 
   <svelte:head>
     <link
