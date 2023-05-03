@@ -26,7 +26,7 @@ import{S as lt,i as ct,s as ft,k as C,J as V,a as q,l as R,m as M,K as W,h as x,
                 }\r
                 canvas {\r
                     position: absolute;\r
-                }`),l=q(),c=C("body"),h=C("div"),f=C("p"),u=X("Original Occupation"),g=q(),m=C("p"),v=X("US Occupation"),E=q(),k=C("p"),b=C("canvas"),_=q(),S=V("svg"),y=q(),A=C("script"),P=q(),I=C("script"),w=q(),z=C("script"),O=X(`var margin = { top: 1, right: 1, bottom: 15, left: 1 },\r
+                }`),l=q(),c=C("body"),h=C("div"),f=C("p"),u=X("Original Occupation"),g=q(),m=C("p"),v=X("US Occupation"),E=q(),k=C("p"),b=C("canvas"),_=q(),S=V("svg"),y=q(),A=C("script"),P=q(),I=C("script"),w=q(),z=C("script"),O=X(`var margin = { top: 1, right: 1, bottom: 10, left: 1 },\r
                         width = 550 - margin.left - margin.right,\r
                         height = 500 - margin.top - margin.bottom;\r
                     var formatNumber = d3.format(",.0f"),\r
@@ -326,7 +326,7 @@ import{S as lt,i as ct,s as ft,k as C,J as V,a as q,l as R,m as M,K as W,h as x,
                 }\r
                 canvas {\r
                     position: absolute;\r
-                }`),N.forEach(x),Q.forEach(x),l=H(J),c=R(J,"BODY",{});var j=M(c);h=R(j,"DIV",{class:!0});var rt=M(h);f=R(rt,"P",{style:!0});var mt=M(f);u=K(mt,"Original Occupation"),mt.forEach(x),g=H(rt),m=R(rt,"P",{style:!0});var vt=M(m);v=K(vt,"US Occupation"),vt.forEach(x),rt.forEach(x),E=H(j),k=R(j,"P",{id:!0});var F=M(k);b=R(F,"CANVAS",{width:!0,height:!0}),M(b).forEach(x),_=H(F),S=W(F,"svg",{width:!0,height:!0}),M(S).forEach(x),y=H(F),A=R(F,"SCRIPT",{src:!0,charset:!0,type:!0});var ot=M(A);ot.forEach(x),P=H(F),I=R(F,"SCRIPT",{src:!0});var Wt=M(I);Wt.forEach(x),w=H(F),z=R(F,"SCRIPT",{type:!0});var wt=M(z);O=K(wt,`var margin = { top: 1, right: 1, bottom: 15, left: 1 },\r
+                }`),N.forEach(x),Q.forEach(x),l=H(J),c=R(J,"BODY",{});var j=M(c);h=R(j,"DIV",{class:!0});var rt=M(h);f=R(rt,"P",{style:!0});var mt=M(f);u=K(mt,"Original Occupation"),mt.forEach(x),g=H(rt),m=R(rt,"P",{style:!0});var vt=M(m);v=K(vt,"US Occupation"),vt.forEach(x),rt.forEach(x),E=H(j),k=R(j,"P",{id:!0});var F=M(k);b=R(F,"CANVAS",{width:!0,height:!0}),M(b).forEach(x),_=H(F),S=W(F,"svg",{width:!0,height:!0}),M(S).forEach(x),y=H(F),A=R(F,"SCRIPT",{src:!0,charset:!0,type:!0});var ot=M(A);ot.forEach(x),P=H(F),I=R(F,"SCRIPT",{src:!0});var Wt=M(I);Wt.forEach(x),w=H(F),z=R(F,"SCRIPT",{type:!0});var wt=M(z);O=K(wt,`var margin = { top: 1, right: 1, bottom: 10, left: 1 },\r
                         width = 550 - margin.left - margin.right,\r
                         height = 500 - margin.top - margin.bottom;\r
                     var formatNumber = d3.format(",.0f"),\r
