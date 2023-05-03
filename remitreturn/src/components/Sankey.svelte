@@ -49,8 +49,8 @@
                 <p style="float: right;">US Occupation</p>
             </div>
             <p id="sankey">
-                <canvas width="800" height="1100" />
-                <svg width="800" height="1000" />
+                <canvas width="700" height="1100" />
+                <svg width="700" height="1000" />
 
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"
@@ -62,8 +62,8 @@
                 ></script>
 
                 <script type="text/javascript">
-                    var margin = { top: 1, right: 1, bottom: 6, left: 1 },
-                        width = 600 - margin.left - margin.right,
+                    var margin = { top: 1, right: 1, bottom: 15, left: 1 },
+                        width = 550 - margin.left - margin.right,
                         height = 500 - margin.top - margin.bottom;
                     var formatNumber = d3.format(",.0f"),
                         format = function (d) {
