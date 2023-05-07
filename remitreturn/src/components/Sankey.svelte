@@ -1,10 +1,18 @@
 <script>
+    import * as d3 from "d3";
     export let name = "World";
-
     export let index;
+
+    let isVisible = false;
+
+    $: if (index == 1) {
+        isVisible = true;
+    } else {
+        isVisible = false;
+    }
 </script>
 
-<main>
+<div class="sankey" class:visible={isVisible}>
     <!-- <!DOCTYPE html> -->
 
     <html lang="en">
@@ -38,6 +46,7 @@
                 }
                 canvas {
                     position: absolute;
+                    visibility: visible;
                 }
             </style>
         </head>
@@ -342,4 +351,4 @@
             </p></body
         >
     </html>
-</main>
+</div>

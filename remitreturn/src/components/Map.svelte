@@ -4,41 +4,46 @@
 	import remit_data from "../../../class-data/money_separated_transactions.json";
     import { onMount } from "svelte";
     import * as d3 from "d3";
+	export let index, offset;
+
 	// console.log(remit_data)
 	let map_loaded = false;
-    let map;
-    let canvas_container;
+    
     let slider_time = 15;
     let slider_label = "Time";
 
-    export let index;
-
 	mapboxgl.accessToken = "pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
+	let container;
+	let map;
+
 	onMount(() => {
-        map = new mapboxgl.Map({
-            container: "map",
-            style: "mapbox://styles/mapbox/light-v11", 
-            center: [-92.896926, 21.796506], 
-            zoom: 4.5, // starting zoom level
-            minZoom: 4,
-            maxZoom: 5,
-        });
-        canvas_container = map.getCanvasContainer();
+		map = new mapboxgl.Map({
+			container,
+			style: "mapbox://styles/mapbox/light-v11", 
+			center: [-92.896926, 21.796506], 
+			zoom: 4.5, // starting zoom level
+			minZoom: 4,
+			maxZoom: 5,
+		});
+		container = map.getCanvasContainer();
 
-        map.on("viewreset", position_country_markers);
-        map.on("move", position_country_markers);
-        map.on("moveend", position_country_markers);
-
-        map.on("load", () => {
-		map_loaded = true;
-		create_country_markers(country_data);
-		tallyRemits(remit_data);
-		update_country_markers();
-	    });
+		map.on("load", () => {
+			map_loaded = true;
+			create_country_markers(country_data);
+			tallyRemits(remit_data);
+			update_country_markers();
+		});
+			
+		map.on("viewreset", position_country_markers);
+		map.on("move", position_country_markers);
+		map.on("moveend", position_country_markers);
 
     });
 
+	
+
 	function create_country_markers(country_data) {
+		console.log("creating country markers");
 		country_markers = marker_container
 			.selectAll("circle")
 			.data(country_data)
@@ -53,10 +58,12 @@
 				return d["name"];
 			});
         
-			position_country_markers();
+		position_country_markers();
 	}
 
 	function position_country_markers() {
+		console.log("positioning country markers");
+
 		country_markers
 			.attr("cx", function (d) {
 				return project(d).x;
@@ -105,28 +112,35 @@
 
     let isVisible = false;
 
-    $: if (index == 3) {
+    $: if (index >= 4) {
         isVisible = true;
     } else {
         isVisible = false;
     }
 
     const marker_container = d3
-		.select(canvas_container)
+		.select(container)
 		.append("svg")
 		.attr("width", "100%")
 		.attr("height", "100%")
-		.style("position", "absolute")
+		.style("position", "relative")
 		.style("z-index", 2);
 
 </script>
 
+<svelte:head>
+  <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css"
+  />
+</svelte:head>
 
-<!-- <style>
+
+<style>
     .map {
       width: 100%;
       height: 100vh; /* check problem when setting width */
-      position: absolute;
+      position: relative;
       opacity: 0;
       visibility: hidden;
       transition: opacity 2s, visibility 2s;
@@ -137,10 +151,14 @@
       opacity: 1;
       visibility: visible;
     }
-  </style> -->
+</style>
 
-<div class="map" class:visible={isVisible} bind:this={canvas_container}/>
-<!-- <div>
+<div class="map" class:visible={isVisible} bind:this={container}/>
+
+<!-- <div id="map" ></div> -->
+
+
+<div>
 	<div class="overlay">
 		<label>{slider_label}</label>
 		<input
@@ -151,4 +169,4 @@
 			bind:value={slider_time}
 		/>
 	</div>
-</div> -->
+</div>

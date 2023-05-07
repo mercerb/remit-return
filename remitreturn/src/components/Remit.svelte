@@ -10,6 +10,8 @@
   import MiddleText from "../components/MiddleText.svelte";
   import SankeyText from "./SankeyText.svelte";
 
+  import Sankey2 from "../components/Sankey2.svelte";
+
   let count, index, offset, progress;
   let width, height;
 
@@ -36,9 +38,11 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
+
+    <Map {index} {offset}/>
     
     <div class="progress-bars">
-      <!-- <p>current section: <strong>{index + 1}/{count}</strong></p>
+      <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
 
       <p>offset in current section</p>
@@ -47,7 +51,7 @@
       <p>total progress</p>
       <progress value={progress || 0} />
 
-      <p>current index: {index}</p> -->
+      <p>current index: {index}</p>
     </div>
   </div>
 
@@ -58,25 +62,25 @@
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
-      <Sankey {index} />
-    </section>
-    <section>
-      <!-- Section 2 (index == 1)-->
-      <SankeyText {index} />
+      <!-- <Sankey {index} /> -->
+      <Sankey2 {index} />
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
+      <SankeyText {index} />
+    </section>
+    <section>
+      <!-- Section 4 (index == 3)-->
       Cost of migration projected over time (months).
       <LineChart2 {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
+      <!-- Section 5 (index == 4)-->
       <MiddleText />
     </section>
     <section>
-      <!-- Section 4 (map) (index == 3) -->
-      <!-- <Map {index}/> -->
-      <Map {index}/>
+      <!-- Section 6 (map) (index == 5) -->      
     </section>
   </div>
 </Scroller>
