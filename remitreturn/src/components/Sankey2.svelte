@@ -24,7 +24,7 @@
     bottom: 0,
   };
 
-  export let index;
+  export let index, visible_index;
 
   export let size = undefined;
   export let nodeId = undefined;
@@ -39,7 +39,7 @@
 
   let nodes, links;
   $: {
-    if (index == 1) {
+    if (index == visible_index) {
       const sankey = d3sankey();
 
       if (size) sankey.size(size);
@@ -85,7 +85,7 @@
   width={width + margin.left + margin.right}
   height={height + margin.top + margin.bottom}>
   <g>
-    {#if index == 1}
+    {#if index == visible_index}
     <g>
       {#each links as link, i (`link-${i}`)}
         <path

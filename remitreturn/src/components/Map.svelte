@@ -4,9 +4,8 @@
 	import remit_data from "../../../class-data/money_separated_transactions.json";
     import { onMount } from "svelte";
     import * as d3 from "d3";
-	export let index, offset;
+	export let index, visible_index, offset;
 
-	// console.log(remit_data)
 	let map_loaded = false;
     
     let slider_time = 15;
@@ -15,17 +14,30 @@
 	mapboxgl.accessToken = "pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
 	let container;
 	let map;
+	let zoomLevel;
+
+	function updateZoomLevel() {
+		const screenWidth = window.innerWidth;
+		zoomLevel = screenWidth <= 600 ? 4 : 5.85; // Adjust these values as needed
+	}
+
+	function handleResize() {
+		updateZoomLevel();
+		map.setZoom(zoomLevel);
+	}
 
 	onMount(() => {
+		updateZoomLevel();
 		map = new mapboxgl.Map({
 			container,
 			style: "mapbox://styles/mapbox/light-v11", 
 			center: [-92.896926, 21.796506], 
 			zoom: 4.5, // starting zoom level
-			minZoom: 4,
-			maxZoom: 5,
+			minZoom: 3,
+			maxZoom: 6,
 		});
-		container = map.getCanvasContainer();
+
+		window.addEventListener("resize", handleResize);
 
 		map.on("load", () => {
 			map_loaded = true;
@@ -112,7 +124,7 @@
 
     let isVisible = false;
 
-    $: if (index >= 4) {
+    $: if (index >= visible_index) {
         isVisible = true;
     } else {
         isVisible = false;
@@ -153,9 +165,7 @@
     }
 </style>
 
-<div class="map" class:visible={isVisible} bind:this={container}/>
-
-<!-- <div id="map" ></div> -->
+<div id="main-map" class="map" class:visible={isVisible} bind:this={container}/>
 
 
 <div>

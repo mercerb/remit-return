@@ -6,7 +6,7 @@
     import { scaleLinear } from "d3-scale";
     import data from "../../../class-data/money_over_time.json";
 
-    export let index, width, height, projection, themeColors;
+    export let index, visible_index, width, height, projection, themeColors;
 
     // set general use variables
     let chartWidth = 600;
@@ -122,21 +122,19 @@
             />
         </g>
         <g>
-            {#if index > 0}
-                {#if index > 1}
-                    {#each data as migrant, _}
-                        <polyline
-                            points={getDataPoints(migrant.values)}
-                            fill="none"
-                            stroke={getLineColor(migrant)}
-                            stroke-width="3"
-                            transition:draw={{
-                                duration: 5000,
-                                easing: cubicInOut,
-                            }}
-                        />
-                    {/each}
-                {/if}
+            {#if index > visible_index}
+                {#each data as migrant, _}
+                    <polyline
+                        points={getDataPoints(migrant.values)}
+                        fill="none"
+                        stroke={getLineColor(migrant)}
+                        stroke-width="3"
+                        transition:draw={{
+                            duration: 5000,
+                            easing: cubicInOut,
+                        }}
+                    />
+                {/each}
             {/if}
         </g>
 
@@ -178,7 +176,7 @@
     </svg>
 </div>
 
-<div id="chart" />
+<div id="line-chart-2" />
 
 <style>
     .LineChart2 {

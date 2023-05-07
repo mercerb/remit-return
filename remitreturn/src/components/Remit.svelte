@@ -1,16 +1,15 @@
 <script>
   import * as d3 from "d3";
-  import LineChart2 from "../components/LineChart2.svelte";
   import LineChart from "../components/LineChart.svelte";
+  import LineChart2 from "../components/LineChart2.svelte";
   import Sankey from "../components/Sankey.svelte";
-  import Map from "../components/Map.svelte";
+  import Sankey2 from "../components/Sankey2.svelte";
 
+  import Map from "../components/Map.svelte";
   import Scroller from "@sveltejs/svelte-scroller";
   import IntroText from "../components/IntroText.svelte";
   import MiddleText from "../components/MiddleText.svelte";
   import SankeyText from "./SankeyText.svelte";
-
-  import Sankey2 from "../components/Sankey2.svelte";
 
   let count, index, offset, progress;
   let width, height;
@@ -39,8 +38,8 @@
     bind:clientHeight={height}
   >
 
-    <Map {index} {offset}/>
-    
+  <Map visible_index=5 {index} {offset} /> 
+      
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
@@ -63,16 +62,16 @@
     <section>
       <!-- Section 2 (index == 1)-->
       <!-- <Sankey {index} /> -->
-      <Sankey2 {index} />
+      <Sankey2 visible_index=1 {index} />
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
-      <SankeyText {index} />
+      <SankeyText />
     </section>
     <section>
       <!-- Section 4 (index == 3)-->
-      Cost of migration projected over time (months).
-      <LineChart2 {index} {width} {height} {themeColors} />
+      Cost of migration projected over time (months). index: {index}
+      <LineChart2 visible_index=2 {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
@@ -80,7 +79,8 @@
       <MiddleText />
     </section>
     <section>
-      <!-- Section 6 (map) (index == 5) -->      
+      <!-- Section 6 (map) (index == 5) -->    
+      <!-- <Map visible_index=5 {index} {offset} />    -->
     </section>
   </div>
 </Scroller>
