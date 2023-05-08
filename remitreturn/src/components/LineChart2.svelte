@@ -6,7 +6,7 @@
     import { scaleLinear } from "d3-scale";
     import data from "../../../class-data/money_over_time.json";
 
-    export let index, visible_index, width, height, projection, themeColors;
+    export let index, visible_index, width, height, themeColors;
 
     // set general use variables
     let chartWidth = 600;

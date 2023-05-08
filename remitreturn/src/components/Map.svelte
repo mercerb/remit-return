@@ -1,20 +1,32 @@
 <script>
-    import mapboxgl from "mapbox-gl";
+	import * as d3 from "d3";
+	import { onMount } from "svelte";
+	import mapboxgl from "mapbox-gl";
+	mapboxgl.accessToken =
+		"pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
 	import country_data from "../../../class-data/country_data.json";
 	import remit_data from "../../../class-data/money_separated_transactions.json";
-    import { onMount } from "svelte";
-    import * as d3 from "d3";
+
 	export let index, visible_index, offset;
-
 	let map_loaded = false;
-    
-    let slider_time = 15;
-    let slider_label = "Time";
+	let isVisible = false;
+	let slider_time = 15;
+	let slider_label = "Time";
+	let remits = new Array(4).fill(0);
+	let container, map, zoomLevel, country_markers;
 
-	mapboxgl.accessToken = "pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
-	let container;
-	let map;
-	let zoomLevel;
+	// Svelte reactive statements
+	$: {
+		let filterd_remits = remit_data.filter((x) => x.month <= slider_time);
+		tallyRemits(filterd_remits);
+		if (map_loaded) update_country_markers();
+	}
+
+	$: if (index >= visible_index) {
+		isVisible = true;
+	} else {
+		isVisible = false;
+	}
 
 	function updateZoomLevel() {
 		const screenWidth = window.innerWidth;
@@ -30,8 +42,8 @@
 		updateZoomLevel();
 		map = new mapboxgl.Map({
 			container,
-			style: "mapbox://styles/mapbox/light-v11", 
-			center: [-92.896926, 21.796506], 
+			style: "mapbox://styles/mapbox/light-v11",
+			center: [-92.896926, 21.796506],
 			zoom: 4.5, // starting zoom level
 			minZoom: 3,
 			maxZoom: 6,
@@ -45,14 +57,11 @@
 			tallyRemits(remit_data);
 			update_country_markers();
 		});
-			
+
 		map.on("viewreset", position_country_markers);
 		map.on("move", position_country_markers);
 		map.on("moveend", position_country_markers);
-
-    });
-
-	
+	});
 
 	function create_country_markers(country_data) {
 		console.log("creating country markers");
@@ -69,7 +78,7 @@
 			.attr("name", function (d) {
 				return d["name"];
 			});
-        
+
 		position_country_markers();
 	}
 
@@ -89,84 +98,53 @@
 		return map.project(new mapboxgl.LngLat(+d.lon, +d.lat));
 	}
 
-	// Add up all remitances/money recieved by each country
+	// Add up all remittances/money recieved by each country
 	function tallyRemits(remit_data) {
 		remits.fill(0);
 		for (let i = 0; i < remit_data.length; ++i) {
 			remits[remit_data[i]["home_country"]] += remit_data[i]["remit"];
 			remits[3] += remit_data[i]["money_us"];
 		}
-		// console.log(remits)
+		// console.log(remits);
 	}
 
 	function update_country_markers() {
 		country_markers
 			.transition()
 			.duration(500)
-			.attr("r", (d) => scaleRadiusRemits(remits[d["id"]]))
+			.attr("r", (d) => scaleRadiusRemits(remits[d["id"]]));
 	}
 
-	function scaleRadiusRemits(remits, maxRemits=40000) {
-		const scaleRadius = d3.scaleSqrt().domain([0, 1, maxRemits])
+	function scaleRadiusRemits(remits, maxRemits = 40000) {
+		const scaleRadius = d3
+			.scaleSqrt()
+			.domain([0, 1, maxRemits])
 			.range([0, 3, 30]);
-		return scaleRadius(remits)
+		return scaleRadius(remits);
 	}
 
-	let country_markers;
-	let remits = new Array(4).fill(0)
-
-	
-	$: {
-		let filterd_remits = remit_data.filter(x => x.month <= slider_time)
-		tallyRemits(filterd_remits);
-		if(map_loaded) update_country_markers();
-	}
-
-    let isVisible = false;
-
-    $: if (index >= visible_index) {
-        isVisible = true;
-    } else {
-        isVisible = false;
-    }
-
-    const marker_container = d3
+	const marker_container = d3
 		.select(container)
 		.append("svg")
 		.attr("width", "100%")
 		.attr("height", "100%")
 		.style("position", "relative")
 		.style("z-index", 2);
-
 </script>
 
 <svelte:head>
-  <link
-    rel="stylesheet"
-    href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css"
-  />
+	<link
+		rel="stylesheet"
+		href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css"
+	/>
 </svelte:head>
 
-
-<style>
-    .map {
-      width: 100%;
-      height: 100vh; /* check problem when setting width */
-      position: relative;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 2s, visibility 2s;
-      outline: blue solid 3px;
-    }
-  
-    .map.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-</style>
-
-<div id="main-map" class="map" class:visible={isVisible} bind:this={container}/>
-
+<div
+	id="main-map"
+	class="map"
+	class:visible={isVisible}
+	bind:this={container}
+/>
 
 <div>
 	<div class="overlay">
@@ -175,8 +153,25 @@
 			id="slider"
 			type="range"
 			min="0"
-			max={`${Math.max(...remit_data.map(x => x.month))}`}
+			max={`${Math.max(...remit_data.map((x) => x.month))}`}
 			bind:value={slider_time}
 		/>
 	</div>
 </div>
+
+<style>
+	.map {
+		width: 100%;
+		height: 100vh; /* check problem when setting width */
+		position: relative;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity 2s, visibility 2s;
+		outline: blue solid 3px;
+	}
+
+	.map.visible {
+		opacity: 1;
+		visibility: visible;
+	}
+</style>

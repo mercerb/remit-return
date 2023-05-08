@@ -1,8 +1,6 @@
 <script>
   import * as d3 from "d3";
-  import LineChart from "../components/LineChart.svelte";
   import LineChart2 from "../components/LineChart2.svelte";
-  import Sankey from "../components/Sankey.svelte";
   import Sankey2 from "../components/Sankey2.svelte";
 
   import Map from "../components/Map.svelte";
@@ -37,9 +35,8 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
+    <Map visible_index="5" {index} {offset} />
 
-  <Map visible_index=5 {index} {offset} /> 
-      
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
@@ -62,7 +59,7 @@
     <section>
       <!-- Section 2 (index == 1)-->
       <!-- <Sankey {index} /> -->
-      <Sankey2 visible_index=1 {index} />
+      <Sankey2 visible_index="1" {index} />
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
@@ -71,7 +68,7 @@
     <section>
       <!-- Section 4 (index == 3)-->
       Cost of migration projected over time (months). index: {index}
-      <LineChart2 visible_index=2 {index} {width} {height} {themeColors} />
+      <LineChart2 visible_index="2" {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
@@ -79,7 +76,7 @@
       <MiddleText />
     </section>
     <section>
-      <!-- Section 6 (map) (index == 5) -->    
+      <!-- Section 6 (map) (index == 5) -->
       <!-- <Map visible_index=5 {index} {offset} />    -->
     </section>
   </div>
