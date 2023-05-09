@@ -5,18 +5,12 @@
 	mapboxgl.accessToken =
 		"pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
 	import country_data from "../../../class-data/country_data.json";
-
 	import remit_data from "../../../class-data/money_separated_transactions.json";
 
 	export let index, visible_index, progress;
 	let map_loaded = false;
 	let isVisible = false;
-	let slider_time = 15;
-	let slider_label = "Time";
 	let filtered_remits = [];
-	let initial_progress = 0.65;
-	let progress_marker = 0.65;
-	let max_months = 15;
 	let curr_month = 0;
 	let container;
 	let remits = new Array(4).fill(0);
@@ -25,21 +19,17 @@
 	// Svelte reactive statements
 	$: {
 		if (remit_data.length != 0) {
-			// let progress_by_month = (1 - initial_progress) / max_months;
-			// if (progress - progress_marker >= progress_by_month) {
-			// 	curr_month += 1;
-			// 	progress_marker = progress;
-			// }
-			curr_month = Math.floor(15 * ((progress - 0.65) / (1 - 0.65)));
-			console.log("month: " + curr_month + " progress: " + progress);
+			const initial_prog = 0.65;
+			const max_months = 15;
+			let m = Math.floor(
+				max_months * ((progress - initial_prog) / (1 - initial_prog))
+			);
+			curr_month = Math.max(0, m);
+			// console.log("month: " + curr_month + " progress: " + progress);
 			filtered_remits = remit_data.filter((x) => x.month <= curr_month);
 			tallyRemits(filtered_remits);
 			if (map_loaded) update_country_markers();
 		}
-		// slider_label = sliderTimeScale(slider_time).toLocaleTimeString([], {
-		// 	hour: "numeric",
-		// 	minute: "2-digit",
-		// });
 	}
 
 	$: if (index >= visible_index) {
@@ -129,21 +119,20 @@
 			.attr("r", (d) => scaleRadiusRemits(remits[d["id"]]));
 	}
 
-	// Add up all remittances/money recieved by each country
+	// Add up all remittances/money received by each country
 	function tallyRemits(remit_data) {
 		remits.fill(0);
 		for (let i = 0; i < remit_data.length; ++i) {
 			remits[remit_data[i]["home_country"]] += remit_data[i]["remit"];
 			remits[3] += remit_data[i]["money_us"];
 		}
-		// console.log(remits);
 	}
 
 	function scaleRadiusRemits(remits, maxRemits = 40000) {
 		const scaleRadius = d3
-			.scaleSqrt()
+			.scaleSqrt() // TODO: look at other options to scale more dramatically
 			.domain([0, 1, maxRemits])
-			.range([0, 3, 30]);
+			.range([0, 4, 40]);
 		return scaleRadius(remits);
 	}
 </script>
@@ -155,20 +144,13 @@
 	/>
 </svelte:head>
 
-<div class="map" class:visible={isVisible} bind:this={container} />
-
-<!-- <main>
-	<div class="overlay">
-		<label>{slider_label}</label>
-		<input
-			id="slider"
-			type="range"
-			min="0"
-			max={`${Math.max(...remit_data.map((x) => x.month))}`}
-			bind:value={slider_time}
-		/>
-	</div>
-</main> -->
+<div class="map" class:visible={isVisible} bind:this={container}>
+	<svg class="map-label">
+		<text class="map-label-text" x="30" y="30">
+			Months since migration: {curr_month}
+		</text>
+	</svg>
+</div>
 
 <style>
 	.map {
@@ -184,5 +166,20 @@
 	.map.visible {
 		opacity: 1;
 		visibility: visible;
+	}
+
+	.map-label {
+		position: absolute;
+		/* outline: greenyellow solid 3px; */
+		width: 100%;
+		z-index: 4;
+		left: 10px;
+		bottom: 10px;
+		padding: 10px;
+	}
+
+	.map-label-text {
+		fill: darkslategray;
+		font: bold 30px sans-serif;
 	}
 </style>
