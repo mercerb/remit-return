@@ -5,7 +5,7 @@
 	mapboxgl.accessToken =
 		"pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
 	import country_data from "../../../class-data/country_data.json";
-	import country_data_geo from "../../../class-data/country_data_geo.json";
+	// import country_data_geo from "../../../class-data/country_data_geo.json";
 
 	import remit_data from "../../../class-data/money_separated_transactions.json";
 
