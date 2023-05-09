@@ -91,7 +91,7 @@
   }
 
   .foreground {
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     height: auto;
     position: relative;
@@ -104,13 +104,13 @@
   }
 
   section {
-    height: 80vh;
+    height: 90vh;
     /* background-color: rgba(0, 0, 0, 0.2); 20% opaque */
     /* color: white; */
     text-align: center;
-    max-width: 750px; /* adjust at will */
+    max-width: 850px; /* adjust at will */
     color: black;
-    padding: 1em;
+    padding: 0em;
     margin: 0 0 2em 0;
   }
 </style>
