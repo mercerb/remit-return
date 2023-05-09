@@ -5,33 +5,42 @@
 	mapboxgl.accessToken =
 		"pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
 	import country_data from "../../../class-data/country_data.json";
-	// import country_data_geo from "../../../class-data/country_data_geo.json";
 
 	import remit_data from "../../../class-data/money_separated_transactions.json";
 
-	export let index, visible_index, offset;
+	export let index, visible_index, progress;
 	let map_loaded = false;
 	let isVisible = false;
 	let slider_time = 15;
 	let slider_label = "Time";
 	let filtered_remits = [];
+	let initial_progress = 0.65;
+	let progress_marker = 0.65;
+	let max_months = 15;
+	let curr_month = 0;
 	let container;
 	let remits = new Array(4).fill(0);
 	let marker_container, map, zoomLevel, country_markers;
 
 	// Svelte reactive statements
-
-	// $: {
-	// 	if (remit_data.length != 0) {
-	// 		filtered_remits = remit_data.filter((x) => x.month <= slider_time);
-	// 		tallyRemits(filtered_remits);
-	// 		if (map_loaded) update_country_markers();
-	// 	}
-	// 	/* slider_label = sliderTimeScale(slider_time).toLocaleTimeString([], {
-	//         hour: "numeric",
-	//         minute: "2-digit",
-	//     }); */
-	// }
+	$: {
+		if (remit_data.length != 0) {
+			// let progress_by_month = (1 - initial_progress) / max_months;
+			// if (progress - progress_marker >= progress_by_month) {
+			// 	curr_month += 1;
+			// 	progress_marker = progress;
+			// }
+			curr_month = Math.floor(15 * ((progress - 0.65) / (1 - 0.65)));
+			console.log("month: " + curr_month + " progress: " + progress);
+			filtered_remits = remit_data.filter((x) => x.month <= curr_month);
+			tallyRemits(filtered_remits);
+			if (map_loaded) update_country_markers();
+		}
+		// slider_label = sliderTimeScale(slider_time).toLocaleTimeString([], {
+		// 	hour: "numeric",
+		// 	minute: "2-digit",
+		// });
+	}
 
 	$: if (index >= visible_index) {
 		isVisible = true;
@@ -64,7 +73,7 @@
 			.select(map.getCanvasContainer())
 			.append("svg")
 			.attr("width", "100%")
-			.attr("height", "100%")
+			.attr("height", "100vh")
 			.style("position", "relative")
 			.style("z-index", 2);
 
@@ -73,14 +82,13 @@
 		map.on("load", () => {
 			map_loaded = true;
 			create_country_markers(country_data);
-			//tallyRemits(remit_data);
-			//update_country_markers();
+			tallyRemits(remit_data);
+			update_country_markers();
 
 			map.on("viewreset", position_country_markers);
 			map.on("move", position_country_markers);
 			map.on("moveend", position_country_markers);
 		});
-	
 	});
 
 	function create_country_markers(country_data) {
@@ -98,7 +106,6 @@
 				return d["name"];
 			});
 
-		console.log("about to position country markers: ", country_markers);
 		position_country_markers();
 	}
 
@@ -166,7 +173,7 @@
 <style>
 	.map {
 		width: 100%;
-		height: 100vh; /* check problem when setting width */
+		height: 100vh;
 		position: absolute;
 		opacity: 0;
 		visibility: hidden;

@@ -1,0 +1,57 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    15.2,
+                    -90.6
+                ]
+            },
+            "properties": {
+                "name": "GT"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.8,
+                    -86.7
+                ]
+            },
+            "properties": {
+                "name": "HND"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.5,
+                    -88.8
+                ]
+            },
+            "properties": {
+                "name": "SLV"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    31.9,
+                    -94.1
+                ]
+            },
+            "properties": {
+                "name": "USA"
+            }
+        }
+    ]
+}

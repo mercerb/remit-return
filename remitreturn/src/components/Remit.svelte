@@ -35,7 +35,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
-    <Map visible_index="5" {index} {offset} />
+    <Map visible_index="5" {index} {progress} />
 
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
@@ -77,8 +77,10 @@
     </section>
     <section>
       <!-- Section 6 (map) (index == 5) -->
-      <!-- <Map visible_index=5 {index} {offset} />    -->
+      <!-- <Map visible_index="5" {index} {offset} /> -->
     </section>
+    <section />
+    <section />
   </div>
 </Scroller>
 
