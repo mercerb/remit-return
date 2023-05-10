@@ -16,6 +16,9 @@
 	let remits = new Array(4).fill(0);
 	let marker_container, map, zoomLevel, country_markers;
 
+	let cumulative_us_money = 0;
+	let cumulative_avg_nt_remits = 0;
+
 	// Svelte reactive statements
 	$: {
 		if (remit_data.length != 0) {
@@ -126,6 +129,10 @@
 			remits[remit_data[i]["home_country"]] += remit_data[i]["remit"];
 			remits[3] += remit_data[i]["money_us"];
 		}
+		cumulative_avg_nt_remits = Math.floor(
+			(1 / 3) * (remits[0] + remits[1] + remits[2])
+		);
+		cumulative_us_money = remits[3];
 	}
 
 	function scaleRadiusRemits(remits, maxRemits = 40000) {
@@ -148,6 +155,12 @@
 	<svg class="map-label">
 		<text class="map-label-text" x="30" y="30">
 			Months since migration: {curr_month}
+		</text>
+		<text class="map-label-text" x="30" y="60">
+			Money fed to US economy: ${cumulative_us_money}
+		</text>
+		<text class="map-label-text" x="30" y="90">
+			Remittances sent to Northern Triangle (avg by country): ${cumulative_avg_nt_remits}
 		</text>
 	</svg>
 </div>

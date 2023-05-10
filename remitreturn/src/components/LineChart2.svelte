@@ -58,8 +58,10 @@
             }
 
             let size_extent = [Math.round(minCost), Math.round(maxCost + 1)];
-            let size_increment = Math.floor((size_extent[1] - size_extent[0]) / numTicks);
-            size_increment = 1000*Math.round(size_increment/1000);
+            let size_increment = Math.floor(
+                (size_extent[1] - size_extent[0]) / numTicks
+            );
+            size_increment = 1000 * Math.round(size_increment / 1000);
             for (
                 let i = size_extent[0];
                 i < size_extent[1];
@@ -98,6 +100,8 @@
 </script>
 
 <div class="LineChart2">
+    Cost of migration projected over time (months).
+
     <svg width={chartWidth} height={chartHeight} id={idContainer}>
         <!-- draw X and Y axes -->
         <g>
@@ -183,5 +187,8 @@
         width: 100%;
         height: 100vh; /* check problem when setting width */
         position: relative;
+        text-align: center;
+        font-size: 15px;
+        font-family: sans-serif;
     }
 </style>

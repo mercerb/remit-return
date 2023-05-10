@@ -12,10 +12,16 @@
     }
 </script>
 
-<div>
+<div class="people-text">
     If the population of migrants were 10 people, what would they look like? Who
     would we meet?
+
+    To better understand the tradeoff between the cost
+    of migration, remittances, and money entering the USA, we have
+    identified 10 migrants who represent a statistically similar sample of
+    this larger group.
 </div>
+
 {#each ten_migrants as migrant}
     <div class="person">
         <TextTooltip title={getTooltipTitle(migrant)}>
@@ -31,5 +37,11 @@
 <style>
     .person {
         display: inline-block;
+    }
+
+    .people-text {
+        position: left;
+        font-size: 20px;
+        font-family: sans-serif;
     }
 </style>

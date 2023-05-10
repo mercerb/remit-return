@@ -7,8 +7,8 @@
   import Sankey from "../components/Sankey.svelte";
   import Sankey2 from "../components/Sankey2.svelte";
   import People from "../components/People.svelte";
-  import IntroText from "../components/IntroText.svelte";
-  import MiddleText from "../components/MiddleText.svelte";
+  import TextIntro from "../components/TextIntro.svelte";
+  import TextMiddle from "../components/TextMiddle.svelte";
   import SankeyText from "./SankeyText.svelte";
 
   let count, index, offset, progress;
@@ -37,7 +37,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
-    <Map visible_index="5" {index} {progress} />
+    <Map visible_index="6" {index} {progress} />
 
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
@@ -56,15 +56,12 @@
   <div class="foreground" slot="foreground">
     <section>
       <!-- Section 1 (index == 0)-->
-      <IntroText />
-    </section>
-    <section>
-      <People />
+      <TextIntro />
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
-      <!-- <Sankey {index} /> -->
-      <Sankey2 visible_index="1" {index} />
+      <!-- <Sankey2 visible_index="1" {index} /> -->
+      <Sankey {index} />
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
@@ -72,19 +69,22 @@
     </section>
     <section>
       <!-- Section 4 (index == 3)-->
-      Cost of migration projected over time (months). index: {index}
+      <People />
+    </section>
+    <section>
+      <!-- Section 5 (index == 4)-->
       <LineChart2 visible_index="2" {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
-      <!-- Section 5 (index == 4)-->
-      <MiddleText />
+      <!-- Section 6 (index == 5)-->
+      <TextMiddle />
     </section>
     <section>
-      <!-- Section 6 (map) (index == 5) -->
-      <!-- <Map visible_index="5" {index} {offset} /> -->
+      <!-- Section 7 (index == 6): map (visible in the back) -->
     </section>
     <section />
+    <!-- Section 8 (index == 7): map (visible in the back) -->
     <section />
   </div>
 </Scroller>

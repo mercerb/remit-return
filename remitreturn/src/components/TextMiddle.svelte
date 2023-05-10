@@ -1,4 +1,4 @@
-<div class="MiddleText">
+<div class="TextMiddle">
     <p>
         As seen in the above graph, the time it takes to pay off the cost of the
         migration depends on the job secured by the migrant in the destination
@@ -18,7 +18,9 @@
 </div>
 
 <style>
-    .MiddleText {
+    .TextMiddle {
+        text-align: left;
         font-size: 20px;
+        font-family: sans-serif;
     }
 </style>

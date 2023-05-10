@@ -1,17 +1,8 @@
-<h2>RemitReturn</h2>
+<script>
+</script>
 
-<div class="IntroText">
-    <p>
-        Economic insecurity is the leading cause of migration. Despite the costs
-        - both financial and emotional - associated with migrating from the
-        Northern Triangle (El Salvador, Honduras, and Guatemala) to the United
-        States, indviduals take on this burden year after year in search of
-        better salaries, working conditions, and opportunities to send money
-        home. Migrants who end up working in the destination country long enough
-        not only offset the cost of their migration and send remittances home,
-        but also spend money in the United States (for food, housing, etc),
-        invigorating the economy. Data sourced from the UN World Food Programme (WFP).
-    </p>
+<div class="Sources Detail">
+    <h2>RemitReturn: Sources and Methodology</h2>
 
     <p>
         The data displayed here is a subset of the class data. This subset
@@ -33,8 +24,9 @@
 </div>
 
 <style>
-    .IntroText {
-        position: center;
+    .TextIntro {
+        position: left;
         font-size: 20px;
+        font-family: sans-serif;
     }
 </style>
