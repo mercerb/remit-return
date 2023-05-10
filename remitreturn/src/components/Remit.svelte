@@ -1,10 +1,11 @@
 <script>
   import * as d3 from "d3";
+  import Scroller from "@sveltejs/svelte-scroller";
+
   import LineChart2 from "../components/LineChart2.svelte";
   import Sankey2 from "../components/Sankey2.svelte";
-
   import Map from "../components/Map.svelte";
-  import Scroller from "@sveltejs/svelte-scroller";
+  import People2 from "../components/People2.svelte";
   import IntroText from "../components/IntroText.svelte";
   import MiddleText from "../components/MiddleText.svelte";
   import SankeyText from "./SankeyText.svelte";
@@ -55,6 +56,9 @@
     <section>
       <!-- Section 1 (index == 0)-->
       <IntroText />
+    </section>
+    <section>
+      <People2 />
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
