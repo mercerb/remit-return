@@ -3,9 +3,10 @@
   import Scroller from "@sveltejs/svelte-scroller";
 
   import LineChart2 from "../components/LineChart2.svelte";
-  import Sankey2 from "../components/Sankey2.svelte";
   import Map from "../components/Map.svelte";
-  import People2 from "../components/People2.svelte";
+  import Sankey from "../components/Sankey.svelte";
+  import Sankey2 from "../components/Sankey2.svelte";
+  import People from "../components/People.svelte";
   import IntroText from "../components/IntroText.svelte";
   import MiddleText from "../components/MiddleText.svelte";
   import SankeyText from "./SankeyText.svelte";
@@ -58,7 +59,7 @@
       <IntroText />
     </section>
     <section>
-      <People2 />
+      <People />
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
