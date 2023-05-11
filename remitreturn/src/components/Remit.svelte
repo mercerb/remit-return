@@ -7,6 +7,7 @@
   import Sankey from "../components/Sankey.svelte";
   import Sankey2 from "../components/Sankey2.svelte";
   import People from "../components/People.svelte";
+  import PeopleDetail from "../components/PeopleDetail.svelte";
   import TextIntro from "../components/TextIntro.svelte";
   import TextMiddle from "../components/TextMiddle.svelte";
   import SankeyText from "./SankeyText.svelte";
@@ -60,31 +61,39 @@
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
+      Here we will have the economic bar graph
+    </section>
+    <section>
+      <!-- Section 3 (index == 2)-->
       <Sankey2 visible_index="1" {index} />
       <!-- <Sankey {index} /> -->
     </section>
     <section>
-      <!-- Section 3 (index == 2)-->
+      <!-- Section 4 (index == 3)-->
       <SankeyText />
     </section>
     <section>
-      <!-- Section 4 (index == 3)-->
+      <!-- Section 5 (index == 4)-->
       <People {themeColors} />
     </section>
     <section>
-      <!-- Section 5 (index == 4)-->
+      <!-- Section 6 (index == 5)-->
+      <PeopleDetail {themeColors} />
+    </section>
+    <section>
+      <!-- Section 7 (index == 6)-->
       <LineChart2 visible_index="2" {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
-      <!-- Section 6 (index == 5)-->
+      <!-- Section 8 (index == 7)-->
       <TextMiddle />
     </section>
     <section>
-      <!-- Section 7 (index == 6): map (visible in the back) -->
+      <!-- Section 9 (index == 8): map (visible in the back) -->
     </section>
     <section />
-    <!-- Section 8 (index == 7): map (visible in the back) -->
+    <!-- Section 10 (index == 9): map (visible in the back) -->
     <section />
   </div>
 </Scroller>

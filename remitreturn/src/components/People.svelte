@@ -1,5 +1,4 @@
-<!-- App.svelte -->
-<script>
+<script >
     import IconWoman from "../icons/woman.svelte";
     import IconMan from "../icons/man.svelte";
 
@@ -43,16 +42,29 @@
     </p>
 </div>
 
-{#each ten_migrants as migrant}
-    <div class="person">
-        <TextTooltip title={getTooltipTitle(migrant)}>
-            {#if migrant.mig_ext_sex === "Man"}
-                <IconMan fill={getIconColor(migrant)} />
-            {:else}
-                <IconWoman fill={getIconColor(migrant)} />
-            {/if}
-        </TextTooltip>
-    </div>
+{#each ten_migrants as migrant, index}
+    {#if index < 5}
+        <div class="person">
+            <TextTooltip title={getTooltipTitle(migrant)}>
+                {#if migrant.mig_ext_sex === "Man"}
+                    <IconMan fill={getIconColor(migrant)} />
+                {:else}
+                    <IconWoman fill={getIconColor(migrant)} />
+                {/if}
+            </TextTooltip>
+        </div>
+    {/if}
+    {#if index >= 5}
+        <div class="person">
+            <TextTooltip title={getTooltipTitle(migrant)}>
+                {#if migrant.mig_ext_sex === "Man"}
+                    <IconMan fill={getIconColor(migrant)} />
+                {:else}
+                    <IconWoman fill={getIconColor(migrant)} />
+                {/if}
+            </TextTooltip>
+        </div>
+    {/if}
 {/each}
 
 <style>
