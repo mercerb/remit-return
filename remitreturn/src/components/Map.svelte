@@ -160,7 +160,10 @@
 			Money fed to US economy: ${cumulative_us_money}
 		</text>
 		<text class="map-label-text" x="30" y="90">
-			Remittances sent to Northern Triangle (avg by country): ${cumulative_avg_nt_remits}
+			Remittances sent to a Northern Triangle
+		</text>
+		<text class="map-label-text" x="30" y="120">
+			country (on average): ${cumulative_avg_nt_remits}
 		</text>
 	</svg>
 </div>
@@ -193,6 +196,6 @@
 
 	.map-label-text {
 		fill: darkslategray;
-		font: bold 30px sans-serif;
+		font: bold 28px sans-serif;
 	}
 </style>

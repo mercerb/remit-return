@@ -60,8 +60,8 @@
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
-      <!-- <Sankey2 visible_index="1" {index} /> -->
-      <Sankey {index} />
+      <Sankey2 visible_index="1" {index} />
+      <!-- <Sankey {index} /> -->
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
@@ -69,7 +69,7 @@
     </section>
     <section>
       <!-- Section 4 (index == 3)-->
-      <People />
+      <People {themeColors} />
     </section>
     <section>
       <!-- Section 5 (index == 4)-->
@@ -111,7 +111,7 @@
   }
 
   section {
-    height: 90vh;
+    height: 70vh;
     /* background-color: rgba(0, 0, 0, 0.2); 20% opaque */
     /* color: white; */
     text-align: center;

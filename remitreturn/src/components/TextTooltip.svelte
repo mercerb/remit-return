@@ -6,12 +6,12 @@
 
     function mouseOver(event) {
         isHovered = true;
-        x = event.pageX + 5;
-        y = event.pageY + 5;
+        x = event.pageX - 240;
+        y = event.pageY - 5;
     }
     function mouseMove(event) {
-        x = event.pageX + 5;
-        y = event.pageY + 5;
+        x = event.pageX - 240;
+        y = event.pageY - 5;
     }
     function mouseLeave() {
         isHovered = false;
@@ -38,5 +38,6 @@
         border-radius: 4px;
         padding: 4px;
         position: absolute;
+        font-family: sans-serif;
     }
 </style>
