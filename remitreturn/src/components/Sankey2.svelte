@@ -15,12 +15,12 @@
 
   import SankeyGroup from "./SankeyGroup.svelte";
 
-  export let width = 500;
-  export let height = 500;
+  export let width = 300;
+  export let height = 400;
   export let margin = {
     top: 0,
     left: 0,
-    right: 200,
+    right: 0,
     bottom: 0,
   };
 
@@ -42,7 +42,7 @@
 
   let nodes, links;
   $: {
-    if (index == visible_index) {
+    if (index >= visible_index) {
       const sankey = d3sankey();
 
       if (size) sankey.size(size);
@@ -84,63 +84,77 @@
   let highlightLinkIndexes = [];
 </script>
 
-<svg
-  width={width + margin.left + margin.right}
-  height={height + margin.top + margin.bottom}
->
-  <g>
-    {#if index == visible_index}
-      <g>
-        {#each links as link, i (`link-${i}`)}
-          <path
-            key={`link-${i}`}
-            d={path(link) || undefined}
-            stroke={highlightLinkIndexes.includes(i) ? "red" : "black"}
-            stroke-width={Math.max(1, link.width)}
-            opacity={highlightLinkIndexes.includes(i) ? 0.5 : 0.1}
-            fill="none"
-            on:mouseover={(e) => {
-              highlightLinkIndexes = [i];
-            }}
-            on:mouseout={(e) => {
-              highlightLinkIndexes = [i];
-            }}
-          />
+<div class="sankey2">
+  <svg
+    width={width + margin.left + margin.right}
+    height={height + margin.top + margin.bottom}
+  >
+    <g>
+      {#if index >= visible_index}
+        <g>
+          {#each links as link, i (`link-${i}`)}
+            <path
+              key={`link-${i}`}
+              d={path(link) || undefined}
+              stroke={highlightLinkIndexes.includes(i) ? "red" : "black"}
+              stroke-width={Math.max(1, link.width)}
+              opacity={highlightLinkIndexes.includes(i) ? 0.5 : 0.1}
+              fill="none"
+              on:mouseover={(e) => {
+                highlightLinkIndexes = [i];
+              }}
+              on:mouseout={(e) => {
+                highlightLinkIndexes = [i];
+              }}
+            />
+          {/each}
+        </g>
+
+        {#each nodes as node, i (`node-${i}`)}
+          <SankeyGroup top={node.y0} left={node.x0}>
+            <rect
+              id={`rect-${i}`}
+              width={node.x1 - node.x0}
+              height={node.y1 - node.y0}
+              fill={color(node.depth)}
+              opacity={0.5}
+              stroke="white"
+              stroke-width={2}
+              on:mouseover={(e) => {
+                highlightLinkIndexes = [
+                  ...node.sourceLinks.map((l) => l.index),
+                  ...node.targetLinks.map((l) => l.index),
+                ];
+              }}
+              on:mouseout={(e) => {
+                highlightLinkIndexes = [];
+              }}
+            />
+
+            <text
+              x={30}
+              y={(node.y1 - node.y0) / 2}
+              dy={5}
+              style="font: 10px sans-serif"
+              _verticalAnchor="middle"
+            >
+              {node.name}
+            </text>
+          </SankeyGroup>
         {/each}
-      </g>
+      {/if}
+    </g>
+  </svg>
+</div>
 
-      {#each nodes as node, i (`node-${i}`)}
-        <SankeyGroup top={node.y0} left={node.x0}>
-          <rect
-            id={`rect-${i}`}
-            width={node.x1 - node.x0}
-            height={node.y1 - node.y0}
-            fill={color(node.depth)}
-            opacity={0.5}
-            stroke="white"
-            stroke-width={2}
-            on:mouseover={(e) => {
-              highlightLinkIndexes = [
-                ...node.sourceLinks.map((l) => l.index),
-                ...node.targetLinks.map((l) => l.index),
-              ];
-            }}
-            on:mouseout={(e) => {
-              highlightLinkIndexes = [];
-            }}
-          />
-
-          <text
-            x={30}
-            y={(node.y1 - node.y0) / 2}
-            dy={5}
-            style="font: 10px sans-serif"
-            _verticalAnchor="middle"
-          >
-            {node.name}
-          </text>
-        </SankeyGroup>
-      {/each}
-    {/if}
-  </g>
-</svg>
+<style>
+  .sankey2 {
+   /* width: 100%;*/
+    height: 100vh; /* check problem when setting width */
+    position: relative;
+    text-align: center;
+    font-size: 15px;
+    font-family: sans-serif;
+    display: block;
+  }
+</style>

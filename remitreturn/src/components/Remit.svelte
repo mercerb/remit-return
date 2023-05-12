@@ -38,7 +38,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
-    <Map visible_index="6" {index} {progress} />
+    <Map visible_index="8" {index} {progress} />
 
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
@@ -65,12 +65,9 @@
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
-      <Sankey2 visible_index="1" {index} />
-      <!-- <Sankey {index} /> -->
-    </section>
-    <section>
-      <!-- Section 4 (index == 3)-->
+      <Sankey2 visible_index="0" {index} {width} {height} />
       <SankeyText />
+      <!-- <Sankey {index} /> -->
     </section>
     <section>
       <!-- Section 5 (index == 4)-->
@@ -82,7 +79,7 @@
     </section>
     <section>
       <!-- Section 7 (index == 6)-->
-      <LineChart2 visible_index="2" {index} {width} {height} {themeColors} />
+      <LineChart2 visible_index="6" {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
@@ -120,9 +117,9 @@
   }
 
   section {
-    height: 70vh;
-    /* background-color: rgba(0, 0, 0, 0.2); 20% opaque */
-    /* color: white; */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
     text-align: center;
     max-width: 850px; /* adjust at will */
     color: black;

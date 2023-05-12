@@ -20,6 +20,7 @@
             <meta charset="utf-8" />
             <!-- <title>Sankey Particles</title> -->
             <!-- <title>Sankey Particles</title> -->
+            <!-- <title>Sankey Particles</title> -->
             <style>
                 .node rect {
                     cursor: move;
@@ -41,7 +42,7 @@
                     stroke-opacity: 1000;
                 }
                 svg {
-                    position: relative; 
+                    position: relative;
                     text-anchor: middle;
                 }
                 canvas {
@@ -352,3 +353,4 @@
         >
     </html>
 </div>
+
