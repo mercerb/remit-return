@@ -1,18 +1,10 @@
 <script>
-    import * as d3 from "d3";
     export let name = "World";
+
     export let index;
-
-    let isVisible = false;
-
-    $: if (index == 1) {
-        isVisible = true;
-    } else {
-        isVisible = false;
-    }
 </script>
 
-<div class="sankey" class:visible={isVisible}>
+<main>
     <!-- <!DOCTYPE html> -->
 
     <html lang="en">
@@ -22,8 +14,9 @@
             <!-- <title>Sankey Particles</title> -->
             <style>
                 .node rect {
-                    cursor: move;
+                    cursor: move ;
                     fill-opacity: 0.9;
+                 
                     shape-rendering: crispEdges;
                 }
                 .node text {
@@ -32,7 +25,7 @@
                 }
                 .link {
                     fill: none;
-                    stroke: burlywood;
+                    stroke: black;
                     stroke-opacity: 0.2;
                 }
                 .link:hover {
@@ -46,7 +39,6 @@
                 }
                 canvas {
                     position: absolute;
-                    visibility: visible;
                 }
             </style>
         </head>
@@ -59,7 +51,7 @@
             </div>
             <p id="sankey">
                 <canvas width="700" height="1100" />
-                <svg width="700" height="1000" />
+                <svg class="sankey-svg" width="700" height="1000" />
 
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"
@@ -79,8 +71,8 @@
                             return formatNumber(d);
                         },
                         color = d3.scale.category20();
-                    var svg = d3
-                        .select("svg")
+                    var svg1 = d3
+                        .select(".sankey-svg")
                         .attr("width", width + margin.left + margin.right)
                         .attr("height", height + margin.top + margin.bottom)
                         .append("g")
@@ -102,7 +94,7 @@
                                 .nodes(energy.nodes)
                                 .links(energy.links)
                                 .layout(32);
-                            var link = svg
+                            var link = svg1
                                 .append("g")
                                 .selectAll(".link")
                                 .data(energy.links)
@@ -124,12 +116,11 @@
                                 return (
                                     d.source.name +
                                     " → " +
-                                    d.target.name +
-                                    "\n" +
-                                    format(d.value)
+                                    d.target.name
+                                    
                                 );
                             });
-                            var node = svg
+                            var node = svg1
                                 .append("g")
                                 .selectAll(".node")
                                 .data(energy.nodes)
@@ -172,7 +163,10 @@
                                         return l.source === d || l.target === d
                                             ? 1
                                             : 0.2;
+                                            
                                     });
+
+
                             }).on("mouseleave", function (d) {
                                 link.transition()
                                     .duration(300)
@@ -226,7 +220,7 @@
                                 .range([1, 5]);
                             energy.links.forEach(function (link) {
                                 link.freq = frequencyScale(link.value);
-                                link.particleSize = 1;
+                                link.particleSize = 1.5;
                                 link.color = d3.scale
                                     .linear()
                                     .domain([0, 1])
@@ -242,7 +236,7 @@
                                         link.target.color,
                                     ]);
                             });
-                            var t = d3.timer(tick, 50);
+                            var t = d3.timer(tick, 0);
                             var particles = [];
                             function tick(elapsed, time) {
                                 particles = particles.filter(function (d) {
@@ -351,4 +345,4 @@
             </p></body
         >
     </html>
-</div>
+</main>
