@@ -1,11 +1,12 @@
 <script>
     import Remit from "../components/Remit.svelte";
-    import LineChart from "../components/LineChart.svelte";
-    import LineChart2 from "../components/LineChart2.svelte";
 </script>
 
 <Remit />
-<!-- <LineChart2 /> -->
+
+<main>
+    <a href="/sources">Learn more about the data</a>
+</main>
 
 <!-- <style>
     main {

@@ -5,15 +5,15 @@
     import { scaleLinear } from "d3-scale";
     import data from "../../../class-data/money_over_time.json";
 
-    export let index, width, height, projection, themeColors;
+    export let index, visible_index, themeColors;
 
     // set general use variables
-    let chartWidth = 600;
+    let chartWidth = 650;
     let chartHeight = 400;
 
     const paddings = {
-        top: 50,
-        left: 60,
+        top: 20,
+        left: 100,
         right: 50,
         bottom: 50,
     };
@@ -57,8 +57,10 @@
             }
 
             let size_extent = [Math.round(minCost), Math.round(maxCost + 1)];
-            let size_increment = Math.floor((size_extent[1] - size_extent[0]) / numTicks);
-            size_increment = 1000*Math.round(size_increment/1000);
+            let size_increment = Math.floor(
+                (size_extent[1] - size_extent[0]) / numTicks
+            );
+            size_increment = 1000 * Math.round(size_increment / 1000);
             for (
                 let i = size_extent[0];
                 i < size_extent[1];
@@ -97,6 +99,15 @@
 </script>
 
 <div class="LineChart2">
+    <div class="line-chart-2-text">
+        <p>
+            Now, let's look at migration cost balance over time for these 10
+            migrants based on their initial migration cost, monthly remittances
+            sent home, and earning potential.
+        </p>
+        <p id="center">Breakeven-Time (in months) on Migration Investment</p>
+    </div>
+
     <svg width={chartWidth} height={chartHeight} id={idContainer}>
         <!-- draw X and Y axes -->
         <g>
@@ -132,8 +143,15 @@
                 <!-- Cost of Migration (USD)  -->
             </text>
         </g>
+        <!-- draw X and Y axis labels -->
+        <text x={-10} y={90} transform="translate(100,100) rotate(90)"
+            >Cost of Migration ($ USD)</text
+        >
+        <text x={chartWidth / 2 - 30} y={chartHeight - 10}
+            >Months Since Migration</text
+        >
         <g>
-            {#if index > 1}
+            {#if index > visible_index}
                 {#each data as migrant, _}
                     <polyline
                         points={getDataPoints(migrant.values)}
@@ -187,12 +205,27 @@
     </svg>
 </div>
 
-<div id="chart" />
+<div id="line-chart-2" />
 
 <style>
     .LineChart2 {
         width: 100%;
-        height: 100vh; /* check problem when setting width */
+        height: 100vh;
         position: relative;
+        text-align: center;
+        font-size: 15px;
+        font-family: sans-serif;
+    }
+
+    .line-chart-2-text {
+        text-align: left;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+
+    #center {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
     }
 </style>

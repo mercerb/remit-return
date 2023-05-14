@@ -127,4 +127,4 @@
   });
 </script>
 
-<div id="chart" />
+<div id="line-chart" />
