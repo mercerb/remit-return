@@ -1,6 +1,5 @@
 <script>
     import * as d3 from "d3";
-    import { onMount } from "svelte";
     import { draw } from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { scaleLinear } from "d3-scale";
@@ -130,6 +129,19 @@
                 stroke-width="2"
                 class="axis"
             />
+            <text
+                x={paddings.left}
+                y={chartHeight - paddings.bottom}
+                transform="translate(0,0) rotate(90)"
+                >
+                <!-- Months  -->
+            </text>
+            <text
+                x={paddings.left} 
+                y={paddings.top}
+                >
+                <!-- Cost of Migration (USD)  -->
+            </text>
         </g>
         <!-- draw X and Y axis labels -->
         <text x={-10} y={90} transform="translate(100,100) rotate(90)"
