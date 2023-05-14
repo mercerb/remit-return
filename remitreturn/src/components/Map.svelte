@@ -146,7 +146,7 @@
 
 <div class="map" class:visible={isVisible} bind:this={container}>
 	<svg class="map-label">
-		<text class="map-label-text" x="30" y="30">
+		<text class="map-label-text" x="200" y="30">
 			Months since migration: {curr_month}
 		</text>
 	</svg>

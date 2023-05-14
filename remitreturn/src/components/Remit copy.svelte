@@ -36,7 +36,7 @@
     bind:clientWidth={width}
     bind:clientHeight={height}
   >
- 
+    <Map visible_index="5" {index} {progress} />
 
     <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
@@ -50,7 +50,6 @@
 
       <p>current index: {index}</p>
     </div>
-   
   </div>
 
   <div class="foreground" slot="foreground">
@@ -90,7 +89,6 @@
     </section>
     <section />
     <section />
-    
   </div>
 </Scroller>
 

@@ -1,18 +1,12 @@
 <script>
-    import * as d3 from "d3";
+  //import { getContext, getContext } from "svelte";
+
     export let name = "World";
+
     export let index;
-
-    let isVisible = false;
-
-    $: if (index == 1) {
-        isVisible = true;
-    } else {
-        isVisible = false;
-    }
 </script>
 
-<div class="sankey" class:visible={isVisible}>
+<main>
     <!-- <!DOCTYPE html> -->
 
     <html lang="en">
@@ -22,8 +16,9 @@
             <!-- <title>Sankey Particles</title> -->
             <style>
                 .node rect {
-                    cursor: move;
+                    cursor: move ;
                     fill-opacity: 0.9;
+                 
                     shape-rendering: crispEdges;
                 }
                 .node text {
@@ -32,7 +27,7 @@
                 }
                 .link {
                     fill: none;
-                    stroke: burlywood;
+                    stroke: black;
                     stroke-opacity: 0.2;
                 }
                 .link:hover {
@@ -46,7 +41,6 @@
                 }
                 canvas {
                     position: absolute;
-                    visibility: visible;
                 }
             </style>
         </head>
@@ -58,14 +52,10 @@
                 <p style="float: right;">US Occupation</p>
             </div>
             <p id="sankey">
-                <canvas width="700" height="1100" />
-                <svg width="700" height="1000" />
+                <canvas id="canvas" width="700" height="800" />
+                <svg class="sankey-svg" width="700" height="700" />
 
-                <script
-                    src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"
-                    charset="utf-8"
-                    type="text/javascript"
-                ></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8" type="text/javascript"></script>
                 <script
                     src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"
                 ></script>
@@ -79,10 +69,10 @@
                             return formatNumber(d);
                         },
                         color = d3.scale.category20();
-                    var svg = d3
-                        .select("svg")
-                        .attr("width", width + margin.left + margin.right)
-                        .attr("height", height + margin.top + margin.bottom)
+                    var svg1 = d3
+                        .select(".sankey-svg")
+                        .attr("width", width)
+                        .attr("height", height)
                         .append("g")
                         .attr(
                             "transform",
@@ -101,8 +91,8 @@
                             sankey
                                 .nodes(energy.nodes)
                                 .links(energy.links)
-                                .layout(32);
-                            var link = svg
+                                .layout(24);
+                            var link = svg1
                                 .append("g")
                                 .selectAll(".link")
                                 .data(energy.links)
@@ -124,12 +114,11 @@
                                 return (
                                     d.source.name +
                                     " → " +
-                                    d.target.name +
-                                    "\n" +
-                                    format(d.value)
+                                    d.target.name
+                                    
                                 );
                             });
-                            var node = svg
+                            var node = svg1
                                 .append("g")
                                 .selectAll(".node")
                                 .data(energy.nodes)
@@ -172,7 +161,10 @@
                                         return l.source === d || l.target === d
                                             ? 1
                                             : 0.2;
+                                            
                                     });
+
+
                             }).on("mouseleave", function (d) {
                                 link.transition()
                                     .duration(300)
@@ -226,7 +218,7 @@
                                 .range([1, 5]);
                             energy.links.forEach(function (link) {
                                 link.freq = frequencyScale(link.value);
-                                link.particleSize = 1;
+                                link.particleSize = 1.5;
                                 link.color = d3.scale
                                     .linear()
                                     .domain([0, 1])
@@ -242,14 +234,20 @@
                                         link.target.color,
                                     ]);
                             });
-                            var t = d3.timer(tick, 50);
+                              var t = d3.timer(tick, -100);
+                            
                             var particles = [];
                             function tick(elapsed, time) {
-                                particles = particles.filter(function (d) {
-                                    return d.current < d.path.getTotalLength();
-                                });
+                               particles = particles.filter(function (d) {
+                                  return d.current < d.path.getTotalLength();
+                                  
+                               });
+
+                                //particles = particles.filter(function (d) {return d.time > (elapsed - 1000)});
+
+                               
                                 d3.selectAll("path.link").each(function (d) {
-                                    for (var x = 0; x < 2; x++) {
+                                    for (var x = 0; x <2; x++) {
                                         var offset =
                                             (Math.random() - 0.5) * (d.dy - 4);
                                         if (Math.random() < d.freq) {
@@ -267,13 +265,18 @@
                                     }
                                 });
                                 particleEdgeCanvasPath(elapsed);
+                               
                             }
+
+                            
                             function particleEdgeCanvasPath(elapsed) {
                                 var context = d3
                                     .select("canvas")
                                     .node()
                                     .getContext("2d");
-                                context.clearRect(0, 0, 1000, 1000);
+                               
+                                console.log("This is canvas", context);
+                                context.clearRect(0, 0, 550, 550);
                                 context.fillStyle = "gray";
                                 context.lineWidth = "1px";
                                 for (var x in particles) {
@@ -297,6 +300,7 @@
                                         2 * Math.PI
                                     );
                                     context.fill();
+                                    
                                 }
                             }
                         }
@@ -351,4 +355,4 @@
             </p></body
         >
     </html>
-</div>
+</main>

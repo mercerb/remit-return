@@ -1,3 +1,4 @@
+
 <script>
   import {
     sankey as d3sankey,
@@ -14,6 +15,7 @@
   import sankey_data from "../../../class-data/sankey_data.json";
 
   import SankeyGroup from "./SankeyGroup.svelte";
+  import { append } from "svelte/internal";
 
   export let width = 500;
   export let height = 500;
@@ -41,6 +43,7 @@
   const color = scaleSequential(interpolateCool);
 
   let nodes, links;
+  let hoveredLinkText = '';
   $: {
     if (index == visible_index) {
       const sankey = d3sankey();
@@ -72,6 +75,9 @@
 
       // Set color domain after sankey() has set depth
       color.domain(d3Extent(nodes, (d) => d.depth));
+      //color.domain(d3Extent(nodes,(d)=>d.name))
+      
+      
     }
   }
 
@@ -95,17 +101,30 @@
           <path
             key={`link-${i}`}
             d={path(link) || undefined}
-            stroke={highlightLinkIndexes.includes(i) ? "red" : "black"}
+            stroke={highlightLinkIndexes.includes(i) ? "burlywood" : "black"}
             stroke-width={Math.max(1, link.width)}
-            opacity={highlightLinkIndexes.includes(i) ? 0.5 : 0.1}
+            opacity={highlightLinkIndexes.includes(i) ? 0.5 : 0.02}
+            
             fill="none"
+            
             on:mouseover={(e) => {
-              highlightLinkIndexes = [i];
+              highlightLinkIndexes = [i]
+              hoveredLinkText={...d.source.name+' -> '+d.target.name}
+          
+       
+              
+        
+           
+          
             }}
+
+
             on:mouseout={(e) => {
-              highlightLinkIndexes = [i];
+              highlightLinkIndexes = [i]
+              hoveredLinkText=''
             }}
           />
+          
         {/each}
       </g>
 
@@ -118,17 +137,29 @@
             fill={color(node.depth)}
             opacity={0.5}
             stroke="white"
+            
             stroke-width={2}
             on:mouseover={(e) => {
               highlightLinkIndexes = [
                 ...node.sourceLinks.map((l) => l.index),
                 ...node.targetLinks.map((l) => l.index),
-              ];
+              ]
+
+              hoveredLinkText={...node.sourceLinks.map((l)=>l.index)}
+
+             
+
+              
+             
+              
+              
             }}
+         
             on:mouseout={(e) => {
               highlightLinkIndexes = [];
             }}
           />
+          
 
           <text
             x={30}
@@ -137,7 +168,8 @@
             style="font: 10px sans-serif"
             _verticalAnchor="middle"
           >
-            {node.name}
+            {node.name+ " ("+node.value+" people)"}
+            
           </text>
         </SankeyGroup>
       {/each}
