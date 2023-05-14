@@ -39,5 +39,6 @@
         padding: 4px;
         position: absolute;
         font-family: sans-serif;
+        z-index: 5;
     }
 </style>

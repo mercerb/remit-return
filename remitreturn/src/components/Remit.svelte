@@ -3,6 +3,7 @@
 
   import LineChart2 from "../components/LineChart2.svelte";
   import Map from "../components/Map.svelte";
+  import Bar from "../components/Bar.svelte";
   import Sankey from "../components/Sankey.svelte";
   import Sankey2 from "../components/Sankey2.svelte";
   import People from "../components/People.svelte";
@@ -19,6 +20,7 @@
     beige: "#e8e4d5",
     orange: "#e39d12",
     pink: "#be318f",
+    green: "forestgreen", // expand the palette
   };
 </script>
 
@@ -60,11 +62,11 @@
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
-      Here we will have the economic bar graph
+      <Bar {themeColors}/>
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
-      <Sankey2 visible_index="0" {index} />
+      <Sankey visible_index="0" {index} />
       <!-- <Sankey {index} /> -->
     </section>
     <section>
