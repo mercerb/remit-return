@@ -1,5 +1,4 @@
 <script>
-  import * as d3 from "d3";
   import Scroller from "@sveltejs/svelte-scroller";
 
   import LineChart2 from "../components/LineChart2.svelte";
@@ -65,31 +64,31 @@
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
-      <Sankey2 visible_index="0" {index} {width} {height} />
-      <SankeyText />
+      <Sankey2 visible_index="0" {index} />
       <!-- <Sankey {index} /> -->
     </section>
     <section>
-      <!-- Section 5 (index == 4)-->
+      <!-- Section 4 (index == 5)-->
       <People {themeColors} />
     </section>
     <section>
-      <!-- Section 6 (index == 5)-->
+      <!-- Section 5 (index == 4)-->
       <PeopleDetail {themeColors} />
     </section>
     <section>
-      <!-- Section 7 (index == 6)-->
+      <!-- Section 6 (index == 5)-->
       <LineChart2 visible_index="6" {index} {width} {height} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
-      <!-- Section 8 (index == 7)-->
+      <!-- Section 7 (index == 6)-->
       <TextMiddle />
     </section>
     <section>
-      <!-- Section 9 (index == 8): map (visible in the back) -->
+      <!-- Section 8 (index == 7)-->
     </section>
     <section />
+    <!-- Section 9 (index == 8): map (visible in the back) -->
     <!-- Section 10 (index == 9): map (visible in the back) -->
     <section />
   </div>
@@ -117,7 +116,7 @@
   }
 
   section {
-    height: 100vh;
+    height: 70vh;
     background-color: rgba(0, 0, 0, 0.2);
     color: white;
     text-align: center;

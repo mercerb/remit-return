@@ -15,13 +15,14 @@
 
   import SankeyGroup from "./SankeyGroup.svelte";
 
-  export let width = 300;
-  export let height = 400;
-  export let margin = {
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+  let sankeyWidth = 600;
+  let sankeyHeight = 400;
+
+  const margin = {
+    top: 5,
+    left: 100,
+    right: 50,
+    bottom: 5,
   };
 
   export let index, visible_index;
@@ -29,12 +30,10 @@
   export let size = undefined;
   export let nodeId = undefined;
   export let nodeAlign = "left";
-  export let nodeWidth = undefined;
   export let nodePadding = 0;
-  export let nodeSort = undefined;
   export let extent = [
     [1, 1],
-    [width - 1, height - 6],
+    [sankeyWidth - 1, sankeyHeight - 6],
   ];
   export let iterations = undefined;
 
@@ -60,9 +59,7 @@
           sankey.nodeAlign(nodeAlign);
         }
       }
-      if (nodeWidth) sankey.nodeWidth(nodeWidth);
       if (nodePadding) sankey.nodePadding(nodePadding);
-      if (nodeSort) sankey.nodeSort(nodeSort);
       if (extent) sankey.extent(extent);
       if (iterations) sankey.iterations(iterations);
 
@@ -86,8 +83,8 @@
 
 <div class="sankey2">
   <svg
-    width={width + margin.left + margin.right}
-    height={height + margin.top + margin.bottom}
+    width={sankeyWidth + margin.left + margin.right}
+    height={sankeyHeight + margin.top + margin.bottom}
   >
     <g>
       {#if index >= visible_index}
@@ -145,16 +142,38 @@
       {/if}
     </g>
   </svg>
+  <div class="SankeyText">
+    <p>
+      The above sankey chart represents the occupations for migrants before and
+      after their migration to the US. There are 8 different categories of
+      occupations. Before migration, across all the categories, Agriculture
+      production or labor has the most people with 392. Informal work and
+      Student catgeory also have over 300 people.
+    </p>
+    <p>
+      After migration, the Informal work catgeory has over 450 people and there
+      are changes in occupations for some of the migrants. By hovering over the
+      origin country occupation nodes, we get perspective regarding changes for
+      people for a particular occupation when they move to the US. Hovering over
+      the US occupation nodes, we can see how people from different occupations
+      in the origin countries take up jobs in a new occupation category.
+    </p>
+  </div>
 </div>
 
 <style>
   .sankey2 {
-   /* width: 100%;*/
-    height: 100vh; /* check problem when setting width */
+    width: 100%;
+    height: 100vh;
     position: relative;
-    text-align: center;
-    font-size: 15px;
+  }
+
+  .SankeyText {
+    width: 90%;
+    position: relative;
+    margin: auto;
+    text-align: left;
+    font-size: 16px;
     font-family: sans-serif;
-    display: block;
   }
 </style>

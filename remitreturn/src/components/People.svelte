@@ -1,18 +1,17 @@
-<script >
+<script>
     import IconWoman from "../icons/woman.svelte";
     import IconMan from "../icons/man.svelte";
-
     import TextTooltip from "./TextTooltip.svelte";
-    import ten_migrants from "../../../class-data/migrants_to_US_sample.json";
+    import migrantGroup from "../../../class-data/migrants_to_US_sample.json";
 
     export let themeColors;
+    const countries = {
+        GT: "Guatemala",
+        SLV: "El Salvador",
+        HND: "Honduras",
+    };
 
     function getTooltipTitle(migrant) {
-        let countries = {
-            GT: "Guatemala",
-            SLV: "El Salvador",
-            HND: "Honduras",
-        };
         let dest_text = migrant.at_destination
             ? "Currently living in the US."
             : "Did not make it to the US.";
@@ -42,8 +41,8 @@
     </p>
 </div>
 
-{#each ten_migrants as migrant, index}
-    {#if index < 5}
+<div class="people-tooltip">
+    {#each migrantGroup as migrant}
         <div class="person">
             <TextTooltip title={getTooltipTitle(migrant)}>
                 {#if migrant.mig_ext_sex === "Man"}
@@ -53,23 +52,17 @@
                 {/if}
             </TextTooltip>
         </div>
-    {/if}
-    {#if index >= 5}
-        <div class="person">
-            <TextTooltip title={getTooltipTitle(migrant)}>
-                {#if migrant.mig_ext_sex === "Man"}
-                    <IconMan fill={getIconColor(migrant)} />
-                {:else}
-                    <IconWoman fill={getIconColor(migrant)} />
-                {/if}
-            </TextTooltip>
-        </div>
-    {/if}
-{/each}
+    {/each}
+</div>
 
 <style>
     .person {
         display: inline-block;
+    }
+
+    .people-tooltip {
+        width: 80%;
+        margin: auto;
     }
 
     .people-text {
