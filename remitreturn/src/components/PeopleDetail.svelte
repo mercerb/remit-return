@@ -211,6 +211,6 @@
         padding: 10px;
     }
     tr {
-        line-height: 40px;
+        line-height: 20px;
     }
 </style>
