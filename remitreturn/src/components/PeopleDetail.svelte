@@ -159,12 +159,7 @@
                         grow={true}
                     /></td
                 >
-                <td
-                    >$<LinkedValue
-                        uid="table-3"
-                        empty={migCost}
-                    /></td
-                >
+                <td>$<LinkedValue uid="table-3" empty={migCost} /></td>
             </tr>
 
             <tr>
@@ -210,12 +205,12 @@
         display: block;
         font-family: sans-serif;
         text-align: left;
+        padding-left: 40px;
     }
-    th,
     td {
-        padding: 2px;
+        padding: 10px;
     }
     tr {
-        line-height: 60px;
+        line-height: 40px;
     }
 </style>

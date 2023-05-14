@@ -6,15 +6,15 @@
     import { scaleLinear } from "d3-scale";
     import data from "../../../class-data/money_over_time.json";
 
-    export let index, visible_index, width, height, themeColors;
+    export let index, visible_index, themeColors;
 
     // set general use variables
-    let chartWidth = 600;
-    let chartHeight = 400;
+    let chartWidth = 650;
+    let chartHeight = 350;
 
     const paddings = {
-        top: 50,
-        left: 60,
+        top: 20,
+        left: 100,
         right: 50,
         bottom: 50,
     };
@@ -100,7 +100,14 @@
 </script>
 
 <div class="LineChart2">
-    Cost of migration projected over time (months).
+    <div class="line-chart-2-text">
+        <p>
+            Now, let's look at migration cost balance over time for these 10
+            migrants based on their initial migration cost, monthly remittances
+            sent home, and earning potential.
+        </p>
+        <p id="center">Breakeven-Time (in months) on Migration Investment</p>
+    </div>
 
     <svg width={chartWidth} height={chartHeight} id={idContainer}>
         <!-- draw X and Y axes -->
@@ -122,9 +129,13 @@
                 stroke={themeColors.blue}
                 stroke-width="2"
                 class="axis"
-                text="Cost of Migration (USD)"
             />
         </g>
+        <!-- draw X and Y axis labels -->
+        <text x={-10} y={95} transform="translate(100,100) rotate(90)"
+            >Cost of Migration ($ USD)</text
+        >
+        <text x={275} y={340}>Months Since Migration</text>
         <g>
             {#if index > visible_index}
                 {#each data as migrant, _}
@@ -190,5 +201,17 @@
         text-align: center;
         font-size: 15px;
         font-family: sans-serif;
+    }
+
+    .line-chart-2-text {
+        text-align: left;
+        font-size: 18px;
+        font-family: sans-serif;
+    }
+
+    #center {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
     }
 </style>

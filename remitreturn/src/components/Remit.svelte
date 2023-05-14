@@ -77,7 +77,7 @@
     </section>
     <section>
       <!-- Section 6 (index == 5)-->
-      <LineChart2 visible_index="6" {index} {width} {height} {themeColors} />
+      <LineChart2 visible_index="4" {index} {themeColors} />
       <!-- <LineChart {index} {width} {height} {themeColors} /> -->
     </section>
     <section>
