@@ -171,7 +171,7 @@
                         data={monthlyMoneyToUSData}
                         linked="table"
                         uid="table-4"
-                        fill="lightgreen"
+                        fill={themeColors.green}
                         scaleMax={max}
                         barMinHeight="5"
                         grow={true}

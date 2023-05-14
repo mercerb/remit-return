@@ -1,22 +1,12 @@
-<div class="TextIntroHeading">
-    <h2>RemitReturn</h2>
-
-    <p>
-        <i>
-            Understanding the economic growth associated with migration and
-            economic opportunities to send remittances home while contributing
-            to the destination country's economy
-        </i>
-    </p>
-</div>
-
 <div class="TextIntro">
     <p>
-        Economic insecurity is the leading cause of migration. Despite the
-        financial and emotional costs associated with migrating from the
-        Northern Triangle (El Salvador, Honduras, and Guatemala) to the United
-        States, indviduals take on this burden every year in search of better
-        salaries, working conditions, and opportunities to send money home.
+        As seen in the above chart, economic insecurity is the leading cause of
+        migration (source: UN World Food Programme, April 2021 survey of
+        Northern Triangle inhabitants). Despite the financial and emotional
+        costs associated with migrating from the Northern Triangle (El Salvador,
+        Honduras, and Guatemala) to the United States, indviduals take on this
+        burden every year in search of better salaries, working conditions, and
+        opportunities to send money home.
     </p>
 
     <p>
@@ -37,11 +27,6 @@
 </div>
 
 <style>
-    .TextIntroHeading {
-        text-align: center;
-        font-size: 20px;
-        font-family: sans-serif;
-    }
     .TextIntro {
         text-align: left;
         font-size: 20px;

@@ -1,130 +1,228 @@
 <script>
-  import * as d3 from "d3";
-  import { onMount } from "svelte";
-  import { scaleLinear } from "d3-scale";
-  import data from "../../../class-data/money_over_time.json";
-  
-  export let index, width, height, projection, themeColors;
+    import * as d3 from "d3";
+    import { draw } from "svelte/transition";
+    import { cubicOut, cubicInOut } from "svelte/easing";
+    import { scaleLinear } from "d3-scale";
+    import data from "../../../class-data/money_over_time.json";
 
-  function getLineColor(data) {
-    if (
-      data.values.every((i) => i.remit == 0) &&
-      data.values.every((i) => i.money_us == 0)
-    ) {
-      return themeColors.orange;
-    } else {
-      return themeColors.blue;
+    export let index, visible_index, themeColors;
+
+    // set general use variables
+    let chartWidth = 650;
+    let chartHeight = 400;
+
+    const paddings = {
+        top: 20,
+        left: 100,
+        right: 50,
+        bottom: 50,
+    };
+
+    // set scaling variables
+    const everyMonth = data.flatMap((d) => d.values.map((v) => v.month));
+    const allMonths = [...new Set(everyMonth)];
+    const minMonth = Math.min(...allMonths);
+    const maxMonth = Math.max(...allMonths);
+
+    const allCosts = data.flatMap((d) => d.values.map((v) => v.mig_cost_left));
+    const minCost = Math.min(...allCosts);
+    const maxCost = Math.max(...allCosts);
+
+    $: xScale = scaleLinear()
+        .domain([minMonth, maxMonth])
+        .range([paddings.left, chartWidth - paddings.right]);
+    $: yScale = scaleLinear()
+        .domain([minCost, maxCost])
+        .range([chartHeight - paddings.bottom, paddings.top]);
+
+    // define tick marks
+    let xTicks = [];
+    let yTicks = [];
+    let numTicks = 10;
+    $: {
+        xTicks = [];
+        yTicks = [];
+
+        if (data.length > 1) {
+            let index_extent = [Math.round(minMonth), Math.round(maxMonth + 1)];
+            let index_increment = Math.floor(
+                (index_extent[1] - index_extent[0]) / numTicks
+            );
+            for (
+                let i = index_extent[0];
+                i < index_extent[1];
+                i = i + Math.max(1, index_increment)
+            ) {
+                xTicks.push(i);
+            }
+
+            let size_extent = [Math.round(minCost), Math.round(maxCost + 1)];
+            let size_increment = Math.floor(
+                (size_extent[1] - size_extent[0]) / numTicks
+            );
+            size_increment = 1000 * Math.round(size_increment / 1000);
+            for (
+                let i = size_extent[0];
+                i < size_extent[1];
+                i = i + Math.max(1, size_increment)
+            ) {
+                yTicks.push(i);
+            }
+        }
     }
-  }
 
-  onMount(() => {
-    const margin = { top: 50, right: 50, bottom: 40, left: 70 };
-    const width = 600 - margin.left - margin.right;
-    const height = 400 - margin.top - margin.bottom;
+    // hover effect
+    const idContainer = "svg-container-" + Math.random() * 1000000;
+    let mousePosition = { x: null, y: null };
+    let pageMousePosition = { x: null, y: null };
+    let currentHoveredPoint = null;
 
-    const svg = d3
-      .select("#chart")
-      .append("svg")
-      .attr(
-        "viewBox",
-        `0 0 ${width + margin.left + margin.right} ${
-          height + margin.top + margin.bottom
-        }`
-      )
-      .append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    function getLineColor(data) {
+        if (
+            data.values.every((i) => i.remit == 0) &&
+            data.values.every((i) => i.money_us == 0)
+        ) {
+            return themeColors.orange;
+        } else {
+            return themeColors.blue;
+        }
+    }
 
-    const x = d3
-      .scaleLinear()
-      .range([0, width])
-      .domain(d3.extent(data[0].values, (d) => d.month));
-
-    const y = d3
-      .scaleLinear()
-      .range([height, 0])
-      .domain([
-        0,
-        d3.max(data, (d) => d3.max(d.values, (v) => v.mig_cost_left)),
-      ]);
-
-    const line = d3
-      .line()
-      .x((d) => x(d.month))
-      .y((d) => y(d.mig_cost_left));
-
-    // add a path element for each line in the data
-    const paths = svg
-      .selectAll(".line")
-      .data(data)
-      .enter()
-      .append("path")
-      .attr("class", "line")
-      .attr("d", (d) => line(d.values))
-      .style("stroke", (d) => getLineColor(d))
-      .style("stroke-width", 2)
-      .style("fill", "none")
-      .style("opacity", 0)
-      .on("mouseover", function (event, d) {
-        console.log(event, d);
-        // Show tooltip on mouseover
-        tooltip.transition().duration(200).style("opacity", 0.9);
-        tooltip
-          .html(
-            `Value: ${d.values[0]} ${d.values.mig_cost_left} Month: ${d.values.month}`
-          )
-          .style("left", event.pageX + 10 + "px")
-          .style("top", event.pageY - 28 + "px");
-      })
-      .on("mouseout", function (d) {
-        // Hide tooltip on mouseout
-        tooltip.transition().duration(500).style("opacity", 0);
-      });
-
-    // Add a tooltip element to the page
-    const tooltip = d3
-      .select("body")
-      .append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
-
-    const totalLength = paths.node().getTotalLength();
-
-    paths
-      .style("stroke-dasharray", totalLength)
-      .style("stroke-dashoffset", totalLength)
-      .transition()
-      .duration(3000)
-      .ease(d3.easeLinear)
-      .style("stroke-dashoffset", 0)
-      .style("opacity", 1);
-
-    const xAxis = d3.axisBottom(x);
-    const yAxis = d3.axisLeft(y).tickFormat((x) => `$${x}`);
-
-    // X-axis and label
-    svg.append("g").attr("transform", `translate(0, ${height})`).call(xAxis);
-
-    svg
-      .append("text")
-      .attr(
-        "transform",
-        "translate(" + width / 2 + " ," + (height + margin.bottom) + ")"
-      )
-      .style("text-anchor", "middle")
-      .text("Months After Migration");
-
-    // Y-axis and label
-    svg.append("g").call(yAxis);
-
-    svg
-      .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left)
-      .attr("x", 0 - height / 2)
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Cost of Migration (USD)");
-  });
+    // Create the string of coordinates
+    function getDataPoints(values) {
+        return values
+            .map(function (value) {
+                return xScale(value.month) + "," + yScale(value.mig_cost_left);
+            })
+            .join(" ");
+    }
 </script>
 
-<div id="line-chart" />
+<div class="LineChart">
+    <div class="line-chart-2-text">
+        <p>
+            Now, let's look at migration cost balance over time for these 10
+            migrants based on their initial migration cost, monthly remittances
+            sent home, and earning potential.
+        </p>
+        <p id="center">Breakeven-Time (in months) on Migration Investment</p>
+    </div>
+
+    <svg width={chartWidth} height={chartHeight} id={idContainer}>
+        <!-- draw X and Y axes -->
+        <g>
+            <line
+                x1={paddings.left}
+                x2={chartWidth - paddings.right}
+                y1={chartHeight - paddings.bottom}
+                y2={chartHeight - paddings.bottom}
+                stroke={themeColors.blue}
+                stroke-width="2"
+                class="axis"
+            />
+            <line
+                x1={paddings.left}
+                x2={paddings.left}
+                y1={paddings.top}
+                y2={chartHeight - paddings.bottom}
+                stroke={themeColors.blue}
+                stroke-width="2"
+                class="axis"
+            />
+            <text
+                x={paddings.left}
+                y={chartHeight - paddings.bottom}
+                transform="translate(0,0) rotate(90)"
+            >
+                <!-- Months  -->
+            </text>
+            <text x={paddings.left} y={paddings.top}>
+                <!-- Cost of Migration (USD)  -->
+            </text>
+        </g>
+        <!-- draw X and Y axis labels -->
+        <text x={-10} y={90} transform="translate(100,100) rotate(90)"
+            >Cost of Migration ($ USD)</text
+        >
+        <text x={chartWidth / 2 - 30} y={chartHeight - 10}
+            >Months Since Migration</text
+        >
+        <g>
+            {#if index > visible_index}
+                {#each data as migrant, _}
+                    <polyline
+                        points={getDataPoints(migrant.values)}
+                        fill="none"
+                        stroke={getLineColor(migrant)}
+                        stroke-width="3"
+                        transition:draw={{
+                            duration: 5000,
+                            easing: cubicInOut,
+                        }}
+                    />
+                {/each}
+            {/if}
+        </g>
+
+        <!-- draw ticks on the X and Y axes -->
+        <g transform="translate(0, {chartHeight - paddings.bottom})">
+            {#each xTicks as x}
+                <g
+                    class="tick"
+                    opacity="1"
+                    transform="translate({xScale(x)},0)"
+                >
+                    <line stroke="black" y2="6" />
+                    <text
+                        dy="0.71em"
+                        fill="black"
+                        y="10"
+                        x="-5"
+                        text-anchor="middle"
+                    >
+                        {x}
+                    </text>
+                </g>
+            {/each}
+        </g>
+        <g transform="translate({paddings.left}, 0)">
+            {#each yTicks as y}
+                <g
+                    class="tick"
+                    opacity="1"
+                    transform="translate(0,{yScale(y)})"
+                >
+                    <line stroke="black" x2="-5" />
+                    <text dy="0.32em" fill="black" x="-{10}" text-anchor="end"
+                        >{"$" + y}</text
+                    >
+                </g>
+            {/each}
+        </g>
+    </svg>
+</div>
+
+<div id="line-chart-2" />
+
+<style>
+    .LineChart {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        text-align: center;
+        font-size: 15px;
+        font-family: sans-serif;
+    }
+
+    .line-chart-2-text {
+        text-align: left;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+
+    #center {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+    }
+</style>

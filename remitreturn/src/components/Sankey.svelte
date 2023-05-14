@@ -1,9 +1,3 @@
-<script>
-    export let name = "World";
-
-    export let index;
-</script>
-
 <main>
     <!-- <!DOCTYPE html> -->
 
@@ -14,9 +8,9 @@
             <!-- <title>Sankey Particles</title> -->
             <style>
                 .node rect {
-                    cursor: move ;
+                    cursor: move;
                     fill-opacity: 0.9;
-                 
+
                     shape-rendering: crispEdges;
                 }
                 .node text {
@@ -34,7 +28,7 @@
                     stroke-opacity: 1000;
                 }
                 svg {
-                    position: relative; 
+                    position: relative;
                     text-anchor: middle;
                 }
                 canvas {
@@ -113,12 +107,7 @@
                                 });
 
                             link.append("title").text(function (d) {
-                                return (
-                                    d.source.name +
-                                    " → " +
-                                    d.target.name
-                                    
-                                );
+                                return d.source.name + " → " + d.target.name;
                             });
                             var node = svg1
                                 .append("g")
@@ -163,10 +152,7 @@
                                         return l.source === d || l.target === d
                                             ? 1
                                             : 0.2;
-                                            
                                     });
-
-
                             }).on("mouseleave", function (d) {
                                 link.transition()
                                     .duration(300)

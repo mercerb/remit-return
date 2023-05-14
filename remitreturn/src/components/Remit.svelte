@@ -1,11 +1,10 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
 
-  import LineChart2 from "../components/LineChart2.svelte";
+  import LineChart from "../components/LineChart.svelte";
   import Map from "../components/Map.svelte";
   import Bar from "../components/Bar.svelte";
   import Sankey from "../components/Sankey.svelte";
-  import Sankey2 from "../components/Sankey2.svelte";
   import People from "../components/People.svelte";
   import PeopleDetail from "../components/PeopleDetail.svelte";
   import TextIntro from "../components/TextIntro.svelte";
@@ -24,6 +23,26 @@
   };
 </script>
 
+<div class="TextIntroHeading">
+  <h2>RemitReturn</h2>
+
+  <p>
+    <i>
+      Understanding the economic growth associated with migration and economic
+      opportunities to send remittances home while contributing to the
+      destination country's economy
+    </i>
+  </p>
+
+  <p id="authors">
+    This site was made by Mercer Borris, Ahsan Imran, and Shelby Unger for
+    6.C85, the "Interactive Data Visualization and Society" class, in the spring
+    of 2023. Acknowledgments, data sources, and additional details are available
+    here:
+    <a href="/sources">Learn more about the data</a>
+  </p>
+</div>
+
 <Scroller
   top={0.0}
   bottom={1}
@@ -40,62 +59,45 @@
     bind:clientHeight={height}
   >
     <Map visible_index="8" {index} {progress} />
-
-    <div class="progress-bars">
-      <p>current section: <strong>{index + 1}/{count}</strong></p>
-      <progress value={count ? (index + 1) / count : 0} />
-
-      <p>offset in current section</p>
-      <progress value={offset || 0} />
-
-      <p>total progress</p>
-      <progress value={progress || 0} />
-
-      <p>current index: {index}</p>
-    </div>
   </div>
 
   <div class="foreground" slot="foreground">
     <section>
       <!-- Section 1 (index == 0)-->
-      <TextIntro />
+      <Bar {themeColors} />
     </section>
     <section>
       <!-- Section 2 (index == 1)-->
-      <Bar {themeColors}/>
+      <TextIntro />
     </section>
     <section>
       <!-- Section 3 (index == 2)-->
       <Sankey visible_index="0" {index} />
-      <!-- <Sankey {index} /> -->
     </section>
     <section>
-      <!-- Section 3 (index == 2)-->
+      <!-- Section 4 (index == 3)-->
       <SankeyText />
-      <!-- <Sankey {index} /> -->
-    </section>
-    <section>
-      <!-- Section 4 (index == 5)-->
-      <People {themeColors} />
     </section>
     <section>
       <!-- Section 5 (index == 4)-->
-      <PeopleDetail {themeColors} />
+      <People {themeColors} />
     </section>
     <section>
       <!-- Section 6 (index == 5)-->
-      <LineChart2 visible_index="5" {index} {themeColors} />
-      <!-- <LineChart {index} {width} {height} {themeColors} /> -->
+      <PeopleDetail {themeColors} />
     </section>
     <section>
       <!-- Section 7 (index == 6)-->
-      <TextMiddle />
+      <LineChart visible_index="5" {index} {themeColors} />
     </section>
     <section>
       <!-- Section 8 (index == 7)-->
+      <TextMiddle />
+    </section>
+    <section>
+      <!-- Section 9 (index == 8)-->
     </section>
     <section />
-    <!-- Section 9 (index == 8): map (visible in the back) -->
     <!-- Section 10 (index == 9): map (visible in the back) -->
     <section />
   </div>
@@ -116,12 +118,6 @@
     position: relative;
   }
 
-  .progress-bars {
-    position: absolute;
-    background: rgba(170, 51, 120, 0.2) /*  40% opaque */;
-    visibility: hidden; /* visible */
-  }
-
   section {
     height: 80vh;
     /* background-color: rgba(0, 0, 0, 0.2); */
@@ -131,5 +127,15 @@
     color: black;
     padding: 0em;
     margin: 0 0 2em 0;
+  }
+
+  .TextIntroHeading {
+    text-align: center;
+    font-size: 20px;
+    font-family: sans-serif;
+  }
+
+  #authors {
+    font-size: 16px;
   }
 </style>

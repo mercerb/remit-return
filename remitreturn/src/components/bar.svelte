@@ -20,7 +20,9 @@
 </script>
 
 <div class="motivation-bar-chart" id="motivation-bar-chart">
-  <text x="10" y="10" class="motivation-bar-chart-text"> Motivations for Migration </text>
+  <text x="10" y="10" class="motivation-bar-chart-text">
+    Motivations for Migration
+  </text>
 
   <body>
     <button on:click={update}>Total</button>
