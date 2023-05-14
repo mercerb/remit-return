@@ -68,6 +68,11 @@
       <!-- <Sankey {index} /> -->
     </section>
     <section>
+      <!-- Section 3 (index == 2)-->
+      <SankeyText />
+      <!-- <Sankey {index} /> -->
+    </section>
+    <section>
       <!-- Section 4 (index == 5)-->
       <People {themeColors} />
     </section>
@@ -117,7 +122,7 @@
 
   section {
     height: 70vh;
-    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: rgba(0, 0, 0, 0.2); */
     color: white;
     text-align: center;
     max-width: 850px; /* adjust at will */

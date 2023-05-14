@@ -1,7 +1,7 @@
 <script>
 </script>
 
-<div class="Sources Detail">
+<div class="sources-detail">
     <h2>RemitReturn: Sources and Methodology</h2>
 
     <p>
@@ -24,7 +24,7 @@
 </div>
 
 <style>
-    .TextIntro {
+    .sources-detail {
         position: left;
         font-size: 20px;
         font-family: sans-serif;

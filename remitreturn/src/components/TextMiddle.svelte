@@ -15,12 +15,23 @@
         never had the opportunity to work in the US, contribute to its economy,
         and send money back home.
     </p>
+
+    <p>
+        Finally, let's look at the economic impact of all the migrants in this
+        dataset who currently reside in their destination of the US. Scroll down
+        to see the monetary contribution of migrants to the Northern Triangle
+        and US projected for a little over a year after migrating.
+    </p>
 </div>
 
 <style>
     .TextMiddle {
+        height: 100vh;
+        width: 80%;
+        margin: auto;
+        padding-top: 10px;
         text-align: left;
-        font-size: 18px;
+        font-size: 20px;
         font-family: sans-serif;
     }
 </style>

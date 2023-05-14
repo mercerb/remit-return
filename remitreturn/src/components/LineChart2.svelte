@@ -10,7 +10,7 @@
 
     // set general use variables
     let chartWidth = 650;
-    let chartHeight = 350;
+    let chartHeight = 400;
 
     const paddings = {
         top: 20,
@@ -132,10 +132,12 @@
             />
         </g>
         <!-- draw X and Y axis labels -->
-        <text x={-10} y={95} transform="translate(100,100) rotate(90)"
+        <text x={-10} y={90} transform="translate(100,100) rotate(90)"
             >Cost of Migration ($ USD)</text
         >
-        <text x={275} y={340}>Months Since Migration</text>
+        <text x={chartWidth / 2 - 30} y={chartHeight - 10}
+            >Months Since Migration</text
+        >
         <g>
             {#if index > visible_index}
                 {#each data as migrant, _}
@@ -205,7 +207,7 @@
 
     .line-chart-2-text {
         text-align: left;
-        font-size: 18px;
+        font-size: 20px;
         font-family: sans-serif;
     }
 

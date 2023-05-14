@@ -1,7 +1,7 @@
 <div class="SankeyText">
     <p>
-        The above sankey chart represents the occupations for migrants before and
-        after their migration to the US. There are 8 different categories of
+        The above sankey chart represents the occupations for migrants before
+        and after their migration to the US. There are 8 different categories of
         occupations. Before migration, across all the categories, Agriculture
         production or labor has the most people with 392. Informal work and
         Student catgeory also have over 300 people.
@@ -19,8 +19,11 @@
 
 <style>
     .SankeyText {
+        width: 90%;
+        position: relative;
+        margin: auto;
         text-align: left;
-        font-size: 12px;
+        font-size: 20px;
         font-family: sans-serif;
     }
 </style>
