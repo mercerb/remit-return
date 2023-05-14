@@ -21,6 +21,15 @@
         identified 10 migrants who represent a statistically similar sample of
         this larger group.
     </p>
+
+    <p>
+        The names of all members of your team Acknowledgements for all
+        appropriate sources (both for the dataset, but also example
+        visualizations, code, etc. that you might have adapted for your
+        purposes). In particular, you must include the following text to credit
+        our data client, “This data visualization was made with data contributed
+        by the United Nations World Food Programme (WFP).”
+    </p>
 </div>
 
 <style>
