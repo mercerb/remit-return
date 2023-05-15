@@ -134,10 +134,8 @@
                 y={chartHeight - paddings.bottom}
                 transform="translate(0,0) rotate(90)"
             >
-                <!-- Months  -->
             </text>
             <text x={paddings.left} y={paddings.top}>
-                <!-- Cost of Migration (USD)  -->
             </text>
         </g>
         <!-- draw X and Y axis labels -->
@@ -215,6 +213,10 @@
     }
 
     .line-chart-2-text {
+        width: 90%;
+        padding-top: 0%;
+        margin: auto;
+        position: relative;
         text-align: left;
         font-size: 20px;
         font-family: sans-serif;

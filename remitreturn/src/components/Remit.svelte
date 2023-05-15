@@ -1,15 +1,15 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
 
+  import Bar from "../components/Bar.svelte";
   import LineChart from "../components/LineChart.svelte";
   import Map from "../components/Map.svelte";
-  import Bar from "../components/Bar.svelte";
-  import Sankey from "../components/Sankey.svelte";
   import People from "../components/People.svelte";
   import PeopleDetail from "../components/PeopleDetail.svelte";
+  import Sankey from "../components/Sankey.svelte";
+  import SankeyText from "../components/SankeyText.svelte";
   import TextIntro from "../components/TextIntro.svelte";
   import TextMiddle from "../components/TextMiddle.svelte";
-  import SankeyText from "./SankeyText.svelte";
 
   let count, index, offset, progress;
   let width, height;
@@ -25,7 +25,6 @@
 
 <div class="TextIntroHeading">
   <h2>RemitReturn</h2>
-
   <p>
     <i>
       Understanding the economic growth associated with migration and economic
@@ -39,7 +38,7 @@
     6.C85, the "Interactive Data Visualization and Society" class, in the spring
     of 2023. Acknowledgments, data sources, and additional details are available
     here:
-    <a href="/sources">Learn more about the data</a>
+    <b><a href="/sources">Learn more about the data</a></b>
   </p>
 </div>
 
@@ -119,11 +118,11 @@
   }
 
   section {
-    height: 80vh;
+    height: 75vh;
     /* background-color: rgba(0, 0, 0, 0.2); */
     color: white;
     text-align: center;
-    max-width: 850px; /* adjust at will */
+    max-width: 800px;
     color: black;
     padding: 0em;
     margin: 0 0 2em 0;
@@ -131,11 +130,17 @@
 
   .TextIntroHeading {
     text-align: center;
+    max-width: 800px;
+    margin: auto;
     font-size: 20px;
+    padding-right: 30px;
     font-family: sans-serif;
+    color: #112b64;
   }
 
   #authors {
+    text-align: left;
     font-size: 16px;
+    color: black;
   }
 </style>

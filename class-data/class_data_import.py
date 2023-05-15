@@ -13,6 +13,11 @@ full_df = pd.merge(mig_ext_df, main_df, on="rsp_id") # 879 records with remittan
 # the dataset includes 105 records for people who listed a cost of migration who are not in the destination country
 # 'unsuccessful' migrations with financial risk. 349 reside in the USA as of this survey time (4/2021)
 
+# explore mig cost
+mig_ext_df.mig_cost_usd.describe()
+non_zero_costs = mig_ext_df[mig_ext_df.mig_cost_usd >= 1]
+non_zero_costs.mig_cost_usd.describe()
+                                
 # save to json 
 full_df.to_json("class-data/migrants_to_US.json", orient="records")
 

@@ -66,6 +66,10 @@
     }
 
     .people-text {
+        width: 90%;
+        padding-top: 2%;
+        margin: auto;
+        position: relative;
         text-align: left;
         font-size: 20px;
         font-family: sans-serif;

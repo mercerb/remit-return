@@ -27,7 +27,7 @@
 <style>
     .TextMiddle {
         height: 100vh;
-        width: 80%;
+        width: 90%;
         margin: auto;
         padding-top: 10px;
         text-align: left;

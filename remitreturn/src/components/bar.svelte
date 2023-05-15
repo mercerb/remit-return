@@ -1,117 +1,128 @@
 <script>
   import { migration_motivations } from "../../../class-data/migration_motivations.js";
-  import { draw } from "svelte/transition";
-  import { cubicOut, cubicInOut } from "svelte/easing";
-  export let countrySelection = 1;
+
+  export let countrySelection = "all";
   export let themeColors;
 
-  function update() {
-    countrySelection = 1;
+  const barHeight = 25;
+  const labelPositionY = 12;
+  const labelPositionXLeft = -10;
+  const labelPositionXRight = 350;
+
+  function chooseTotal() {
+    countrySelection = "all";
   }
   function chooseGuatemala() {
-    countrySelection = 2;
+    countrySelection = "GTM";
   }
   function chooseHonduras() {
-    countrySelection = 3;
+    countrySelection = "HND";
   }
   function chooseElSalvador() {
-    countrySelection = 4;
+    countrySelection = "SLV";
   }
 </script>
 
 <div class="motivation-bar-chart" id="motivation-bar-chart">
-  <text x="10" y="10" class="motivation-bar-chart-text">
-    Motivations for Migration
-  </text>
-
-  <body>
-    <button on:click={update}>Total</button>
+  <div class="motivation-bar-chart-text">
+    Motivations of External Migration Per Country
+  </div>
+  <div class="bar-chart-buttons">
+    <button on:click={chooseTotal}>Total</button>
     <button on:click={chooseGuatemala}>Guatemala</button>
     <button on:click={chooseHonduras}>Honduras</button>
     <button on:click={chooseElSalvador}>El Salvador</button>
-  </body>
-  <main />
+  </div>
 
   <svg class="motivation-bar-chart-svg" id="motivation-bar-chart-svg">
-    {#if countrySelection == 1}
+    {#if countrySelection == "all"}
       {#each migration_motivations as motivation, i}
-        <g transform={`translate(300 ${i * 20 + 10})`}>
+        <g transform={`translate(300 ${i * 35 + 10})`}>
           <rect
             width={motivation.total / 6}
-            height="15"
+            height={barHeight}
             fill={themeColors.blue}
           />
           <text
             class="motivation-bar-chart-label"
             text-anchor="end"
-            x="-5"
-            y="5">{motivation.group}</text
-          >
-          <text class="motivation-bar-chart-label" x="+330" y="5"
-            >{motivation.total + " people"}</text
+            x={labelPositionXLeft}
+            y={labelPositionY}
+            >{motivation.group}
+          </text>
+          <text
+            class="motivation-bar-chart-label"
+            x={labelPositionXRight}
+            y={labelPositionY}>{motivation.total + " people"}</text
           >
         </g>
       {/each}
     {/if}
 
-    {#if countrySelection == 2}
+    {#if countrySelection == "GTM"}
       {#each migration_motivations as motivation, i}
-        <g transform={`translate(300 ${i * 20 + 10})`}>
+        <g transform={`translate(300 ${i * 35 + 10})`}>
           <rect
-            width={motivation.var1 / 6}
-            height="15"
+            width={motivation.GTM / 6}
+            height={barHeight}
             fill={themeColors.orange}
           />
           <text
             text-anchor="end"
             class="motivation-bar-chart-label"
-            x="-5"
-            y="5">{motivation.group}</text
+            x={labelPositionXLeft}
+            y={labelPositionY}>{motivation.group}</text
           >
-          <text class="motivation-bar-chart-label" x="+330" y="5"
-            >{motivation.var1 + " people"}</text
+          <text
+            class="motivation-bar-chart-label"
+            x={labelPositionXRight}
+            y={labelPositionY}>{motivation.GTM + " people"}</text
           >
         </g>
       {/each}
     {/if}
 
-    {#if countrySelection == 3}
+    {#if countrySelection == "HND"}
       {#each migration_motivations as motivation, i}
-        <g transform={`translate(300 ${i * 20 + 10})`}>
+        <g transform={`translate(300 ${i * 35 + 10})`}>
           <rect
-            width={motivation.var2 / 6}
-            height="15"
+            width={motivation.HND / 6}
+            height={barHeight}
             fill={themeColors.pink}
           />
           <text
             class="motivation-bar-chart-label"
             text-anchor="end"
-            x="-5"
-            y="5">{motivation.group}</text
+            x={labelPositionXLeft}
+            y={labelPositionY}>{motivation.group}</text
           >
-          <text class="motivation-bar-chart-label" x="+330" y="5"
-            >{motivation.var2 + " people"}</text
+          <text
+            class="motivation-bar-chart-label"
+            x={labelPositionXRight}
+            y={labelPositionY}>{motivation.HND + " people"}</text
           >
         </g>
       {/each}
     {/if}
 
-    {#if countrySelection == 4}
+    {#if countrySelection == "SLV"}
       {#each migration_motivations as motivation, i}
-        <g transform={`translate(300 ${i * 20 + 10})`}>
+        <g transform={`translate(300 ${i * 35 + 10})`}>
           <rect
-            width={motivation.var3 / 6}
-            height="15"
+            width={motivation.SLV / 6}
+            height={barHeight}
             fill={themeColors.green}
           />
           <text
             class="motivation-bar-chart-label"
             text-anchor="end"
-            x="-5"
-            y="5">{motivation.group}</text
+            x={labelPositionXLeft}
+            y={labelPositionY}>{motivation.group}</text
           >
-          <text class="motivation-bar-chart-label" x="+330" y="5"
-            >{motivation.var3 + " people"}</text
+          <text
+            class="motivation-bar-chart-label"
+            x={labelPositionXRight}
+            y={labelPositionY}>{motivation.SLV + " people"}</text
           >
         </g>
       {/each}
@@ -130,21 +141,28 @@
   .motivation-bar-chart-svg {
     border: 1px #ddd;
     width: 100%;
-    height: 80%;
+    height: 100vh;
     position: relative;
+    padding-top: 10px;
     margin: auto;
   }
 
   .motivation-bar-chart-text {
-    text-align: left;
+    text-align: center;
     font-size: 20px;
+    padding-top: 10px;
     font-family: sans-serif;
   }
 
-  .motivation-bar-chart-label {
-    /* text-align: left; */
-    font-size: 12px;
+  .bar-chart-buttons {
+    position: relative;
+    padding-top: 10px;
     font-family: sans-serif;
-    text-anchor: "";
+    font-size: 16px;
+  }
+
+  .motivation-bar-chart-label {
+    font-size: 16px;
+    font-family: sans-serif;
   }
 </style>

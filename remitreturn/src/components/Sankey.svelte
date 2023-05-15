@@ -4,8 +4,6 @@
     <html lang="en">
         <head>
             <meta charset="utf-8" />
-            <!-- <title>Sankey Particles</title> -->
-            <!-- <title>Sankey Particles</title> -->
             <style>
                 .node rect {
                     cursor: move;
@@ -16,6 +14,7 @@
                 .node text {
                     pointer-events: none;
                     text-shadow: 0 1px 0 #fff;
+                    font-family: sans-serif;
                 }
                 .link {
                     fill: none;
@@ -34,6 +33,9 @@
                 canvas {
                     position: absolute;
                 }
+                .sidebar {
+                    font-family: sans-serif;
+                }
             </style>
         </head>
         <body>
@@ -44,8 +46,8 @@
                 <p style="float: right;">US Occupation</p>
             </div>
             <p id="sankey">
-                <canvas width="700" height="1100" />
-                <svg class="sankey-svg" width="700" height="1000" />
+                <canvas width="700" height="700" />
+                <svg class="sankey-svg" width="700" height="700" />
 
                 <script
                     src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"
@@ -253,7 +255,7 @@
                                     .select("canvas")
                                     .node()
                                     .getContext("2d");
-                                context.clearRect(0, 0, 1000, 1000);
+                                context.clearRect(0, 0, 700, 700);
                                 context.fillStyle = "gray";
                                 context.lineWidth = "1px";
                                 for (var x in particles) {

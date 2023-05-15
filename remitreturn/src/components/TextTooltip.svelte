@@ -4,14 +4,16 @@
     let x;
     let y;
 
+    const pixelOffset = 0;
+
     function mouseOver(event) {
         isHovered = true;
-        x = event.pageX - 240;
-        y = event.pageY - 5;
+        x = event.pageX + { pixelOffset };
+        y = event.pageY + { pixelOffset };
     }
     function mouseMove(event) {
-        x = event.pageX - 240;
-        y = event.pageY - 5;
+        x = event.pageX + { pixelOffset };
+        y = event.pageY + { pixelOffset };
     }
     function mouseLeave() {
         isHovered = false;

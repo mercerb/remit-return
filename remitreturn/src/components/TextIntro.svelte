@@ -10,15 +10,16 @@
     </p>
 
     <p>
-        Migrants who end up working in the destination country long enough not
-        only offset the cost of their migration and send remittances home, but
-        also spend money in the United States (for food, housing, etc),
-        invigorating the economy.
+        Migrants who end up working in the destination country long enough are
+        able to offset the cost of their migration and send remittances home.
+        They also spend money in the United States (for food, housing, and other
+        services), invigorating the economy.
     </p>
 
     <p>
-        <b>
-            Is the cost worth it? At what point do working migrants offset that
+        Given the risks inherent in migration and the possibility of being sent
+        back, <b
+            >is the cost worth it? At what point do working migrants offset that
             cost? How much are they contributing to the US economy depending on
             what jobs are available?
         </b> First, we need to understand what their earning potential is based on
@@ -29,6 +30,9 @@
 <style>
     .TextIntro {
         text-align: left;
+        width: 90%;
+        padding-top: 2%;
+        margin: auto;
         font-size: 20px;
         font-family: sans-serif;
     }
