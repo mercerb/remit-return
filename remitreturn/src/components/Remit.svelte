@@ -1,7 +1,7 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
 
-  import Bar from "../components/Bar.svelte";
+  import Bar from "./Bar.svelte";
   import LineChart from "../components/LineChart.svelte";
   import Map from "../components/Map.svelte";
   import People from "../components/People.svelte";
