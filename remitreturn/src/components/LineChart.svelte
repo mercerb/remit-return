@@ -102,9 +102,10 @@
 <div class="LineChart">
     <div class="line-chart-2-text">
         <p>
-            Now, let's look at migration cost balance over time for these 10
-            migrants based on their initial migration cost, monthly remittances
-            sent home, and earning potential.
+            Now, using this calculation method, let's look at migration cost
+            balance over time for these 10 migrants based on their initial
+            migration cost, monthly remittances sent home, and earning
+            potential.
         </p>
         <p id="center">Breakeven-Time (in months) on Migration Investment</p>
     </div>
