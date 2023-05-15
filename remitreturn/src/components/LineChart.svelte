@@ -20,13 +20,14 @@
 
     // set scaling variables
     const everyMonth = data.flatMap((d) => d.values.map((v) => v.month));
-    const allMonths = [...new Set(everyMonth)];
+    // const allMonths = [...new Set(everyMonth)];
+    const allMonths = [0, 1, 2, 3, 4, 5]; // all are paid off in 6 months
     const minMonth = Math.min(...allMonths);
     const maxMonth = Math.max(...allMonths);
 
     const allCosts = data.flatMap((d) => d.values.map((v) => v.mig_cost_left));
     const minCost = Math.min(...allCosts);
-    const maxCost = Math.max(...allCosts);
+    const maxCost = Math.max(...allCosts) + 1000; // buffer
 
     $: xScale = scaleLinear()
         .domain([minMonth, maxMonth])
@@ -133,10 +134,8 @@
                 x={paddings.left}
                 y={chartHeight - paddings.bottom}
                 transform="translate(0,0) rotate(90)"
-            >
-            </text>
-            <text x={paddings.left} y={paddings.top}>
-            </text>
+            />
+            <text x={paddings.left} y={paddings.top} />
         </g>
         <!-- draw X and Y axis labels -->
         <text x={-10} y={90} transform="translate(100,100) rotate(90)"

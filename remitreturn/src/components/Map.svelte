@@ -22,7 +22,6 @@
 	// Svelte reactive statements
 	$: {
 		if (remit_data.length != 0) {
-			console.log(`progress: ${progress}`);
 			const initial_prog = 0.8;
 			const max_months = 15;
 			let m = Math.floor(
@@ -154,16 +153,16 @@
 
 <div class="map" class:visible={isVisible} bind:this={container}>
 	<svg class="map-label">
-		<text class="map-label-text" x="300" y="30">
+		<text class="map-label-text" x="370" y="30">
 			Months since migration: {curr_month}
 		</text>
-		<text class="map-label-text" x="300" y="60">
+		<text class="map-label-text" x="370" y="60">
 			Money fed to US economy: ${cumulative_us_money}
 		</text>
-		<text class="map-label-text" x="300" y="90">
+		<text class="map-label-text" x="370" y="90">
 			Remittances sent to a Northern Triangle
 		</text>
-		<text class="map-label-text" x="300" y="120">
+		<text class="map-label-text" x="370" y="120">
 			country (on average): ${cumulative_avg_nt_remits}
 		</text>
 	</svg>

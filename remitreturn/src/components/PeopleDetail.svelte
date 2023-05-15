@@ -17,13 +17,21 @@
     };
 
     const highlightMigrant = migrantGroup[7];
-    const salary = 800; // highlightMigrant.occupation_salary;
+    const multiplier = highlightMigrant.mig_ext_medio
+        .toLowerCase()
+        .includes("irregular")
+        ? 0.92
+        : 1; // irregular migrants make 8% less in wages
+    const monthlySalary = Math.round(
+        multiplier * (highlightMigrant.occupation_salary / 12)
+    );
+    const likely_occupation = highlightMigrant.likely_occupation.toLowerCase();
     const monthlyRemits = highlightMigrant.remesa_usd_sent_monthly;
     const originCountry = countries[highlightMigrant.country];
     const sex = highlightMigrant.mig_ext_sex;
     const age = highlightMigrant.mig_ext_age;
     const migCost = highlightMigrant.mig_cost_usd;
-    const max = Math.max(salary, migCost);
+    const max = Math.max(monthlySalary, migCost);
 
     const numMonths = 12;
     const monthKeys = [...Array(numMonths).keys()].map((i) => `Month ${i + 1}`);
@@ -34,7 +42,7 @@
     let monthlyMoneyToUSData = {};
 
     monthlySalaryData = Object.fromEntries(
-        monthKeys.map((month) => [month, salary])
+        monthKeys.map((month) => [month, monthlySalary])
     );
     monthlyRemitData = Object.fromEntries(
         monthKeys.map((month) => [month, monthlyRemits])
@@ -43,13 +51,13 @@
     let remaining = migCost;
 
     for (let month = 0; month < numMonths; month++) {
-        let payment = Math.min(remaining, salary - monthlyRemits);
-        remaining -= payment;
+        let payment = Math.min(remaining, monthlySalary - monthlyRemits);
         monthlyRemainingCostData[`Month ${month + 1}`] = Math.max(0, remaining);
         monthlyMoneyToUSData[`Month ${month + 1}`] = Math.max(
             0,
-            salary - monthlyRemits - payment
+            monthlySalary - monthlyRemits - payment
         );
+        remaining -= payment;
     }
 
     function getTooltipTitle(migrant) {
@@ -68,12 +76,12 @@
     <p>
         Consider the {age}-year-old man from
         {originCountry}. He spent ${migCost} USD to migrate and is currently living
-        in the US. He has a salaried job in the US; assume he makes ${salary}/month.
-        He also sends home ${monthlyRemits} USD as remittances every month. With
-        these numbers, he will break even in a month, earning beyond the initial
-        cost of migration. Every month forward, he will contribute ${salary -
-            monthlyRemits} USD (${salary}-${monthlyRemits}) to the United States
-        economy.
+        in the US. He is likely working in the category of "{likely_occupation}"
+        making ${monthlySalary}/month. He also sends home ${monthlyRemits} USD as
+        remittances every month. With these numbers, he will break even in a month,
+        earning beyond the initial cost of migration. Every month forward, he will
+        contribute ${monthlySalary - monthlyRemits} USD (${monthlySalary}-${monthlyRemits})
+        to the United States economy.
     </p>
 </div>
 
@@ -152,7 +160,6 @@
                         data={monthlyRemainingCostData}
                         linked="table"
                         uid="table-3"
-                        type="line"
                         fill={themeColors.pink}
                         scaleMax={max}
                         barMinHeight="5"
@@ -171,6 +178,7 @@
                         data={monthlyMoneyToUSData}
                         linked="table"
                         uid="table-4"
+                        type="line"
                         fill={themeColors.green}
                         scaleMax={max}
                         barMinHeight="5"

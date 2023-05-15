@@ -5,7 +5,8 @@ import pandas as pd
 from class_data_lookup_utils import map_answers, currency_convert
 import matplotlib.pyplot as plt
 
-data_path = "class-data/dataset-1_central-american-survey"
+data_root = "remitreturn/class-data"
+class_data_path = f"{data_root}/dataset-1_central-american-survey"
 mig_ext_cols = [0, 1, 2, 21, 32, *range(46, 55), 57, *range(92, 108)]
 
 def calculate_mig_cost_dist(row):
@@ -44,7 +45,7 @@ def prepare_mig_ext_dataset() -> pd.DataFrame:
     
     :return: updated mig_ext_df dataframe
     """
-    mig_ext_df = pd.read_csv(f"{data_path}/mig_ext_roster.csv", index_col=0, usecols=mig_ext_cols)
+    mig_ext_df = pd.read_csv(f"{class_data_path}/mig_ext_roster.csv", index_col=0, usecols=mig_ext_cols)
 
     # remap answer codes to real values
     mig_ext_df.mig_ext_sex = mig_ext_df.mig_ext_sex.map(
@@ -121,8 +122,8 @@ def get_likely_occupations(df):
     :param df: dataframe of migrants
     :return: updated dataframe with occupations added
     """
-    occupations = pd.read_csv("class-data/migrant_occupation_breakdown.csv")
-    salaries = pd.read_csv("class-data/migrant_occupation_salary.csv")
+    occupations = pd.read_csv(f"{data_root}/migrant_occupation_breakdown.csv")
+    salaries = pd.read_csv(f"{data_root}/migrant_occupation_salary.csv")
     salaries = salaries.applymap(str).groupby("Employment")["Salary"].apply(float).to_dict()
 
     # convert percentages to fractional weights
