@@ -59,7 +59,7 @@
 			container,
 			style: "mapbox://styles/mapbox/light-v11",
 			center: mapCenter,
-			zoom: 4.5, // starting zoom level
+			zoom: 4.25, // starting zoom level
 			minZoom: 3,
 			maxZoom: 6,
 		});
@@ -155,16 +155,16 @@
 
 <div class="map" class:visible={isVisible} bind:this={container}>
 	<svg class="map-label">
-		<text class="map-label-text" x="370" y="30">
+		<text class="map-label-text" x="340" y="30">
 			Months since migration: {curr_month}
 		</text>
-		<text class="map-label-text" x="370" y="60">
+		<text class="map-label-text" x="340" y="60">
 			Money fed to US economy: ${cumulative_us_money}
 		</text>
-		<text class="map-label-text" x="370" y="90">
+		<text class="map-label-text" x="340" y="90">
 			Remittances sent to a Northern Triangle
 		</text>
-		<text class="map-label-text" x="370" y="120">
+		<text class="map-label-text" x="340" y="120">
 			country (on average): ${cumulative_avg_nt_remits}
 		</text>
 	</svg>
