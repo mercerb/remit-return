@@ -1,6 +1,4 @@
 <script>
-  import Scroller from "@sveltejs/svelte-scroller";
-
   import Bar from "./Bar.svelte";
   import LineChart from "../components/LineChart.svelte";
   import Map from "../components/Map.svelte";
@@ -11,7 +9,6 @@
   import TextIntro from "../components/TextIntro.svelte";
   import TextMiddle from "../components/TextMiddle.svelte";
 
-  let count, index, offset, progress;
   let width, height;
 
   export const themeColors = {
@@ -23,84 +20,38 @@
   };
 </script>
 
-<div class="TextIntroHeading">
-  <h2>RemitReturn</h2>
-  <p>
-    <i>
-      Understanding the economic growth associated with migration and economic
-      opportunities to send remittances home while contributing to the
-      destination country's economy
-    </i>
-  </p>
-
-  <p id="authors">
-    This site was made by Mercer Borris, Ahsan Imran, and Shelby Unger for
-    6.C85, the "Interactive Data Visualization and Society" class, in the spring
-    of 2023. Acknowledgments, data sources, and additional details are available
-    here:
-    <b><a href="/sources">Learn more about the data</a></b>
-  </p>
-</div>
-
-<Scroller
-  top={0.0}
-  bottom={1}
-  threshold={0.5}
-  bind:count
-  bind:index
-  bind:offset
-  bind:progress
->
-  <div
-    class="background"
-    slot="background"
-    bind:clientWidth={width}
-    bind:clientHeight={height}
-  >
-    <Map visible_index="8" {index} {progress} />
+<body>
+  <div class="progress-container fixed-top">
+    <span class="progress-bar" />
   </div>
+  <div class="TextIntroHeading">
+    <h2>RemitReturn</h2>
+    <p>
+      <i>
+        Understanding the economic growth associated with migration and economic
+        opportunities to send remittances home while contributing to the
+        destination country's economy
+      </i>
+    </p>
 
-  <div class="foreground" slot="foreground">
-    <section>
-      <!-- Section 1 (index == 0)-->
-      <Bar {themeColors} />
-    </section>
-    <section>
-      <!-- Section 2 (index == 1)-->
-      <TextIntro />
-    </section>
-    <section>
-      <!-- Section 3 (index == 2)-->
-      <Sankey visible_index="0" {index} />
-    </section>
-    <section>
-      <!-- Section 4 (index == 3)-->
-      <SankeyText />
-    </section>
-    <section>
-      <!-- Section 5 (index == 4)-->
-      <People {themeColors} />
-    </section>
-    <section>
-      <!-- Section 6 (index == 5)-->
-      <PeopleDetail {themeColors} />
-    </section>
-    <section>
-      <!-- Section 7 (index == 6)-->
-      <LineChart visible_index="5" {index} {themeColors} {width} {height} />
-    </section>
-    <section>
-      <!-- Section 8 (index == 7)-->
-      <TextMiddle />
-    </section>
-    <section>
-      <!-- Section 9 (index == 8)-->
-    </section>
-    <section />
-    <!-- Section 10 (index == 9): map (visible in the back) -->
-    <section />
+    <p id="authors">
+      This site was made by Mercer Borris, Ahsan Imran, and Shelby Unger for
+      6.C85, the "Interactive Data Visualization and Society" class, in the
+      spring of 2023. Acknowledgments, data sources, and additional details are
+      available here:
+      <b><a href="/sources">Learn more about the data</a></b>
+    </p>
   </div>
-</Scroller>
+  <Bar {themeColors} />
+  <TextIntro />
+  <Sankey />
+  <SankeyText />
+  <People {themeColors} />
+  <PeopleDetail {themeColors} />
+  <LineChart {themeColors} {width} {height} />
+  <TextMiddle />
+  <Map />
+</body>
 
 <style>
   .background {
@@ -142,5 +93,26 @@
     text-align: left;
     font-size: 16px;
     color: black;
+  }
+
+  .fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  .progress-container {
+    width: 100%;
+    background-color: transparent;
+    height: 5px;
+    display: block;
+  }
+  .progress-bar {
+    background-color: red;
+    width: 0%;
+    display: block;
+    height: inherit;
   }
 </style>

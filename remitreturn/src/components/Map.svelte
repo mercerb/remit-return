@@ -8,7 +8,6 @@
 	import remit_data from "../../class-data/money_separated_transactions.json";
 	import { fade, fly } from "svelte/transition";
 
-	export let index, visible_index, progress;
 	const mapCenter = [-88.896926, 21.796506];
 	const mapLabelXShift = 280;
 	let map_loaded = false;

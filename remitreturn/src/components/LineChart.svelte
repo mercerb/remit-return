@@ -5,7 +5,7 @@
     import { scaleLinear } from "d3-scale";
     import data from "../../class-data/money_over_time_sample.json";
 
-    export let index, visible_index, themeColors, width, height;
+    export let themeColors, width, height;
 
     // set general use variables
     let chartWidth = 650;
@@ -144,20 +144,18 @@
             >Months Since Migration</text
         >
         <g>
-            {#if index > visible_index}
-                {#each data as migrant, _}
-                    <polyline
-                        points={getDataPoints(migrant.values)}
-                        fill="none"
-                        stroke={getLineColor(migrant)}
-                        stroke-width="3"
-                        transition:draw={{
-                            duration: 5000,
-                            easing: cubicInOut,
-                        }}
-                    />
-                {/each}
-            {/if}
+            {#each data as migrant, _}
+                <polyline
+                    points={getDataPoints(migrant.values)}
+                    fill="none"
+                    stroke={getLineColor(migrant)}
+                    stroke-width="3"
+                    transition:draw={{
+                        duration: 5000,
+                        easing: cubicInOut,
+                    }}
+                />
+            {/each}
         </g>
 
         <!-- draw ticks on the X and Y axes -->
