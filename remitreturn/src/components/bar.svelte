@@ -1,5 +1,5 @@
 <script>
-  import { migration_motivations } from "../../../class-data/migration_motivations.js";
+  import { migration_motivations } from "../../class-data/migration_motivations.js";
 
   export let countrySelection = "all";
   export let themeColors;
@@ -48,7 +48,7 @@
             text-anchor="end"
             x={labelPositionXLeft}
             y={labelPositionY}
-            >{motivation.group}
+            >{motivation.motivName}
           </text>
           <text
             class="motivation-bar-chart-label"
@@ -71,7 +71,7 @@
             text-anchor="end"
             class="motivation-bar-chart-label"
             x={labelPositionXLeft}
-            y={labelPositionY}>{motivation.group}</text
+            y={labelPositionY}>{motivation.motivName}</text
           >
           <text
             class="motivation-bar-chart-label"
@@ -94,7 +94,7 @@
             class="motivation-bar-chart-label"
             text-anchor="end"
             x={labelPositionXLeft}
-            y={labelPositionY}>{motivation.group}</text
+            y={labelPositionY}>{motivation.motivName}</text
           >
           <text
             class="motivation-bar-chart-label"
@@ -117,7 +117,7 @@
             class="motivation-bar-chart-label"
             text-anchor="end"
             x={labelPositionXLeft}
-            y={labelPositionY}>{motivation.group}</text
+            y={labelPositionY}>{motivation.motivName}</text
           >
           <text
             class="motivation-bar-chart-label"
@@ -149,7 +149,7 @@
 
   .motivation-bar-chart-text {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 10px;
     font-family: sans-serif;
   }

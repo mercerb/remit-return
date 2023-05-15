@@ -33,7 +33,7 @@
         width: 90%;
         padding-top: 2%;
         margin: auto;
-        font-size: 20px;
+        font-size: 18px;
         font-family: sans-serif;
     }
 </style>

@@ -4,10 +4,11 @@
 	import mapboxgl from "mapbox-gl";
 	mapboxgl.accessToken =
 		"pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
-	import country_data from "../../../class-data/country_data.json";
-	import remit_data from "../../../class-data/money_separated_transactions.json";
+	import country_data from "../../class-data/country_data.json";
+	import remit_data from "../../class-data/money_separated_transactions.json";
 
 	export let index, visible_index, progress;
+	const mapCenter = [-88.896926, 21.796506];
 	let map_loaded = false;
 	let isVisible = false;
 	let filtered_remits = [];
@@ -22,7 +23,6 @@
 	// Svelte reactive statements
 	$: {
 		if (remit_data.length != 0) {
-			console.log(`progress: ${progress}`);
 			const initial_prog = 0.8;
 			const max_months = 15;
 			let m = Math.floor(
@@ -48,8 +48,9 @@
 	}
 
 	function handleResize() {
-		updateZoomLevel();
-		map.setZoom(zoomLevel);
+		// updateZoomLevel();
+		// map.setZoom(zoomLevel);
+		// map.setCenter(mapCenter);
 	}
 
 	onMount(() => {
@@ -57,7 +58,7 @@
 		map = new mapboxgl.Map({
 			container,
 			style: "mapbox://styles/mapbox/light-v11",
-			center: [-92.896926, 21.796506],
+			center: mapCenter,
 			zoom: 4.5, // starting zoom level
 			minZoom: 3,
 			maxZoom: 6,
@@ -154,16 +155,16 @@
 
 <div class="map" class:visible={isVisible} bind:this={container}>
 	<svg class="map-label">
-		<text class="map-label-text" x="300" y="30">
+		<text class="map-label-text" x="370" y="30">
 			Months since migration: {curr_month}
 		</text>
-		<text class="map-label-text" x="300" y="60">
+		<text class="map-label-text" x="370" y="60">
 			Money fed to US economy: ${cumulative_us_money}
 		</text>
-		<text class="map-label-text" x="300" y="90">
+		<text class="map-label-text" x="370" y="90">
 			Remittances sent to a Northern Triangle
 		</text>
-		<text class="map-label-text" x="300" y="120">
+		<text class="map-label-text" x="370" y="120">
 			country (on average): ${cumulative_avg_nt_remits}
 		</text>
 	</svg>
@@ -177,7 +178,7 @@
 		opacity: 0;
 		visibility: hidden;
 		transition: opacity 2s, visibility 2s;
-		outline: blue solid 3px;
+		/* outline: blue solid 3px; */
 	}
 
 	.map.visible {

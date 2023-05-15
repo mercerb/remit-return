@@ -3,7 +3,7 @@ Helper functions to link survey answer codes
 with actual text answers
 """
 import pandas as pd
-data_path = "class-data/dataset-1_central-american-survey"
+data_path = "remitreturn/class-data/dataset-1_central-american-survey"
 
 # Load the mapping CSV file
 lookup_df = pd.read_excel(

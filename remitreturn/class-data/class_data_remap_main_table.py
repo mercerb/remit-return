@@ -4,7 +4,7 @@ Helper functions to parse "main_table.csv" specificially
 import pandas as pd
 from class_data_lookup_utils import map_answers, currency_convert
 
-data_path = "class-data/dataset-1_central-american-survey"
+class_data_path = "remitreturn/class-data/dataset-1_central-american-survey"
 main_cols = [0, 149, 151, *range(169, 175), *range(176, 179), *range(197, 214), *range(439, 450)]
 
 remesa_freq_map = {
@@ -27,7 +27,7 @@ def prepare_main_dataset() -> pd.DataFrame:
     
     :return: updated main_table_df dataframe
     """
-    main_df = pd.read_csv(f"{data_path}/main_table.csv", index_col=0, usecols=main_cols)
+    main_df = pd.read_csv(f"{class_data_path}/main_table.csv", index_col=0, usecols=main_cols)
 
     # remap answer codes to real values
     yn_map = {1: "Yes", 2: "No", 3: "No answer"}

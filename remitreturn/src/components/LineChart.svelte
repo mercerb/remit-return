@@ -3,13 +3,15 @@
     import { draw } from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { scaleLinear } from "d3-scale";
-    import data from "../../../class-data/money_over_time.json";
+    import data from "../../class-data/money_over_time_sample.json";
 
-    export let index, visible_index, themeColors;
+    export let index, visible_index, themeColors, width, height;
 
     // set general use variables
     let chartWidth = 650;
     let chartHeight = 400;
+    // let chartWidth = width;
+    // let chartHeight = height;
 
     const paddings = {
         top: 20,
@@ -20,13 +22,14 @@
 
     // set scaling variables
     const everyMonth = data.flatMap((d) => d.values.map((v) => v.month));
-    const allMonths = [...new Set(everyMonth)];
+    // const allMonths = [...new Set(everyMonth)];
+    const allMonths = [0, 1, 2, 3, 4, 5]; // all are paid off in 6 months
     const minMonth = Math.min(...allMonths);
     const maxMonth = Math.max(...allMonths);
 
     const allCosts = data.flatMap((d) => d.values.map((v) => v.mig_cost_left));
     const minCost = Math.min(...allCosts);
-    const maxCost = Math.max(...allCosts);
+    const maxCost = Math.max(...allCosts) + 1000; // buffer
 
     $: xScale = scaleLinear()
         .domain([minMonth, maxMonth])
@@ -71,11 +74,7 @@
         }
     }
 
-    // hover effect
     const idContainer = "svg-container-" + Math.random() * 1000000;
-    let mousePosition = { x: null, y: null };
-    let pageMousePosition = { x: null, y: null };
-    let currentHoveredPoint = null;
 
     function getLineColor(data) {
         if (
@@ -101,9 +100,10 @@
 <div class="LineChart">
     <div class="line-chart-2-text">
         <p>
-            Now, let's look at migration cost balance over time for these 10
-            migrants based on their initial migration cost, monthly remittances
-            sent home, and earning potential.
+            Now, using this calculation method, let's look at migration cost
+            balance over time for these 10 migrants based on their initial
+            migration cost, monthly remittances sent home, and earning
+            potential.
         </p>
         <p id="center">Breakeven-Time (in months) on Migration Investment</p>
     </div>
@@ -133,10 +133,8 @@
                 x={paddings.left}
                 y={chartHeight - paddings.bottom}
                 transform="translate(0,0) rotate(90)"
-            >
-            </text>
-            <text x={paddings.left} y={paddings.top}>
-            </text>
+            />
+            <text x={paddings.left} y={paddings.top} />
         </g>
         <!-- draw X and Y axis labels -->
         <text x={-10} y={90} transform="translate(100,100) rotate(90)"
@@ -218,7 +216,7 @@
         margin: auto;
         position: relative;
         text-align: left;
-        font-size: 20px;
+        font-size: 18px;
         font-family: sans-serif;
     }
 

@@ -11,7 +11,7 @@
   import { interpolateCool } from "d3-scale-chromatic";
   import { extent as d3Extent } from "d3-array";
 
-  import sankey_data from "../../../class-data/sankey_data.json";
+  import sankey_data from "../../class-data/sankey_data.json";
 
   import SankeyGroup from "./SankeyGroup.svelte";
 

@@ -25,7 +25,7 @@
         margin: auto;
         position: relative;
         text-align: left;
-        font-size: 20px;
+        font-size: 18px;
         font-family: sans-serif;
     }
 </style>
