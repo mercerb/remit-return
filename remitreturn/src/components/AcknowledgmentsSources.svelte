@@ -70,27 +70,45 @@
     </table>
 
     <p>
-        Salary data for agricultural production or labor, domestic work, and 
-        other categories are taken from the <a href="https://www.bls.gov/oes/current/oes_nat.htm">Occupational Employment and Wage Statistics (OEWS) Survey</a> from the Bureau of Labor Statistics, Department 
-        of Labor. The average median hourly wage for occupations that fall into each category are calculated, and this was used to estimated annual salary based on a 40 hour working week.
+        Salary data for agricultural production or labor, domestic work, and
+        other categories are taken from the <a
+            href="https://www.bls.gov/oes/current/oes_nat.htm"
+            >Occupational Employment and Wage Statistics (OEWS) Survey</a
+        > from the Bureau of Labor Statistics, Department of Labor. The average median
+        hourly wage for occupations that fall into each category are calculated,
+        and this was used to estimated annual salary based on a 40 hour working week.
     </p>
-    
+
     <p>
-        The hourly wage for informal work is based on an estimate from a study from the Federal Reserve Bank of Boston, Informal Work Activity in the United States: Evidence from Survey Responses.
+        The hourly wage for informal work is based on an estimate from a study
+        from the Federal Reserve Bank of Boston, Informal Work Activity in the
+        United States: Evidence from Survey Responses.
     </p>
-    
+
     <p>
-        The median earnings for salaried employment are taken from the median weekly earnings from the first quarter of 2021 from the <a href="https://www.bls.gov/news.release/wkyeng.t01.htm">Bureau of Labor and Statistics</a>.
+        The median earnings for salaried employment are taken from the median
+        weekly earnings from the first quarter of 2021 from the <a
+            href="https://www.bls.gov/news.release/wkyeng.t01.htm"
+            >Bureau of Labor and Statistics</a
+        >.
     </p>
-    
+
     <p>
-        The estimated salary for individuals running their own small business is taken from <a href="https://www.payscale.com/research/US/Job=Small_Business_Owner_%2F_Operator/Salary">Payscale</a>.
+        The estimated salary for individuals running their own small business is
+        taken from <a
+            href="https://www.payscale.com/research/US/Job=Small_Business_Owner_%2F_Operator/Salary"
+            >Payscale</a
+        >.
     </p>
-    
+
     <p>
-        The median hourly wage of student workers was sourced from <a href="https://www.indeed.com/career/student-worker/salaries">Indeed</a>. In this case the annual earnings are based on a 20 hour work week due to the regulations placed on F-1 international students.
+        The median hourly wage of student workers was sourced from <a
+            href="https://www.indeed.com/career/student-worker/salaries"
+            >Indeed</a
+        >. In this case the annual earnings are based on a 20 hour work week due
+        to the regulations placed on F-1 international students.
     </p>
-    
+
     <p>
         Finally, we also used the resources available at the <a
             href="https://svelte.dev/">Svelte website</a
@@ -127,6 +145,7 @@
         margin: auto;
         font-size: 18px;
         font-family: sans-serif;
+        color: #112b64;
     }
 
     .Ack {
