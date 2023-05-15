@@ -2,7 +2,7 @@
     import IconWoman from "../icons/woman.svelte";
     import IconMan from "../icons/man.svelte";
     import TextTooltip from "./TextTooltip.svelte";
-    import migrantGroup from "../../../class-data/migrants_to_US_sample.json";
+    import migrantGroup from "../../class-data/migrants_to_US_sample.json";
 
     export let themeColors;
     const countries = {

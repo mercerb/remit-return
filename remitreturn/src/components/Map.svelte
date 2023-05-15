@@ -4,8 +4,8 @@
 	import mapboxgl from "mapbox-gl";
 	mapboxgl.accessToken =
 		"pk.eyJ1Ijoic2hlbGJ5dSIsImEiOiJjbGgyZTBuczQwb3l2M2prY3hpOWM0N21uIn0.YbLFLROwC_eObLtt9kC52g";
-	import country_data from "../../../class-data/country_data.json";
-	import remit_data from "../../../class-data/money_separated_transactions.json";
+	import country_data from "../../class-data/country_data.json";
+	import remit_data from "../../class-data/money_separated_transactions.json";
 
 	export let index, visible_index, progress;
 	let map_loaded = false;

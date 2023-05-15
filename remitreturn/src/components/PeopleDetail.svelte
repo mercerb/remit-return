@@ -7,7 +7,7 @@
         LinkedLabel,
         LinkedValue,
     } from "svelte-tiny-linked-charts";
-    import migrantGroup from "../../../class-data/migrants_to_US_sample.json";
+    import migrantGroup from "../../class-data/migrants_to_US_sample.json";
 
     export let themeColors;
     const countries = {

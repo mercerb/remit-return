@@ -3,7 +3,7 @@
     import { draw } from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { scaleLinear } from "d3-scale";
-    import data from "../../../class-data/money_over_time.json";
+    import data from "../../class-data/money_over_time.json";
 
     export let index, visible_index, themeColors;
 

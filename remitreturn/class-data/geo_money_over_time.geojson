@@ -1,0 +1,185 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 4645,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 168.0,
+                "home_country": "GT",
+                "money_us": 832.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.574,
+                    15.165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 1358,
+                "month": 15,
+                "mig_cost_left": 3000,
+                "remit": 0,
+                "home_country": "SLV",
+                "money_us": 0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.816,
+                    13.547
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 1743,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 17.0,
+                "home_country": "HND",
+                "money_us": 983.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.663,
+                    14.826
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 2399,
+                "month": 15,
+                "mig_cost_left": 59.0,
+                "remit": 1000.0,
+                "home_country": "HND",
+                "money_us": 0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -86.663,
+                    14.826
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 853,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 25.0,
+                "home_country": "GT",
+                "money_us": 975.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.574,
+                    15.165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 1575,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 25.0,
+                "home_country": "GT",
+                "money_us": 975.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.574,
+                    15.165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 3921,
+                "month": 15,
+                "mig_cost_left": 6000,
+                "remit": 0,
+                "home_country": "SLV",
+                "money_us": 0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.816,
+                    13.547
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 810,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 200.0,
+                "home_country": "GT",
+                "money_us": 800.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.574,
+                    15.165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 1620,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 200.0,
+                "home_country": "GT",
+                "money_us": 800.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.574,
+                    15.165
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "migrant_rsp_id": 1083,
+                "month": 15,
+                "mig_cost_left": 0,
+                "remit": 200.0,
+                "home_country": "SLV",
+                "money_us": 800.0
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.816,
+                    13.547
+                ]
+            }
+        }
+    ]
+}
