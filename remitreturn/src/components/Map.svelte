@@ -8,6 +8,7 @@
 	import remit_data from "../../class-data/money_separated_transactions.json";
 
 	export let index, visible_index, progress;
+	const mapCenter = [-88.896926, 21.796506];
 	let map_loaded = false;
 	let isVisible = false;
 	let filtered_remits = [];
@@ -47,8 +48,9 @@
 	}
 
 	function handleResize() {
-		updateZoomLevel();
-		map.setZoom(zoomLevel);
+		// updateZoomLevel();
+		// map.setZoom(zoomLevel);
+		// map.setCenter(mapCenter);
 	}
 
 	onMount(() => {
@@ -56,7 +58,7 @@
 		map = new mapboxgl.Map({
 			container,
 			style: "mapbox://styles/mapbox/light-v11",
-			center: [-92.896926, 21.796506],
+			center: mapCenter,
 			zoom: 4.5, // starting zoom level
 			minZoom: 3,
 			maxZoom: 6,

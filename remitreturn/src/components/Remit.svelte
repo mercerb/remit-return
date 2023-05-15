@@ -87,7 +87,7 @@
     </section>
     <section>
       <!-- Section 7 (index == 6)-->
-      <LineChart visible_index="5" {index} {themeColors} />
+      <LineChart visible_index="5" {index} {themeColors} {width} {height} />
     </section>
     <section>
       <!-- Section 8 (index == 7)-->
@@ -118,7 +118,7 @@
   }
 
   section {
-    height: 75vh;
+    height: 80vh;
     /* background-color: rgba(0, 0, 0, 0.2); */
     color: white;
     text-align: center;
@@ -132,7 +132,7 @@
     text-align: center;
     max-width: 800px;
     margin: auto;
-    font-size: 20px;
+    font-size: 18px;
     padding-right: 30px;
     font-family: sans-serif;
     color: #112b64;

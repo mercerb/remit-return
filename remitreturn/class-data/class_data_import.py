@@ -40,18 +40,20 @@ sample_df.to_json(f"{data_root}/migrants_to_US_sample.json", orient="records")
 def get_monthly_money_flow(migrant, months_elapsed):
     if not migrant["at_destination"]:
         return migrant["mig_cost_usd"], 0, 0
+    
     multiplier = 0.92 if ("irregular" in migrant["mig_ext_medio"].lower()) else 1.0
     monthly_salary = round(multiplier*(migrant["occupation_salary"]/12))
     mig_cost = migrant["mig_cost_usd"]
-    monthly_diff = monthly_salary - migrant["remesa_usd_sent_monthly"]
+    monthly_diff = max(monthly_salary - migrant["remesa_usd_sent_monthly"], 0)
     remaining_mig_cost = max(mig_cost - months_elapsed*monthly_diff, 0)
     money_to_us = max(monthly_diff - remaining_mig_cost, 0)
     return remaining_mig_cost, money_to_us, migrant["remesa_usd_sent_monthly"]
 
 
-def get_money_time_data(months):
+def get_money_time_data(months, sample):
     # load migrants from sample file (n=10)
-    with open(f"{data_root}/migrants_to_US_sample.json", 'r') as data_file:
+    file_suffix = "_sample.json" if sample else ".json"
+    with open(f"{data_root}/migrants_to_US{file_suffix}", 'r') as data_file:
         json_data = data_file.read()
     migrants = json.loads(json_data)
 
@@ -59,6 +61,8 @@ def get_money_time_data(months):
     for m in migrants:
         values = []
         for month in range(months):
+            if (m["remesa_usd_sent_monthly"] is None or m["mig_cost_usd"] is None):
+                continue
             remaining, money_us, remit = get_monthly_money_flow(m, month)
             vals = {"month": month, "mig_cost_left": remaining, "remit": remit, "money_us": money_us}
             values.append(vals)
@@ -66,10 +70,10 @@ def get_money_time_data(months):
         data.append({"migrant_rsp_id": m["rsp_id"], "values": values})
     
     # save to file
-    with open(f'{data_root}/money_over_time.json', 'w') as f:
+    with open(f'{data_root}/money_over_time{file_suffix}', 'w') as f:
         json.dump(data, f)
 
-get_money_time_data(months=16)
+get_money_time_data(months=16, sample=False)
 
 
 # NB: in some cases, there are multiple migrants from the same household

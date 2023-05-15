@@ -3,13 +3,15 @@
     import { draw } from "svelte/transition";
     import { cubicOut, cubicInOut } from "svelte/easing";
     import { scaleLinear } from "d3-scale";
-    import data from "../../class-data/money_over_time.json";
+    import data from "../../class-data/money_over_time_sample.json";
 
-    export let index, visible_index, themeColors;
+    export let index, visible_index, themeColors, width, height;
 
     // set general use variables
     let chartWidth = 650;
     let chartHeight = 400;
+    // let chartWidth = width;
+    // let chartHeight = height;
 
     const paddings = {
         top: 20,
@@ -72,11 +74,7 @@
         }
     }
 
-    // hover effect
     const idContainer = "svg-container-" + Math.random() * 1000000;
-    let mousePosition = { x: null, y: null };
-    let pageMousePosition = { x: null, y: null };
-    let currentHoveredPoint = null;
 
     function getLineColor(data) {
         if (
@@ -218,7 +216,7 @@
         margin: auto;
         position: relative;
         text-align: left;
-        font-size: 20px;
+        font-size: 18px;
         font-family: sans-serif;
     }
 

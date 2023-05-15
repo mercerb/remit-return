@@ -256,7 +256,7 @@
 
   .motivation-bar-chart-text {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     padding-top: 10px;
     font-family: sans-serif;
   }

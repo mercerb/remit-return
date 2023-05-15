@@ -103,7 +103,7 @@
         text-align: center;
         width: 80%;
         margin: auto;
-        font-size: 20px;
+        font-size: 18px;
         font-family: sans-serif;
     }
 
@@ -111,7 +111,7 @@
         text-align: left;
         width: 80%;
         margin: auto;
-        font-size: 20px;
+        font-size: 18px;
         font-family: sans-serif;
     }
 
