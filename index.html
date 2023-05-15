@@ -6,20 +6,33 @@
 	<link rel="icon" href="./favicon.png" />
 	<meta name="viewport" content="width=device-width" />
 	<meta http-equiv="content-security-policy" content="">
-		<link href="./_app/immutable/assets/_page.15ab6579.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.61972c8d.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.a433e44c.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.99a24f9a.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.48b9fbf2.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/layout.svelte.09f97930.js">
+		<link href="./_app/immutable/assets/_page.a0663f89.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.412f24ff.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.0c170c66.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.8885bd1c.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.1c583a9e.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.9a73977c.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/layout.svelte.1e3f15bb.js">
 		<link rel="modulepreload" href="./_app/immutable/entry/_layout.js.984db11e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/_layout.da46b06b.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.1ff0f62a.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_page.svelte.37d999c2.js"><!-- HEAD_svelte-136huxz_START --><link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css"><!-- HEAD_svelte-136huxz_END --><!-- HEAD_svelte-136huxz_START --><link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.14.0/mapbox-gl.css"><!-- HEAD_svelte-136huxz_END -->
 </head>
 
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">
 
+
+<div class="TextIntroHeading svelte-1542vwk"><h2>RemitReturn</h2>
+  <p><i>Understanding the economic growth associated with migration and economic
+      opportunities to send remittances home while contributing to the
+      destination country&#39;s economy
+    </i></p>
+
+  <p id="authors" class="svelte-1542vwk">This site was made by Mercer Borris, Ahsan Imran, and Shelby Unger for
+    6.C85, the &quot;Interactive Data Visualization and Society&quot; class, in the spring
+    of 2023. Acknowledgments, data sources, and additional details are available
+    here:
+    <b><a href="/sources">Learn more about the data</a></b></p></div>
 
 
 
@@ -28,56 +41,64 @@
 		top: 0;
 		transform: translate(0, 0px);
 		z-index: 1;
-	"><svelte-scroller-background class="svelte-xdbafy"><div class="background svelte-19lyq44" slot="background"><div class="progress-bars svelte-19lyq44"></div></div></svelte-scroller-background></svelte-scroller-background-container>
+	"><svelte-scroller-background class="svelte-xdbafy"><div class="background svelte-1542vwk" slot="background">
 
-	<svelte-scroller-foreground class="svelte-xdbafy"><div class="foreground svelte-19lyq44" slot="foreground"><section class="svelte-19lyq44">
-      <h2>RemitReturn</h2>
+<div class="map svelte-47stvx"><svg class="map-label svelte-47stvx"><text class="map-label-text svelte-47stvx" x="300" y="30">Months since migration: 0</text><text class="map-label-text svelte-47stvx" x="300" y="60">Money fed to US economy: $1216</text><text class="map-label-text svelte-47stvx" x="300" y="90">Remittances sent to a Northern Triangle
+		</text><text class="map-label-text svelte-47stvx" x="300" y="120">country (on average): $611</text></svg>
+</div></div></svelte-scroller-background></svelte-scroller-background-container>
 
-<div class="IntroText svelte-1khzzid"><p>Economic insecurity is the leading cause of migration. Despite the costs
-        - both financial and emotional - associated with migrating from the
-        Northern Triangle (El Salvador, Honduras, and Guatemala) to the United
-        States, indviduals take on this burden year after year in search of
-        better salaries, working conditions, and opportunities to send money
-        home. Migrants who end up working in the destination country long enough
-        not only offset the cost of their migration and send remittances home,
-        but also spend money in the United States (for food, housing, etc),
-        invigorating the economy. Data sourced from the UN World Food Programme (WFP).
+	<svelte-scroller-foreground class="svelte-xdbafy"><div class="foreground svelte-1542vwk" slot="foreground"><section class="svelte-1542vwk">
+      <div class="motivation-bar-chart svelte-304bar" id="motivation-bar-chart"><div class="motivation-bar-chart-text svelte-304bar">Motivations of External Migration Per Country
+  </div>
+  <div class="bar-chart-buttons svelte-304bar"><button>Total</button>
+    <button>Guatemala</button>
+    <button>Honduras</button>
+    <button>El Salvador</button></div>
+
+  <svg class="motivation-bar-chart-svg svelte-304bar" id="motivation-bar-chart-svg"><g transform="translate(300 10)"><rect width="297.5" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Better Salary</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">1785 people</text></g><g transform="translate(300 45)"><rect width="110" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Unemployment</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">660 people</text></g><g transform="translate(300 80)"><rect width="87.66666666666667" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Covering basic needs</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">526 people</text></g><g transform="translate(300 115)"><rect width="64.16666666666667" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Remittances</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">385 people</text></g><g transform="translate(300 150)"><rect width="61.666666666666664" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Lack of money for food</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">370 people</text></g><g transform="translate(300 185)"><rect width="26.166666666666668" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Tourism</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">157 people</text></g><g transform="translate(300 220)"><rect width="22.166666666666668" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Family reunification</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">133 people</text></g><g transform="translate(300 255)"><rect width="20.666666666666668" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Natural hazard</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">124 people</text></g><g transform="translate(300 290)"><rect width="16.5" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Unsafety</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">99 people</text></g><g transform="translate(300 325)"><rect width="11.166666666666666" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Other</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">67 people</text></g><g transform="translate(300 360)"><rect width="10.333333333333334" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Study</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">62 people</text></g><g transform="translate(300 395)"><rect width="5" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Cultural reasons</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">30 people</text></g><g transform="translate(300 430)"><rect width="4.5" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Health</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">27 people</text></g><g transform="translate(300 465)"><rect width="1.5" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Loss of land</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">9 people</text></g><g transform="translate(300 500)"><rect width="0.8333333333333334" height="25" fill="#112b64"></rect><text class="motivation-bar-chart-label svelte-304bar" text-anchor="end" x="-10" y="12">Domestic violence</text><text class="motivation-bar-chart-label svelte-304bar" x="350" y="12">5 people</text></g></svg>
+</div></section>
+    <section class="svelte-1542vwk">
+      <div class="TextIntro svelte-18glh7d"><p>As seen in the above chart, economic insecurity is the leading cause of
+        migration (source: UN World Food Programme, April 2021 survey of
+        Northern Triangle inhabitants). Despite the financial and emotional
+        costs associated with migrating from the Northern Triangle (El Salvador,
+        Honduras, and Guatemala) to the United States, indviduals take on this
+        burden every year in search of better salaries, working conditions, and
+        opportunities to send money home.
     </p>
 
-    <p>The data displayed here is a subset of the class data. This subset
-        includes 454 individuals who reported a cost of migration and whose
-        destination was the United States. Of these, 349 currently reside in the
-        USA and send remittances back to their families (as of the time of the
-        survey, April 2021). 105 paid the cost of migration but either did not
-        make it to the USA or were sent back.
+    <p>Migrants who end up working in the destination country long enough are
+        able to offset the cost of their migration and send remittances home.
+        They also spend money in the United States (for food, housing, and other
+        services), invigorating the economy.
     </p>
 
-    <p>Is the cost worth it? At what point do working migrants offset that
-        cost? How much are they contributing to the US economy depending on what
-        jobs are available? To better understand the tradeoff between the cost
-        of migration, remittances, and money entering the USA, we have
-        identified 10 migrants who represent a statistically similar sample of
-        this larger group.
+    <p>Given the risks inherent in migration and the possibility of being sent
+        back, <b>is the cost worth it? At what point do working migrants offset that
+            cost? How much are they contributing to the US economy depending on
+            what jobs are available?
+        </b> First, we need to understand what their earning potential is based on
+        the roles they are able to hold in the destination country.
     </p>
 </div></section>
-    <section class="svelte-19lyq44">
+    <section class="svelte-1542vwk">
       <main>
 
     <html lang="en"><head><meta charset="utf-8">
-            
-            
             <style>.node rect {
                     cursor: move;
                     fill-opacity: 0.9;
+
                     shape-rendering: crispEdges;
                 }
                 .node text {
                     pointer-events: none;
                     text-shadow: 0 1px 0 #fff;
+                    font-family: sans-serif;
                 }
                 .link {
                     fill: none;
-                    stroke: burlywood;
+                    stroke: black;
                     stroke-opacity: 0.2;
                 }
                 .link:hover {
@@ -86,19 +107,22 @@
                     stroke-opacity: 1000;
                 }
                 svg {
-                    position: relative; 
+                    position: relative;
                     text-anchor: middle;
                 }
                 canvas {
                     position: absolute;
+                }
+                .sidebar {
+                    font-family: sans-serif;
                 }
             </style></head>
         <body>
 
             <div class="sidebar"><p style="float: left;">Original Occupation</p>
                 <p style="float: right;">US Occupation</p></div>
-            <p id="sankey"><canvas width="700" height="1100"></canvas>
-                <svg width="700" height="1000"></svg>
+            <p id="sankey"><canvas width="700" height="700"></canvas>
+                <svg class="sankey-svg" width="700" height="700"></svg>
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js" charset="utf-8" type="text/javascript"></script>
                 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/sankey.js"></script>
@@ -111,8 +135,8 @@
                             return formatNumber(d);
                         },
                         color = d3.scale.category20();
-                    var svg = d3
-                        .select("svg")
+                    var svg1 = d3
+                        .select(".sankey-svg")
                         .attr("width", width + margin.left + margin.right)
                         .attr("height", height + margin.top + margin.bottom)
                         .append("g")
@@ -134,7 +158,7 @@
                                 .nodes(energy.nodes)
                                 .links(energy.links)
                                 .layout(32);
-                            var link = svg
+                            var link = svg1
                                 .append("g")
                                 .selectAll(".link")
                                 .data(energy.links)
@@ -153,15 +177,9 @@
                                 });
 
                             link.append("title").text(function (d) {
-                                return (
-                                    d.source.name +
-                                    " → " +
-                                    d.target.name +
-                                    "\n" +
-                                    format(d.value)
-                                );
+                                return d.source.name + " → " + d.target.name;
                             });
-                            var node = svg
+                            var node = svg1
                                 .append("g")
                                 .selectAll(".node")
                                 .data(energy.nodes)
@@ -258,7 +276,7 @@
                                 .range([1, 5]);
                             energy.links.forEach(function (link) {
                                 link.freq = frequencyScale(link.value);
-                                link.particleSize = 1;
+                                link.particleSize = 1.5;
                                 link.color = d3.scale
                                     .linear()
                                     .domain([0, 1])
@@ -274,7 +292,7 @@
                                         link.target.color,
                                     ]);
                             });
-                            var t = d3.timer(tick, 50);
+                            // var t = d3.timer(tick, 0); // disable animation
                             var particles = [];
                             function tick(elapsed, time) {
                                 particles = particles.filter(function (d) {
@@ -305,7 +323,7 @@
                                     .select("canvas")
                                     .node()
                                     .getContext("2d");
-                                context.clearRect(0, 0, 1000, 1000);
+                                context.clearRect(0, 0, 700, 700);
                                 context.fillStyle = "gray";
                                 context.lineWidth = "1px";
                                 for (var x in particles) {
@@ -380,27 +398,275 @@
                         );
                     }
                 </script></p></body></html></main></section>
-    <section class="svelte-19lyq44">
-      <div class="SankeyText svelte-nbohqb"><p>The sankey chart represents the occupations for migrants before and after their 
-        migration to the US. There are 8 different categories of occupations. Before migration,
-        across all the categories, &quot;agriculture production or labor&quot; has the most people with 392.
-        Informal work and Student category also have over 300 people. 
-    </p><p>After migration, the Informal work category has over 450 people and there are changes in
-        occupations for some of the migrants. By hovering over the origin country occupation nodes, 
-        we get perspective regarding changes for people for a particular occupation when
-        they move to the US. Hovering over the US occupation nodes, we can see how people 
-        from different occupations in the origin countries take up jobs in a new occupation
-        category. 
-
+    <section class="svelte-1542vwk">
+      <div class="SankeyText svelte-15vttn8"><p>The above sankey chart represents the occupations for migrants before
+        and after their migration to the US. There are 8 different categories of
+        occupations. Before migration, across all the categories, the
+        agricultural sector has the most workers, with 392. The &quot;student&quot; and
+        &quot;informal work&quot; categories also have over 300 people each.
+    </p>
+    <p>After migration, many of the migrants change jobs. By hovering over the
+        origin country occupation nodes, we get perspective regarding changes
+        for people for a particular occupation when they move to the US.
+        Hovering over the US occupation nodes, we can see how people from
+        different occupations in the origin countries take up jobs in a new
+        occupation category. For example, 458 migrants in the US do &quot;informal
+        work.&quot; This group includes many who did informal work before, but also
+        former farmers, students, and business owners, among others.
     </p>
 </div></section>
-    <section class="svelte-19lyq44">
-      Cost of migration projected over time (months).
-      <div class="LineChart2 svelte-1s8vqje"><svg width="600" height="400" id="svg-container-711992.4470265886"><g><line x1="60" x2="550" y1="350" y2="350" stroke="#112b64" stroke-width="2" class="axis"></line><line x1="60" x2="60" y1="50" y2="350" stroke="#112b64" stroke-width="2" class="axis"></line><text x="60" y="350" transform="translate(0,0) rotate(90)"></text><text x="60" y="50"></text></g><g></g><g transform="translate(0, 350)"><g class="tick" opacity="1" transform="translate(60,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">0</text></g><g class="tick" opacity="1" transform="translate(92.66666666666666,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">1</text></g><g class="tick" opacity="1" transform="translate(125.33333333333333,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">2</text></g><g class="tick" opacity="1" transform="translate(158,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">3</text></g><g class="tick" opacity="1" transform="translate(190.66666666666666,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">4</text></g><g class="tick" opacity="1" transform="translate(223.33333333333331,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">5</text></g><g class="tick" opacity="1" transform="translate(256,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">6</text></g><g class="tick" opacity="1" transform="translate(288.6666666666667,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">7</text></g><g class="tick" opacity="1" transform="translate(321.3333333333333,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">8</text></g><g class="tick" opacity="1" transform="translate(354,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">9</text></g><g class="tick" opacity="1" transform="translate(386.66666666666663,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">10</text></g><g class="tick" opacity="1" transform="translate(419.3333333333333,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">11</text></g><g class="tick" opacity="1" transform="translate(452,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">12</text></g><g class="tick" opacity="1" transform="translate(484.6666666666667,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">13</text></g><g class="tick" opacity="1" transform="translate(517.3333333333334,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">14</text></g><g class="tick" opacity="1" transform="translate(550,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">15</text></g></g><g transform="translate(60, 0)"><g class="tick" opacity="1" transform="translate(0,350)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$0</text></g><g class="tick" opacity="1" transform="translate(0,322.72727272727275)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$1000</text></g><g class="tick" opacity="1" transform="translate(0,295.4545454545454)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$2000</text></g><g class="tick" opacity="1" transform="translate(0,268.1818181818182)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$3000</text></g><g class="tick" opacity="1" transform="translate(0,240.9090909090909)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$4000</text></g><g class="tick" opacity="1" transform="translate(0,213.63636363636363)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$5000</text></g><g class="tick" opacity="1" transform="translate(0,186.36363636363637)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$6000</text></g><g class="tick" opacity="1" transform="translate(0,159.0909090909091)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$7000</text></g><g class="tick" opacity="1" transform="translate(0,131.8181818181818)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$8000</text></g><g class="tick" opacity="1" transform="translate(0,104.54545454545453)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$9000</text></g><g class="tick" opacity="1" transform="translate(0,77.27272727272728)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$10000</text></g><g class="tick" opacity="1" transform="translate(0,50)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$11000</text></g></g></svg></div>
+    <section class="svelte-1542vwk">
+      <div class="people-text svelte-17yew8z"><p>In reviewing this data, we wanted to connect more deeply with the people
+        behind the numbers. We are highlighting here 10 USA-bound migrants who
+        form a representative sample of the larger group.
+    </p>
+    <p>Put another way, if this group of migrants were 10 people, who would
+        they be? What would they be like? How can they help us better understand
+        the tradeoff between the cost of migration, remittances, and money
+        entering the USA on a more accessible scale? <b>Move your mouse over each individual to learn more.
+        </b></p></div>
 
-<div id="chart"></div>
-      </section>
-    <section class="svelte-19lyq44"><div class="MiddleText svelte-x6um5r"><p>As seen in the above graph, the time it takes to pay off the cost of the
+<div class="people-tooltip svelte-17yew8z"><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#e39d12"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.39,7.92C11.15,7.36,10.61,7,10,7S8.85,7.36,8.61,7.92L6,14h2.5v4h3.01v-4H14L11.39,7.92z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.39,7.92C11.15,7.36,10.61,7,10,7S8.85,7.36,8.61,7.92L6,14h2.5v4h3.01v-4H14L11.39,7.92z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#e39d12"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div><div class="person svelte-17yew8z"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg>
+            </div>
+
+
+        </div>
+</div></section>
+    <section class="svelte-1542vwk">
+      <div class="people-text svelte-r0jnj8"><p>Consider the 26-year-old man from
+        Guatemala. He spent $1516 USD to migrate and is currently living
+        in the US. He has a salaried job in the US; assume he makes $800/month.
+        He also sends home $200 USD as remittances every month. With
+        these numbers, he will break even in a month, earning beyond the initial
+        cost of migration. Every month forward, he will contribute $600 USD ($800-$200) to the United States
+        economy.
+    </p></div>
+
+<div class="person svelte-r0jnj8"><div><svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 20 20" height="120px" viewBox="0 0 20 20" width="120px" fill="#112b64"><g><rect fill="none" height="20" width="20" x="0"></rect></g><g><g><circle cx="10" cy="3.75" r="1.75"></circle><path d="M11.5,7h-3C7.67,7,7,7.67,7,8.5V13h1.5v5h3v-5H13V8.5C13,7.67,12.33,7,11.5,7z"></path></g></g></svg></div>
+
+</div>
+
+<div class="linked-charts svelte-r0jnj8">
+    <table class="preview-table"><tr class="svelte-r0jnj8"><th>Money Category</th>
+                <th width="250"><!-- HTML_TAG_START -->12 month period<!-- HTML_TAG_END --></th>
+                <th>Value (USD)</th></tr>
+
+            <tr class="svelte-r0jnj8"><td class="label svelte-r0jnj8">Monthly Salary ($ coming in)</td>
+                <td class="svelte-r0jnj8"><svg width="150" height="40" viewBox="0 0 150 40" preserveAspectRatio="none"><g transform="translate(1, 0)">
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="0" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="12.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="25" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="37.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="50" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="62.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="75" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="87.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="100" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="112.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="125" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#e39d12" width="11.5" height="22" y="18" x="137.5" tabindex="-1"></rect>
+
+      </g></svg>
+
+</td>
+                <td class="svelte-r0jnj8">$<!-- HTML_TAG_START -->9600<!-- HTML_TAG_END --></td></tr>
+
+            <tr class="svelte-r0jnj8"><td class="label svelte-r0jnj8">Monthly Remittances Sent Home ($ leaving)</td>
+                <td class="svelte-r0jnj8"><svg width="150" height="40" viewBox="0 0 150 40" preserveAspectRatio="none"><g transform="translate(1, 0)">
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="0" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="12.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="25" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="37.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="50" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="62.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="75" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="87.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="100" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="112.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="125" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="#112b64" width="11.5" height="6" y="34" x="137.5" tabindex="-1"></rect>
+
+      </g></svg>
+
+</td>
+                <td class="svelte-r0jnj8">$<!-- HTML_TAG_START -->2400<!-- HTML_TAG_END --></td></tr>
+
+            <tr class="svelte-r0jnj8"><td class="label svelte-r0jnj8">Balance on Migration Cost ($ remaining)</td>
+                <td class="svelte-r0jnj8"><svg width="150" height="45.75" viewBox="0 0 150 40" preserveAspectRatio="none"><g transform="translate(1, 0)"><polyline points="0,21 12.5,35 25,35 37.5,35 50,35 62.5,35 75,35 87.5,35 100,35 112.5,35 125,35 137.5,35" stroke="#be318f" fill="transparent"></polyline>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="0" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="21" cx="0"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="12.5" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="12.5"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="25" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="25"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="37.5" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="37.5"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="50" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="50"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="62.5" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="62.5"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="75" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="75"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="87.5" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="87.5"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="100" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="100"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="112.5" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="112.5"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="125" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="125"></circle>
+      <rect opacity="1" fill="transparent" width="11.5" height="40" y="0" x="137.5" tabindex="-1"></rect>
+
+      <circle fill="transparent" r="5.75" cy="35" cx="137.5"></circle></g></svg>
+
+</td>
+                <td class="svelte-r0jnj8">$<!-- HTML_TAG_START -->1516<!-- HTML_TAG_END --></td></tr>
+
+            <tr class="svelte-r0jnj8"><td class="label svelte-r0jnj8">Monthly Money Spent in US ($ cash leftover)</td>
+                <td class="svelte-r0jnj8"><svg width="150" height="40" viewBox="0 0 150 40" preserveAspectRatio="none"><g transform="translate(1, 0)">
+      <rect opacity="1" fill="forestgreen" width="11.5" height="5" y="35" x="0" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="5" y="35" x="12.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="8" y="32" x="25" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="37.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="50" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="62.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="75" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="87.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="100" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="112.5" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="125" tabindex="-1"></rect>
+
+      
+      <rect opacity="1" fill="forestgreen" width="11.5" height="16" y="24" x="137.5" tabindex="-1"></rect>
+
+      </g></svg>
+
+</td>
+                <td class="svelte-r0jnj8">$<!-- HTML_TAG_START -->5684<!-- HTML_TAG_END --></td></tr></table>
+</div></section>
+    <section class="svelte-1542vwk">
+      <div class="LineChart svelte-i4fcu9"><div class="line-chart-2-text svelte-i4fcu9"><p>Now, let&#39;s look at migration cost balance over time for these 10
+            migrants based on their initial migration cost, monthly remittances
+            sent home, and earning potential.
+        </p>
+        <p id="center" class="svelte-i4fcu9">Breakeven-Time (in months) on Migration Investment</p></div>
+
+    <svg width="650" height="400" id="svg-container-703592.807860286" class="svelte-i4fcu9"><g><line x1="100" x2="600" y1="350" y2="350" stroke="#112b64" stroke-width="2" class="axis"></line><line x1="100" x2="100" y1="20" y2="350" stroke="#112b64" stroke-width="2" class="axis"></line><text x="100" y="350" transform="translate(0,0) rotate(90)"></text><text x="100" y="20"></text></g><text x="-10" y="90" transform="translate(100,100) rotate(90)">Cost of Migration ($ USD)</text><text x="295" y="390">Months Since Migration</text><g></g><g transform="translate(0, 350)"><g class="tick" opacity="1" transform="translate(100,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">0</text></g><g class="tick" opacity="1" transform="translate(133.33333333333331,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">1</text></g><g class="tick" opacity="1" transform="translate(166.66666666666669,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">2</text></g><g class="tick" opacity="1" transform="translate(200,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">3</text></g><g class="tick" opacity="1" transform="translate(233.33333333333334,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">4</text></g><g class="tick" opacity="1" transform="translate(266.6666666666667,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">5</text></g><g class="tick" opacity="1" transform="translate(300,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">6</text></g><g class="tick" opacity="1" transform="translate(333.3333333333333,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">7</text></g><g class="tick" opacity="1" transform="translate(366.6666666666667,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">8</text></g><g class="tick" opacity="1" transform="translate(400,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">9</text></g><g class="tick" opacity="1" transform="translate(433.3333333333333,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">10</text></g><g class="tick" opacity="1" transform="translate(466.66666666666663,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">11</text></g><g class="tick" opacity="1" transform="translate(500,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">12</text></g><g class="tick" opacity="1" transform="translate(533.3333333333334,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">13</text></g><g class="tick" opacity="1" transform="translate(566.6666666666666,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">14</text></g><g class="tick" opacity="1" transform="translate(600,0)"><line stroke="black" y2="6"></line><text dy="0.71em" fill="black" y="10" x="-5" text-anchor="middle">15</text></g></g><g transform="translate(100, 0)"><g class="tick" opacity="1" transform="translate(0,350)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$0</text></g><g class="tick" opacity="1" transform="translate(0,320)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$1000</text></g><g class="tick" opacity="1" transform="translate(0,289.99999999999994)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$2000</text></g><g class="tick" opacity="1" transform="translate(0,260)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$3000</text></g><g class="tick" opacity="1" transform="translate(0,230)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$4000</text></g><g class="tick" opacity="1" transform="translate(0,200)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$5000</text></g><g class="tick" opacity="1" transform="translate(0,170)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$6000</text></g><g class="tick" opacity="1" transform="translate(0,140)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$7000</text></g><g class="tick" opacity="1" transform="translate(0,110)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$8000</text></g><g class="tick" opacity="1" transform="translate(0,79.99999999999999)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$9000</text></g><g class="tick" opacity="1" transform="translate(0,50.00000000000001)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$10000</text></g><g class="tick" opacity="1" transform="translate(0,20)"><line stroke="black" x2="-5"></line><text dy="0.32em" fill="black" x="-10" text-anchor="end">$11000</text></g></g></svg></div>
+
+<div id="line-chart-2"></div></section>
+    <section class="svelte-1542vwk">
+      <div class="TextMiddle svelte-1ixt4pt"><p>As seen in the above graph, the time it takes to pay off the cost of the
         migration depends on the job secured by the migrant in the destination
         country and the amount of money they send back as remittances every
         month. It can take as little as 1 month to work off the cost of the
@@ -414,18 +680,24 @@
         never had the opportunity to work in the US, contribute to its economy,
         and send money back home.
     </p>
+
+    <p>Finally, let&#39;s look at the economic impact of all the migrants in this
+        dataset who currently reside in their destination of the US. Scroll down
+        to see the monetary contribution of migrants to the Northern Triangle
+        and US projected for a little over a year after migrating.
+    </p>
 </div></section>
-    <section class="svelte-19lyq44"></section></div></svelte-scroller-foreground>
+    <section class="svelte-1542vwk"></section>
+    <section class="svelte-1542vwk"></section>
+    
+    <section class="svelte-1542vwk"></section></div></svelte-scroller-foreground>
 </svelte-scroller-outer>
-
-
-
 
 
 			
 			<script>
 				{
-					__sveltekit_s48l4k = {
+					__sveltekit_1w9pmpn = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -435,8 +707,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.61972c8d.js"),
-						import("./_app/immutable/entry/app.48b9fbf2.js")
+						import("./_app/immutable/entry/start.412f24ff.js"),
+						import("./_app/immutable/entry/app.9a73977c.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
